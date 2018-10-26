@@ -1,14 +1,16 @@
 <div class="container">
-  <form>
+  <form #newProductForm="ngForm" (ngSubmit)="addNewProduct()" novalidate>
     <h2><span>Add new product</span></h2>
+    {{productModel | json}}
     <div class="form-group">
       <label for="image" class="required">Image url</label>
-      <input required type="text" class="form-control" id="image">
+      <input required type="text" class="form-control" id="image" name="img_url" #img_url
+        [(ngModel)]=productModel.img_url>
     </div>
     <!-- / -->
     <div class="form-group">
       <label for="name" class="required">Name of product</label>
-      <input required type="text" class="form-control" id="name">
+      <input required type="text" class="form-control" id="name" name="name" #name [(ngModel)]=productModel.name>
     </div>
     <!-- / -->
     <div class="form-row">
@@ -18,7 +20,8 @@
           <div class="input-group-prepend">
             <div class="input-group-text">EGP</div>
           </div>
-          <input required type="number" class="form-control" id="price">
+          <input required type="number" class="form-control" id="price" name="price" #price
+            [(ngModel)]=productModel.price>
         </div>
       </div>
       <!-- / -->
@@ -28,7 +31,8 @@
           <div class="input-group-prepend">
             <div class="input-group-text">%</div>
           </div>
-          <input required type="number" maxlength="2" class="form-control" id="discount">
+          <input required type="number" maxlength="2" class="form-control" id="discount" name="discount"
+            #discount [(ngModel)]=productModel.discount>
         </div>
       </div>
       <!-- / -->
@@ -36,7 +40,7 @@
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="category" class="required">Category</label>
-        <select class="form-control" id="category">
+        <select class="form-control" id="category" name="category" #category [(ngModel)]=productModel.category>
           <option>Clothes</option>
           <option>Shoes</option>
           <option>Accessories</option>
@@ -45,14 +49,15 @@
       <!-- / -->
       <div class="form-group col-md-6">
         <label for="type">Type</label>
-        <input required type="text" class="form-control" id="type">
+        <input required type="text" class="form-control" id="type" name="type" #type [(ngModel)]=productModel.type>
       </div>
       <!-- / -->
     </div>
     <!-- / row -->
     <div class="form-group">
       <label for="description">Add description</label>
-      <textarea class="form-control" id="description" rows="3"></textarea>
+      <textarea class="form-control" rows="3" id="description" name="discription" #discription
+        [(ngModel)]=productModel.discription></textarea>
     </div>
     <!-- / -->
     <!-- <button class="btn">Submit</button> -->

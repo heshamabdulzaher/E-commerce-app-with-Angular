@@ -9,7 +9,7 @@ export class ProductsService {
   constructor(private http: HttpClient) {}
 
   URL = environment.base_URL + "/products";
-  addNewProduct(id) {
-    return this.http.post(this.URL, id);
+  addNewProduct(product) {
+    return this.http.post(this.URL, product);
   }
 }

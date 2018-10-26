@@ -9,10 +9,9 @@ import { MatInputModule } from "@angular/material/input";
 import { routingComponents, AppRoutingModule } from "./app-routing.module";
 // Components
 import { AppComponent } from "./app.component";
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 @NgModule({
-  declarations: [AppComponent, routingComponents, AdminDashboardComponent],
+  declarations: [AppComponent, routingComponents],
   imports: [
     BrowserModule,
     AppRoutingModule,

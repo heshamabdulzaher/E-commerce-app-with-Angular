@@ -4,20 +4,6 @@ form {
   margin: 40px auto;
   border: 1px solid #ddd;
 }
-label {
-  position: relative;
-}
-label.required::after {
-  content: "*";
-  position: absolute;
-  top: 0;
-  left: 100%;
-  transform: translateY(-5px);
-  font-size: 20px;
-  font-weight: bold;
-  color: var(--sColor);
-  margin-left: 4px;
-}
 h2 {
   text-align: center;
   margin-bottom: 30px;
@@ -45,46 +31,15 @@ h2 span::before {
   right: calc(100% + 10px);
 }
 
-/* Check boxs in available size section  */
-.selectSize span {
-  margin-bottom: 10px;
-  display: block;
-  font-size: 14px;
-  color: #787878;
-}
-.sizeCollection {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 15px;
-}
-.sizeCollection .checkbox {
-  display: flex;
-  align-items: center;
-  margin-right: 12px;
-}
-.sizeCollection .checkbox:last-of-type {
-  margin-right: 0;
-}
-.checkbox input {
-  display: none;
-}
-.checkbox label {
-  border: 2px solid #ddd;
-  padding: 8px 20px;
-  margin: 0;
-  text-transform: uppercase;
-  cursor: pointer;
-  user-select: none;
-  transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1s);
-}
-.checkbox input:checked + label {
-  border: 2px solid var(--pColor);
+.input-group-text {
+  border-top-left-radius: 1px;
+  border-bottom-left-radius: 1px;
 }
 button {
   width: 100%;
   background-color: var(--pColor);
   color: #fff;
-  padding: 6px 12px;
-  margin-top: 18px;
+  font-size: 16px;
+  padding: 4px 12px;
+  margin-top: 10px;
 }

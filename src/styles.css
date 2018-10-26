@@ -23,8 +23,9 @@ button:focus {
   outline: 0;
 }
 .form-control {
-  height: auto;
-  padding: 9px 10px;
+  height: 44px;
+  border: 1px solid #ddd;
+  border-radius: 1px;
 }
 label {
   font-weight: 500;
