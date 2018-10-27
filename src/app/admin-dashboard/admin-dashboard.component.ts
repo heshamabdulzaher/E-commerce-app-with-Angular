@@ -12,10 +12,11 @@ export class AdminDashboardComponent implements OnInit {
 
   ngOnInit() {}
 
-  productModel = new Product("", "", 0, 0, "", "", "");
+  descrition =
+    "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.";
+  productModel = new Product("", "", 0, 0, "", this.descrition);
 
-  addNewProduct() {
-    console.log(this.productModel);
+  addNewProduct(form) {
     this.productService.addNewProduct(this.productModel).subscribe(
       data => {
         console.log(data);
@@ -24,5 +25,6 @@ export class AdminDashboardComponent implements OnInit {
         console.log(err);
       }
     );
+    form.resetForm();
   }
 }

@@ -1,7 +1,6 @@
 <div class="container">
-  <form #newProductForm="ngForm" (ngSubmit)="addNewProduct()" novalidate>
+  <form #newProductForm="ngForm" (ngSubmit)="addNewProduct(newProductForm)" novalidate>
     <h2><span>Add new product</span></h2>
-    {{productModel | json}}
     <div class="form-group">
       <label for="image" class="required">Image url</label>
       <input required type="text" class="form-control" id="image" name="img_url" #img_url
@@ -37,27 +36,24 @@
       </div>
       <!-- / -->
     </div>
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="category" class="required">Category</label>
-        <select class="form-control" id="category" name="category" #category [(ngModel)]=productModel.category>
-          <option>Clothes</option>
-          <option>Shoes</option>
-          <option>Accessories</option>
-        </select>
-      </div>
-      <!-- / -->
-      <div class="form-group col-md-6">
-        <label for="type">Type</label>
-        <input required type="text" class="form-control" id="type" name="type" #type [(ngModel)]=productModel.type>
-      </div>
-      <!-- / -->
+    <div class="form-group">
+      <label for="category" class="required">Category</label>
+      <select class="form-control" id="category" name="category" #category [(ngModel)]=productModel.category>
+        <option>Shoes</option>
+        <option>T-shirt</option>
+        <option>Shirt</option>
+        <option>Suit</option>
+        <option>Jacket</option>
+        <option>Blazer</option>
+        <option>Pants</option>
+        <option>Coats</option>
+      </select>
     </div>
-    <!-- / row -->
+    <!-- /  -->
     <div class="form-group">
       <label for="description">Add description</label>
-      <textarea class="form-control" rows="3" id="description" name="discription" #discription
-        [(ngModel)]=productModel.discription></textarea>
+      <textarea class="form-control" rows="3" id="description" name="description" #description
+        [(ngModel)]=productModel.description></textarea>
     </div>
     <!-- / -->
     <!-- <button class="btn">Submit</button> -->
