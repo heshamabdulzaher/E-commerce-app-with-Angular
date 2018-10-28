@@ -118,7 +118,7 @@
       "id": 13
     },
     {
-      "img_url": "http://suprementmshop.com/231-large_default/tee-shirt-noir-oinj-supreme-ntm-homme.jpg",
+      "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7_fmSsrRF-TOjwHbzfbF1std6uF3Ic--6wBP-Wu-6KFhb42QG",
       "name": "T-shirt #3",
       "price": 120,
       "discount": 0,
@@ -127,7 +127,7 @@
       "id": 14
     },
     {
-      "img_url": "https://ss-pics.s3.eu-west-1.amazonaws.com/files/186888/original.jpg?1493883731",
+      "img_url": "https://ae01.alicdn.com/kf/HTB1RncSJXXXXXX5XpXXq6xXFXXXd/Star-Wars-Element-Hype-T-Shirts-Men-Cotton-Dragon-Ball-Diamond-Train-Hard-Man-T-Shirt.jpg",
       "name": "T-shirt #4",
       "price": 180,
       "discount": null,
@@ -217,7 +217,7 @@
       "id": 24
     },
     {
-      "img_url": "https://trendingdigital.net/wp-content/uploads/2018/02/Men-Shirt-2018-Spring-New-Brand-Business-Men-S-Slim-Fit-Dress-Shirt-Male-Long-Sleeves-1.jpg",
+      "img_url": "https://cdn.shopify.com/s/files/1/0849/8112/products/men-casual-dress-shirts-slim-fit-gray-pink-white-black-blue-men-dress-shirt-3_1024x1024.jpg?v=1518057798",
       "name": "Shirt #4",
       "price": 260,
       "discount": 15,
@@ -325,8 +325,8 @@
       "id": 36
     },
     {
-      "img_url": "https://images.menswearhouse.com/is/image/TMW/MW40_31FK_14_CALVIN_KLEIN_BLUE_POSTMAN_SET?$40MainPDP$",
-      "name": "Suit #2`",
+      "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGwK4Un7wWCtr0AJ_VQDofJQLtsIy32ZyBw5VFALgfTFUpmE-W",
+      "name": "Suit #2",
       "price": 2400,
       "discount": 10,
       "category": "Suit",

@@ -1,0 +1,48 @@
+.card {
+  padding: 8px 0;
+  margin-bottom: 15px;
+}
+.card .productImg {
+  max-width: 96%;
+  margin: auto;
+  height: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.card .details {
+  padding: 0 16px;
+}
+.card h6 {
+  color: #787878;
+  font-size: 14px;
+  margin: 12px 0 5px;
+}
+.card h2 {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.card .price {
+  color: #787878;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--sColor);
+}
+.card .price span {
+  color: #787878;
+  text-decoration: line-through;
+  margin-right: 8px;
+}
+.card button {
+  font-size: 16px;
+  margin: 12px 0 10px;
+  width: 100%;
+  background-color: var(--pColor);
+  color: #fff;
+  padding: 8px;
+}

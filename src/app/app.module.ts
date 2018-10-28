@@ -5,9 +5,10 @@ import { FormsModule } from "@angular/forms";
 import { routingComponents, AppRoutingModule } from "./app-routing.module";
 // Components
 import { AppComponent } from "./app.component";
+import { ProductCardComponent } from './shop-page/product-card/product-card.component';
 
 @NgModule({
-  declarations: [AppComponent, routingComponents],
+  declarations: [AppComponent, routingComponents, ProductCardComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
