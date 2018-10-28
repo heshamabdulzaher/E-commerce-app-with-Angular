@@ -14,7 +14,12 @@ export class ProductCardComponent implements OnInit {
     this.productService.getProducts().subscribe(
       data => {
         this.allProducts = data;
-        console.log(this.allProducts);
+        this.allProducts = this.allProducts.map(product => {
+          product["new_price"] =
+            product.price - (product.discount / 100) * product.price;
+          product.new_price = Math.round(product.new_price);
+          return product;
+        });
       },
       err => {
         console.log(err);

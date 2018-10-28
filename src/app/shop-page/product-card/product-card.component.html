@@ -7,7 +7,10 @@
       <div class="details">
         <h6>{{product.category}}</h6>
         <h2>{{product.name}}</h2>
-        <div class="price"> <span>250 EGP</span> {{product.price}} EGP</div>
+        <div class="price">
+          <span *ngIf="product.discount">{{product.price}} EGP</span>
+          {{product.new_price}} EGP
+        </div>
         <button>Add to cart</button>
       </div>
     </div>
