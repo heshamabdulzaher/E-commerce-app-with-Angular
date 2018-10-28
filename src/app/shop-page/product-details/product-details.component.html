@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <section class="productImg col-md-3">
+      <img src="../../../assets/1.jpg">
+    </section>
+    <section class="details col-md-6">
+      <h6>{{product.category}}</h6>
+      <h2>{{product.name}}</h2>
+      <div class="price">
+        <span *ngIf="product.discount">{{product.price}} EGP</span>
+        {{product.new_price}} EGP
+      </div>
+      <p>{{product.description}}</p>
+      <button>Add to cart</button>
+    </section>
+  </div>
+</div>

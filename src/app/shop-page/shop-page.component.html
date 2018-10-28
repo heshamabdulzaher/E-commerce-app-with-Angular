@@ -1,50 +1,18 @@
 <div class="container">
-  <section class="shop-sidebar-area col-md-3">
+  <section class="shop-sidebar-area">
     <div class="categories">
       <h4>categories</h4>
       <ul>
-        <li class="active">
-          <div><img src="../../assets/svg/select-all.svg"></div>
-          <span>All</span>
-        </li>
-        <li>
-          <div><img src="../../assets/svg/shoes.svg"></div>
-          <span>Shoes</span>
-        </li>
-        <li>
-          <div><img src="../../assets/svg/jeans.svg"></div>
-          <span>pants</span>
-        </li>
-        <li>
-          <div><img src="../../assets/svg/t-shirt.svg"></div>
-          <span>T-shirt</span>
-        </li>
-        <li>
-          <div><img src="../../assets/svg/shirt.svg"></div>
-          <span>Shirt</span>
-        </li>
-        <li>
-          <div><img src="../../assets/svg/jacket.svg"></div>
-          <span>Jacket</span>
-        </li>
-        <li>
-          <div><img src="../../assets/svg/blazer.svg"></div>
-          <span>Blazer</span>
-        </li>
-        <li>
-          <div><img src="../../assets/svg/coat.svg"></div>
-          <span>Coat</span>
-        </li>
-        <li>
-          <div><img src="../../assets/svg/suit.svg"></div>
-          <span>Suit</span>
+        <li *ngFor="let category of listOfCategories" (click)="giveMeTheCategoryName($event, cateforyName)">
+          <div><img src="{{category.img_url}}"></div>
+          <span #cateforyName>{{category.name}}</span>
         </li>
       </ul>
     </div>
   </section>
   <div class="row">
     <section class="product-area offset-md-3 col-md-9">
-      <app-product-card></app-product-card>
+      <app-product-card [activeCategory]="categoryName"></app-product-card>
     </section>
   </div>
 </div>

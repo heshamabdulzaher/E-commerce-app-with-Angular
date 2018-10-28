@@ -10,15 +10,6 @@
       "id": 1
     },
     {
-      "img_url": "https://images.vans.com/is/image/Vans/D3HY28-HERO?$583x583$",
-      "name": "Shoes #2",
-      "price": 480,
-      "discount": 10,
-      "category": "Shoes",
-      "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
-      "id": 2
-    },
-    {
       "img_url": "https://images-na.ssl-images-amazon.com/images/I/611yVySf%2BJL._UY395_.jpg",
       "name": "Shoes #2",
       "price": 650,
@@ -167,7 +158,7 @@
       "name": "T-shirt #8",
       "price": 200,
       "discount": 35,
-      "category": "Shoes",
+      "category": "T-shirt",
       "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
       "id": 19
     },

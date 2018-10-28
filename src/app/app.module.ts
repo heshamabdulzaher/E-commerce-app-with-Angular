@@ -6,9 +6,10 @@ import { routingComponents, AppRoutingModule } from "./app-routing.module";
 // Components
 import { AppComponent } from "./app.component";
 import { ProductCardComponent } from './shop-page/product-card/product-card.component';
+import { ProductDetailsComponent } from './shop-page/product-details/product-details.component';
 
 @NgModule({
-  declarations: [AppComponent, routingComponents, ProductCardComponent],
+  declarations: [AppComponent, routingComponents, ProductCardComponent, ProductDetailsComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
