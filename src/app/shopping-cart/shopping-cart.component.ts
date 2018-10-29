@@ -11,9 +11,12 @@ export class ShoppingCartComponent implements OnInit {
 
   products;
   ngOnInit() {
+    this.getProducts();
+  }
+
+  getProducts() {
     this.cartService.theProductsInMyCart().subscribe(
       data => {
-        console.log(data);
         this.products = data;
         this.handleDiscount(this.products);
       },
@@ -22,6 +25,7 @@ export class ShoppingCartComponent implements OnInit {
       }
     );
   }
+
   handleDiscount(allProducts) {
     allProducts = allProducts.map(product => {
       product["new_price"] =
@@ -37,5 +41,16 @@ export class ShoppingCartComponent implements OnInit {
       number.value = parseInt(number.value) - 1;
     }
     // this.updateSubtotalValue();
+  }
+
+  deleteProduct(product) {
+    this.cartService.removeFromCart(product.id).subscribe(
+      data => {
+        this.getProducts();
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 }
