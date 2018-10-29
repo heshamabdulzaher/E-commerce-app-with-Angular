@@ -1,13 +1,16 @@
 .container {
   padding-top: 60px;
 }
+.row {
+  margin: auto;
+  padding: 30px 15px;
+  border: 1px solid #ddd;
+}
 .productImg {
-  height: 300px;
+  /* height: 300px; */
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #ddd;
-  margin-right: 15px;
 }
 .productImg img {
   max-width: 100%;

@@ -17,7 +17,7 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit() {
     // this.product = this.productService.theSingleProduct;
     const id = this.route.snapshot.paramMap.get("id");
-    this.productService.getSingleProduct(id).subscribe(singleProduct => {
+    this.productService.getSingleProduct(id).subscribe((singleProduct: any) => {
       singleProduct["new_price"] =
         singleProduct.price -
         (singleProduct.discount / 100) * singleProduct.price;

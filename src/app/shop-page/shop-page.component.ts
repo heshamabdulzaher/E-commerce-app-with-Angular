@@ -47,16 +47,7 @@ export class ShopPageComponent implements OnInit {
     }
   ];
 
-  ngOnInit() {
-    let allCategories = document.querySelectorAll("ul li");
-    allCategories.forEach(category => {
-      category.addEventListener("click", function() {
-        this.categoryName = category.querySelector("span").innerText;
-        // console.log(this.categoryName);
-        // console.log(this.listOfCategories);
-      });
-    });
-  }
+  ngOnInit() {}
   categoryName = "shoes";
 
   giveMeTheCategoryName(e, cateforyName) {

@@ -4,9 +4,8 @@
 }
 .shop-sidebar-area {
   position: fixed;
-  top: 50px;
+  top: 100px;
   left: 60px;
-  /* max-width: 290px; */
   width: 260px;
 }
 .categories {
