@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { ProductsService } from "src/app/services/products.service";
+import { CartService } from "src/app/services/cart.service";
 
 @Component({
   selector: "app-product-card",
@@ -7,21 +8,18 @@ import { ProductsService } from "src/app/services/products.service";
   styleUrls: ["./product-card.component.css"]
 })
 export class ProductCardComponent implements OnInit {
-  constructor(private productService: ProductsService) {}
+  constructor(
+    private productService: ProductsService,
+    private cartService: CartService
+  ) {}
 
   allProducts: any = [];
   ngOnInit() {
     this.productService.getProducts().subscribe(
       data => {
+        console.log(data);
         this.allProducts = data;
         this.handleDiscount(this.allProducts);
-        // Filter data
-        // let activeCategory = this.activeCategory.toLowerCase();
-        // this.allProducts = this.allProducts.filter(product => {
-        //   if (product.category.toLowerCase() === activeCategory) {
-        //     return product;
-        //   }
-        // });
       },
       err => {
         console.log(err);
@@ -39,4 +37,43 @@ export class ProductCardComponent implements OnInit {
 
   @Input()
   public activeCategory;
+
+  handleAddToCart(product) {
+    this.cartService.addToCart(product).subscribe(
+      data => {
+        product.in_my_cart = true;
+        //
+        this.productService.changeStatusOfProduct(product.id, true).subscribe(
+          data => {
+            console.log(data);
+          },
+          err => {
+            console.log(err);
+          }
+        );
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+  removeProductFromCart(addBtn, product, cart) {
+    this.cartService.removeFromCart(product.id).subscribe(
+      data => {
+        product.in_my_cart = false;
+        //
+        this.productService.changeStatusOfProduct(product.id, false).subscribe(
+          data => {
+            console.log(data);
+          },
+          err => {
+            console.log(err);
+          }
+        );
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
 }

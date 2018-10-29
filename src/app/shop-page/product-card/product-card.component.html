@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let product of allProducts">
+  <div #cart class="col-xs-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let product of allProducts">
     <!-- {{activeCategory}} -->
     <div class="card">
       <div class="productImg">
@@ -12,7 +12,9 @@
           <span *ngIf="product.discount">{{product.price}} EGP</span>
           {{product.new_price}} EGP
         </div>
-        <button>Add to cart</button>
+        {{product.in_my_cart}}
+        <button #addBtn (click)="handleAddToCart(product)" *ngIf="!product.in_my_cart">Add to cart</button>
+        <button #removeBtn (click)="removeProductFromCart(addBtn, product, cart)" *ngIf="product.in_my_cart" class="removeBtn">Remove to cart</button>
       </div>
     </div>
   </div>

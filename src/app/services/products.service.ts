@@ -8,17 +8,22 @@ import { environment } from "src/environments/environment";
 export class ProductsService {
   constructor(private http: HttpClient) {}
 
-  URL = environment.base_URL + "/products";
   addNewProduct(product) {
-    return this.http.post(this.URL, product);
+    return this.http.post(environment.base_URL + "/products", product);
   }
 
   getProducts() {
-    return this.http.get(this.URL);
+    return this.http.get(environment.base_URL + "/products");
   }
 
   theSingleProduct = {};
   getSingleProduct(id) {
-    return this.http.get(this.URL + "/" + id);
+    return this.http.get(environment.base_URL + "/products/" + id);
+  }
+
+  changeStatusOfProduct(id: number, status: boolean) {
+    return this.http.patch(environment.base_URL + "/products/" + id, {
+      in_my_cart: status
+    });
   }
 }
