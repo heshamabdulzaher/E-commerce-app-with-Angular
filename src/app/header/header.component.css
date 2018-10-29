@@ -59,7 +59,6 @@ li {
   outline: 0;
   height: 60px;
   width: 70px;
-  flex: 1;
   color: #777;
   font-size: 16px;
   transition: 0.3s ease-out;

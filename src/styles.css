@@ -21,10 +21,9 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 .container {
-  max-width: 1200px;
+  padding: 20px 60px;
 }
-button,
-.btn {
+button {
   border: 0;
   border-radius: 2px;
   cursor: pointer;

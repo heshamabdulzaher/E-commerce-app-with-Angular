@@ -326,7 +326,7 @@
       "price": 650,
       "in_my_cart": false,
       "discount": 10,
-      "category": "Shirt",
+      "category": "Jscket",
       "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
       "id": 34
     },
@@ -546,7 +546,7 @@
       "price": 850,
       "in_my_cart": false,
       "discount": 10,
-      "category": "Coats",
+      "category": "Coat",
       "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
       "id": 56
     },
@@ -556,7 +556,7 @@
       "price": 800,
       "in_my_cart": false,
       "discount": null,
-      "category": "Coats",
+      "category": "Coat",
       "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
       "id": 57
     },
@@ -566,7 +566,7 @@
       "price": 760,
       "in_my_cart": false,
       "discount": 15,
-      "category": "Coats",
+      "category": "Coat",
       "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
       "id": 58
     },
@@ -576,7 +576,7 @@
       "price": 950,
       "in_my_cart": false,
       "discount": 20,
-      "category": "Coats",
+      "category": "Coat",
       "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
       "id": 59
     },
@@ -586,7 +586,7 @@
       "price": 870,
       "in_my_cart": false,
       "discount": null,
-      "category": "Coats",
+      "category": "Coat",
       "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
       "id": 60
     },
@@ -596,7 +596,7 @@
       "price": 940,
       "in_my_cart": false,
       "discount": 15,
-      "category": "Coats",
+      "category": "Coat",
       "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
       "id": 61
     }

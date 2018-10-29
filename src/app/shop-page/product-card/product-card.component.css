@@ -1,6 +1,13 @@
+.products-area {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
 .card {
   padding: 8px 0;
-  margin-bottom: 20px;
+  margin: 0 10px 20px;
+  width: calc(100% / 3 - 20px);
+  border: 1px solid #ddd;
 }
 .card .productImg {
   max-width: 96%;
@@ -20,20 +27,21 @@
 .card h6 {
   color: #787878;
   font-size: 14px;
-  margin: 12px 0 5px;
+  margin: 12px 0 0;
 }
 .card h2 {
   font-size: 20px;
   font-weight: 500;
-  margin-bottom: 8px;
+  margin: 4px 0 8px;
   cursor: pointer;
+  outline: 0;
 }
 .card h2:hover {
   color: var(--pColor);
 }
 .card .price {
   font-size: 15px;
-  font-weight: 500;
+  font-weight: bold;
   color: var(--sColor);
 }
 .card .price span {
@@ -43,12 +51,13 @@
   opacity: 0.8;
 }
 .card button {
-  font-size: 16px;
+  font-size: 15px;
+  font-weight: bold;
   margin: 12px 0 10px;
   width: 100%;
   background-color: var(--pColor);
   color: #fff;
-  padding: 8px;
+  padding: 11px;
 }
 .card button.removeBtn {
   background-color: #ddd;

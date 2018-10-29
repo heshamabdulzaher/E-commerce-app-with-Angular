@@ -6,8 +6,9 @@ import { routingComponents, AppRoutingModule } from "./app-routing.module";
 // Components
 import { AppComponent } from "./app.component";
 import { ProductCardComponent } from "./shop-page/product-card/product-card.component";
-import { ProductDetailsComponent } from "./shop-page/product-details/product-details.component";
+import { ProductDetailsComponent } from "./product-details/product-details.component";
 import { HeaderComponent } from "./header/header.component";
+import { ListOfCategoriesComponent } from "./shop-page/list-of-categories/list-of-categories.component";
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HeaderComponent } from "./header/header.component";
     routingComponents,
     ProductCardComponent,
     ProductDetailsComponent,
-    HeaderComponent
+    HeaderComponent,
+    ListOfCategoriesComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
