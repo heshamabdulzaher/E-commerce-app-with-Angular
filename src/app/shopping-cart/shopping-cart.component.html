@@ -1,0 +1,79 @@
+<div class="container">
+
+  <h1>Your cart</h1>
+  <div class="cart-details">
+    <table>
+      <!-- / Main and static row -->
+      <tr>
+        <th>Product details</th>
+        <th>quantity</th>
+        <th>Total price</th>
+        <th></th>
+      </tr>
+      <!-- / Dynamic row -->
+      <tr *ngFor="let product of products">
+        <td>
+          <div class="product-details">
+            <div class="productImg">
+              <img src="{{product.img_url}}">
+            </div>
+            <div class="details">
+              <div class="name">{{product.name}}</div>
+              <div class="price">
+                  <span *ngIf="product.discount">{{product.price}} EGP</span>
+                  {{product.new_price}} EGP
+                </div>
+            </div>
+          </div>
+        </td>
+        <!-- / Details -->
+        <td class="quantity">
+          <div>
+            <button class="minus" (click)="howManyOfProducts($event, number)" [disabled]="number.value == 1">-</button>
+            <input #number readonly class="number" type="text" value="1" (input)="updateSubtotalPrice($event)">
+            <button class="plus" (click)="howManyOfProducts($event, number)">+</button>
+          </div>
+        </td>
+        <!-- / Quantity -->
+        <td class="final-price">
+          <span>$</span>
+          <span class="priceNumber">{{(product.price | number) * (number.value
+            | number)}}</span>
+        </td>
+        <!-- / Final price -->
+        <td class="delete">
+          <img src="assets/svg/delete.svg" data-toggle="modal" data-target="#deleteModal" (click)="handleDeleteModal(product)">
+        </td>
+        <!-- / Delete Btn -->
+      </tr>
+    </table>
+    <!-- / Order table -->
+  </div>
+  <!-- / Order section -->
+  <div class="cart-summary">
+    <h2>Cart summary</h2>
+    <div class="content">
+      <div>
+        <span>Subtotal:</span>
+        <input type="text" readonly value="${{subTotal}}">
+      </div>
+      <!-- / Subtotal -->
+      <div class="shipping">
+        <span>Shipping:</span>
+        <input type="text" readonly value="Free">
+      </div>
+      <!-- / Shipping -->
+      <div class="total">
+        <span>Total:</span>
+        <input type="text" readonly value="${{subTotal}}">
+      </div>
+      <!-- / Total -->
+    </div>
+    <!-- / Content -->
+    <div class="actions">
+      <button class="keep-shopping">Keep shopping</button>
+      <button class="checkout">Checkout</button>
+    </div>
+  </div>
+
+</div>

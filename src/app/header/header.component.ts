@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { CartService } from "../services/cart.service";
 
 @Component({
   selector: "app-header",
@@ -6,8 +7,9 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./header.component.css"]
 })
 export class HeaderComponent implements OnInit {
-  constructor() {}
+  constructor(private cartService: CartService) {}
 
+  theProductInMyCart = 0;
   ngOnInit() {
     window.addEventListener("scroll", function(e) {
       const header = document.querySelector("header");
@@ -17,5 +19,14 @@ export class HeaderComponent implements OnInit {
         header.style.boxShadow = "none";
       }
     });
+
+    this.cartService.theProductsInMyCart().subscribe(
+      (data: any) => {
+        this.theProductInMyCart = data.length;
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 }

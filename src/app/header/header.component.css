@@ -51,22 +51,25 @@ li {
   align-items: center;
   cursor: pointer;
 }
-.actions > div img {
-  width: 25px;
+.shopping-cart .icon {
+  position: relative;
 }
-.search input {
-  border: 0;
-  outline: 0;
-  height: 60px;
-  width: 70px;
-  color: #777;
-  font-size: 16px;
-  transition: 0.3s ease-out;
+.shopping-cart .icon img {
+  width: 35px;
 }
-.search input:focus {
-  width: 220px;
-}
-.search img {
-  width: 18px !important;
-  margin-right: 10px;
+.shopping-cart .cart-length {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background-color: var(--sColor);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(10px, -10px);
 }

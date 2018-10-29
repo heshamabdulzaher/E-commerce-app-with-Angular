@@ -1,0 +1,243 @@
+.container {
+  width: 80%;
+  margin: auto;
+}
+h1 {
+  text-align: center;
+  margin: 20px 0 30px;
+}
+.cart-details {
+  padding: 5px 20px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  margin-bottom: 50px;
+}
+th,
+td {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+}
+tr:last-of-type td {
+  border-bottom: 0;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+tr {
+  position: relative;
+}
+th {
+  font-size: 16px;
+  font-weight: normal;
+  color: #333;
+  text-align: left;
+}
+/* Details */
+td .product-details {
+  display: flex;
+}
+.productImg {
+  width: 80px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+td .product-details img {
+  max-width: 100%;
+  max-height: 100%;
+  cursor: pointer;
+}
+td .product-details .details {
+  display: flex;
+  flex-direction: column;
+}
+.details .name {
+  font-weight: bold;
+  font-size: 18px;
+  margin: 10px 0 15px;
+}
+.details .price {
+  font-size: 15px;
+  font-weight: bold;
+  color: var(--sColor);
+}
+.details .price span {
+  color: #787878;
+  text-decoration: line-through;
+  margin-right: 8px;
+  opacity: 0.8;
+}
+/* / Product details */
+
+.quantity div {
+  display: flex;
+  align-items: center;
+}
+.quantity div button {
+  background-color: transparent;
+  border: 1px solid #ddd;
+  padding: 3px 4px;
+  margin-right: -1px;
+  cursor: pointer;
+  user-select: none;
+  outline: 0;
+}
+.quantity div button[disabled] {
+  opacity: 0.7;
+  cursor: auto;
+}
+.quantity div .number {
+  padding: 3px 8px;
+  border: 1px solid #ddd;
+  color: #787878;
+  margin-right: -1px;
+  text-align: center;
+  width: 40px;
+  max-width: 100%;
+  display: inline-block;
+}
+/* / Quantity */
+.final-price {
+  color: var(--pColor);
+  font-weight: 600;
+}
+/* delete btn */
+.delete img {
+  width: 20px;
+  cursor: pointer;
+}
+
+/* Cart Summary */
+.cart-summary {
+  padding: 16px 20px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  margin-bottom: 50px;
+  width: 380px;
+}
+.cart-summary h2 {
+  font-size: 16px;
+  font-weight: 600;
+  padding-bottom: 15px;
+  margin-bottom: 0;
+  border-bottom: 1px solid #ddd;
+}
+/* Cart Summary > Content */
+.cart-summary .content {
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+}
+.cart-summary .content div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+}
+.cart-summary .content div * {
+  flex: 1;
+}
+.cart-summary .content div input {
+  border: 0;
+  padding: 0;
+  color: #787878;
+  text-align: right;
+}
+.cart-summary .content div.total input {
+  color: var(--pColor);
+  font-weight: 600;
+}
+.cart-summary .content div span {
+  color: #333;
+  font-size: 15px;
+  font-weight: 600;
+}
+/* Cart Summary > actions */
+.cart-summary .actions {
+  display: flex;
+  margin-bottom: 8px;
+}
+.cart-summary .actions button {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  border-radius: 2px;
+  padding: 9px 15px;
+  font-weight: bold;
+}
+.cart-summary .actions button.keep-shopping {
+  margin-right: 8px;
+  background-color: #ddd;
+  color: #000;
+}
+.cart-summary .actions button.checkout {
+  margin-left: 8px;
+  background-color: var(--pColor);
+  color: #fff;
+}
+
+/* Delete Modal */
+#deleteModal {
+  padding-left: 17px;
+}
+.modal.fade .modal-dialog {
+  transform: translate(-50%, -50%);
+}
+.modal-dialog {
+  width: 400px;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.modal-content {
+  padding: 24px;
+}
+.modal-body {
+  padding: 0;
+}
+.modal-body h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.modal-body p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.modal-footer {
+  border: 0;
+  padding: 0;
+}
+.modal-footer button {
+  padding: 0;
+  border: 0;
+  outline: 0;
+  margin: 0;
+  padding-left: 15px;
+  background-color: transparent;
+  font-size: 16px;
+  color: #f03d25;
+}
+.modal-footer button:first-of-type {
+  color: #0084ff;
+  padding-right: 15px;
+  position: relative;
+  /* border-right: 1px solid #ddd; */
+}
+
+.modal-footer button:first-of-type::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  height: 60%;
+  width: 1px;
+  background-color: #ddd;
+}

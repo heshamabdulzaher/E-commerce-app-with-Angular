@@ -12,6 +12,10 @@ export class CartService {
     return this.http.post(environment.base_URL + "/shopping_cart", product);
   }
 
+  theProductsInMyCart() {
+    return this.http.get(environment.base_URL + "/shopping_cart");
+  }
+
   removeFromCart(id) {
     return this.http.delete(environment.base_URL + "/shopping_cart/" + id);
   }

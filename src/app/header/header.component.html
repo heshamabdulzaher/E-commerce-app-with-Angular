@@ -10,15 +10,11 @@
   </div>
   <!-- / -->
   <div class="actions">
-    <div class="search">
-      <img src="assets/svg/search.svg">
-      <input type="text" placeholder="Search">
-    </div>
-    <div class="favourite">
-      <img src="assets/svg/like.svg">
-    </div>
-    <div class="shopping-cart">
-      <img src="assets/svg/shopping-cart.svg">
+    <div class="shopping-cart" routerLink="shopping_cart">
+      <div class="icon">
+        <img src="assets/svg/shopping-cart.svg">
+        <div class="cart-length" *ngIf="theProductInMyCart">{{theProductInMyCart}}</div>
+      </div>
     </div>
   </div>
 </header>

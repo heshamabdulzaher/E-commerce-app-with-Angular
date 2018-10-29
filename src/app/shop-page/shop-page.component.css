@@ -1,15 +1,15 @@
 .container {
-  padding: 20px 50px;
+  padding: 30px 50px;
   display: flex;
   justify-content: flex-end;
 }
 /* Products area */
 .shop-sidebar-area {
-  width: 19%;
+  width: 17%;
   position: fixed;
-  top: 100px;
+  top: 110px;
   left: 60px;
 }
 .products-area {
-  width: 77%;
+  width: 79%;
 }
