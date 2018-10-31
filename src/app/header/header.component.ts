@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { CartService } from "../services/cart.service";
 
 @Component({
   selector: "app-header",
@@ -7,7 +6,7 @@ import { CartService } from "../services/cart.service";
   styleUrls: ["./header.component.css"]
 })
 export class HeaderComponent implements OnInit {
-  constructor(private cartService: CartService) {}
+  constructor() {}
 
   theProductInMyCart = 0;
   ngOnInit() {
@@ -20,13 +19,13 @@ export class HeaderComponent implements OnInit {
       }
     });
 
-    this.cartService.theProductsInMyCart().subscribe(
-      (data: any) => {
-        this.theProductInMyCart = data.length;
-      },
-      err => {
-        console.log(err);
-      }
-    );
+    // this.cartService.theProductsInMyCart().subscribe(
+    //   (data: any) => {
+    //     this.theProductInMyCart = data.length;
+    //   },
+    //   err => {
+    //     console.log(err);
+    //   }
+    // );
   }
 }

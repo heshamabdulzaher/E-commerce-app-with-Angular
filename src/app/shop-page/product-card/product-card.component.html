@@ -12,7 +12,8 @@
       </div>
       <!-- {{product.in_my_cart}} -->
       <button #addBtn (click)="handleAddToCart(product)" *ngIf="!product.in_my_cart">Add to cart</button>
-      <button #removeBtn (click)="removeProductFromCart(addBtn, product, cart)" *ngIf="product.in_my_cart" class="removeBtn">Delete from cart</button>
+      <button #removeBtn *ngIf="product.in_my_cart" class="added_to_cart">Added to cart</button>
     </div>
   </div>
+
 </section>

@@ -6,7 +6,7 @@
 .card {
   padding: 8px 0;
   margin: 0 10px 20px;
-  width: calc(100% / 3 - 20px);
+  width: calc(100% / 4 - 20px);
   border: 1px solid #ddd;
 }
 .card .productImg {
@@ -59,7 +59,8 @@
   color: #fff;
   padding: 11px;
 }
-.card button.removeBtn {
+.card button.added_to_cart {
   background-color: #ddd;
   color: #333;
+  cursor: auto;
 }

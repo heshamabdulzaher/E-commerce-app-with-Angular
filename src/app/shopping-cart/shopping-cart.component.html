@@ -35,10 +35,10 @@
           </div>
         </td>
         <!-- / Quantity -->
-        <td class="final-price">
-          <span>$</span>
-          <span class="priceNumber">{{(product.price | number) * (number.value
+        <td class="total-price">
+          <span class="priceNumber">{{(product.new_price | number) * (number.value
             | number)}}</span>
+            <span> EGP</span>
         </td>
         <!-- / Final price -->
         <td class="delete">
@@ -55,7 +55,7 @@
     <div class="content">
       <div>
         <span>Subtotal:</span>
-        <input type="text" readonly value="${{subTotal}}">
+        <input type="text" readonly value="{{subtotalPrice}} EGP">
       </div>
       <!-- / Subtotal -->
       <div class="shipping">
@@ -65,7 +65,7 @@
       <!-- / Shipping -->
       <div class="total">
         <span>Total:</span>
-        <input type="text" readonly value="${{subTotal}}">
+        <input type="text" readonly value="{{subtotalPrice}} EGP">
       </div>
       <!-- / Total -->
     </div>

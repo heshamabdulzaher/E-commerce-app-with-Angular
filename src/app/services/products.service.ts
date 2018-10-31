@@ -26,4 +26,6 @@ export class ProductsService {
       in_my_cart: status
     });
   }
+
+  cardClicked = false;
 }
