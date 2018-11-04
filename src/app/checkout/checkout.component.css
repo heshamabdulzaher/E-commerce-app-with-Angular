@@ -11,8 +11,8 @@
   justify-content: center;
 }
 .step.active .number {
-  border: 2px solid var(--pColor);
-  color: var(--pColor);
+  border: 2px solid var(--sColor);
+  color: var(--sColor);
   font-weight: 700;
 }
 .step .number {

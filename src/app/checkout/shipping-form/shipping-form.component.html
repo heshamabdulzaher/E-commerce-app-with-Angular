@@ -1,19 +1,29 @@
-<form>
+<form #shippingForm="ngForm" (ngSubmit)="onSubmit(shippingForm)" novalidate>
   <h3><span>Personal information</span></h3>
   <div class="field-container">
     <div class="form-group small">
       <label for="firstName">First name</label>
-      <input type="text" class="form-control" id="firstName" >
+      <input id="firstName" type="text" class="form-control" autofocus required [class.invalid]="firstName.invalid && firstName.touched"
+        name="firstName" #firstName="ngModel" [(ngModel)]="shippingForm.firstName">
+      <small class="text-danger" *ngIf="firstName.invalid && firstName.touched">First name is required</small>
     </div>
+    <!-- {{shippingForm | json}} -->
     <!-- / First name -->
     <div class="form-group small">
       <label for="lastName">Last name</label>
-      <input type="text" class="form-control" id="lastName" >
+      <input name="lastName" #lastName="ngModel" [(ngModel)]="shippingForm.lastName" required type="text" class="form-control" 
+      id="lastName" [class.invalid]="lastName.invalid && lastName.touched">
+      <small class="text-danger" *ngIf="lastName.invalid && lastName.touched">Last name is required</small>
     </div>
     <!-- / Last name -->
     <div class="form-group">
       <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" >
+      <input name="email" #email="ngModel" [(ngModel)]="shippingForm.email" type="email" class="form-control" id="email" 
+        required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" [class.invalid]="email.invalid && email.touched">
+      <div *ngIf="email.invalid && email.touched">
+        <small class="text-danger" *ngIf="email.errors.required">Email is required</small>
+        <small class="text-danger" *ngIf="email.errors.pattern">Email is invalid</small>
+      </div>
     </div>
   </div>
   <!-- / Personal information -->
@@ -27,30 +37,39 @@
     <!-- Phone -->
     <div class="form-group small">
       <label for="phone">Phone</label>
-      <input type="phone" class="form-control" id="phone">
+      <input name="phone" #phone="ngModel" [(ngModel)]="shippingForm.phone" type="number" class="form-control" id="phone" required 
+      [class.invalid]="phone.invalid && phone.touched">
+      <div *ngIf="phone.invalid && phone.touched">
+        <small class="text-danger" *ngIf="phone.errors.required">Phone is required</small>
+        <small class="text-danger" *ngIf="phone.errors.pattern">Phone is invalid</small>
+      </div>
     </div>
     <!-- Town -->
     <div class="form-group small">
       <label for="town">town/City</label>
-      <input type="town" class="form-control" id="town">
+      <input name="town" #town="ngModel" [(ngModel)]="shippingForm.town" type="town" class="form-control" id="town" required
+        [class.invalid]="town.invalid && town.touched">
+      <small class="text-danger" *ngIf="town.invalid && town.touched">Town is required</small>
     </div>
     <!-- Postcode -->
     <div class="form-group small">
       <label class="not-required" for="postcode">Postcode</label>
-      <input type="postcode" class="form-control" id="postcode">
+      <input name="postcode" #postcode="ngModel" [(ngModel)]="shippingForm.postcode" type="postcode" class="form-control" id="postcode">
     </div>
   </div>
   <!-- Address -->
   <div class="form-group col-xs-12">
     <label for="address">Address</label>
-    <input type="address" class="form-control" id="address">
+    <input name="address" #address="ngModel" [(ngModel)]="shippingForm.address" type="address" class="form-control" id="address" required
+    [class.invalid]="address.invalid && address.touched">
+    <small class="text-danger" *ngIf="address.invalid && address.touched">Address is required</small>
   </div>
   <!-- Nearest Landmark -->
   <div class="form-group col-xs-12">
     <label class="not-required" for="Landmark">Nearest Landmark</label>
-    <input type="Landmark" class="form-control" id="Landmark">
+    <input name="landmark" #landmark="ngModel" [(ngModel)]="shippingForm.landmark" type="Landmark" class="form-control" id="Landmark">
   </div>
   <div class="action">
-    <button class="submitBtn">Next</button>
+    <button class="submitBtn" [disabled]="shippingForm.form.invalid">Next</button>
   </div>
 </form>
