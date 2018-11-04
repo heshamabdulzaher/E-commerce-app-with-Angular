@@ -6,20 +6,16 @@ import { routingComponents, AppRoutingModule } from "./app-routing.module";
 // Components
 import { AppComponent } from "./app.component";
 import { ProductCardComponent } from "./shop-page/product-card/product-card.component";
-import { ProductDetailsComponent } from "./product-details/product-details.component";
 import { HeaderComponent } from "./header/header.component";
 import { ListOfCategoriesComponent } from "./shop-page/list-of-categories/list-of-categories.component";
-import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
     ProductCardComponent,
-    ProductDetailsComponent,
     HeaderComponent,
-    ListOfCategoriesComponent,
-    ShoppingCartComponent
+    ListOfCategoriesComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

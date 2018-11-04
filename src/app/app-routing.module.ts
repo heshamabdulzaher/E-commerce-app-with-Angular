@@ -4,16 +4,23 @@ import { AdminDashboardComponent } from "./admin-dashboard/admin-dashboard.compo
 import { ShopPageComponent } from "./shop-page/shop-page.component";
 import { ProductDetailsComponent } from "./product-details/product-details.component";
 import { ShoppingCartComponent } from "./shopping-cart/shopping-cart.component";
+import { CheckoutComponent } from "./checkout/checkout.component";
 const routes: Routes = [
   { path: "", component: ShopPageComponent },
   { path: "admin", component: AdminDashboardComponent },
   { path: "product/:id", component: ProductDetailsComponent },
-  { path: "shopping_cart", component: ShoppingCartComponent }
-  // { path: "checkout", component:  }
+  { path: "shopping_cart", component: ShoppingCartComponent },
+  { path: "checkout", component: CheckoutComponent }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
-export const routingComponents = [AdminDashboardComponent, ShopPageComponent];
+export const routingComponents = [
+  AdminDashboardComponent,
+  ShopPageComponent,
+  ProductDetailsComponent,
+  ShoppingCartComponent,
+  CheckoutComponent
+];
