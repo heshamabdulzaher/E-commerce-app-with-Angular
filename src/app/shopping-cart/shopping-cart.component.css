@@ -80,23 +80,32 @@ td .product-details .details {
 .quantity div button {
   background-color: transparent;
   border: 1px solid #ddd;
-  padding: 3px 4px;
+  width: 20px;
+  height: 34px;
   margin-right: -1px;
   cursor: pointer;
   user-select: none;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 0;
   outline: 0;
+  color: #333;
 }
 .quantity div button[disabled] {
   opacity: 0.7;
+  color: #787878;
   cursor: auto;
 }
 .quantity div .number {
-  padding: 3px 8px;
+  padding: 5px;
   border: 1px solid #ddd;
-  color: #787878;
+  /* color: var(--pColor); */
   margin-right: -1px;
   text-align: center;
-  width: 40px;
+  width: 50px;
+  height: 28px;
+  font-size: 15px;
+  font-weight: bold;
   max-width: 100%;
   display: inline-block;
 }

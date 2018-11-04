@@ -29,15 +29,14 @@
         <!-- / Details -->
         <td class="quantity">
           <div>
-            <button class="minus" (click)="howManyOfProducts($event, number)" [disabled]="number.value == 1">-</button>
-            <input #number readonly class="number" type="text" value="1" (input)="updateSubtotalPrice($event)">
-            <button class="plus" (click)="howManyOfProducts($event, number)">+</button>
+            <button class="minus" (click)="handleQTY($event, product)" [disabled]="product.qty == 1">-</button>
+            <input #number readonly class="number" type="text" [value]="product.qty">
+            <button class="plus" (click)="handleQTY($event, product)">+</button>
           </div>
         </td>
         <!-- / Quantity -->
         <td class="total-price">
-          <span class="priceNumber">{{(product.new_price | number) * (number.value
-            | number)}}</span>
+          <span #total_price class="priceNumber">{{product.total_price}}</span>
             <span> EGP</span>
         </td>
         <!-- / Final price -->
@@ -72,7 +71,7 @@
     <!-- / Content -->
     <div class="actions">
       <button class="keep-shopping">Keep shopping</button>
-      <button class="checkout">Checkout</button>
+      <button class="checkout" routerLink="/checkout">Checkout</button>
     </div>
   </div>
 

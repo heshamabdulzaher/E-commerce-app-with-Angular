@@ -13,29 +13,23 @@ export class ShoppingCartComponent implements OnInit {
   subtotalPrice = 0;
   ngOnInit() {
     let data = JSON.parse(localStorage.getItem("cart_shopping"));
-    this.products = data;
-    setTimeout(() => {
-      this.handleSubtotalPriceValue();
-    }, 300);
-  }
-
-  handleSubtotalPriceValue() {
-    let pricesListOfCartProducts = document.querySelectorAll(
-      ".total-price .priceNumber"
-    );
-
-    this.subtotalPrice = 0;
-    pricesListOfCartProducts.forEach(price => {
-      this.subtotalPrice += parseInt(price.innerHTML);
+    data.forEach(product => {
+      product["qty"] = 1;
+      product["total_price"] = product.qty * product.new_price;
+      this.subtotalPrice += product.total_price;
     });
+    this.products = data;
   }
 
-  howManyOfProducts(e, number) {
+  handleQTY(e, product) {
+    console.log(this.products);
+
     if (e.target.className === "plus") {
-      number.value = parseInt(number.value) + 1;
-      this.handleSubtotalPriceValue();
+      product.qty += 1;
+      product.total_price = product.qty * product.price;
     } else if (e.target.className === "minus") {
-      number.value = parseInt(number.value) - 1;
+      product.qty -= 1;
+      product.total_price = product.qty * product.price;
     }
   }
 

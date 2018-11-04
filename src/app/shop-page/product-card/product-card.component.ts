@@ -36,7 +36,7 @@ export class ProductCardComponent implements OnInit {
     });
   }
 
-  carts = JSON.parse(localStorage.getItem("cart_shopping"));
+  carts = JSON.parse(localStorage.getItem("cart_shopping")) || [];
   handleAddToCart(product) {
     this.carts.push(product);
     localStorage.setItem("cart_shopping", JSON.stringify(this.carts));

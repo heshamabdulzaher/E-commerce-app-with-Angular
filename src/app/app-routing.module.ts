@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: "admin", component: AdminDashboardComponent },
   { path: "product/:id", component: ProductDetailsComponent },
   { path: "shopping_cart", component: ShoppingCartComponent }
+  // { path: "checkout", component:  }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
