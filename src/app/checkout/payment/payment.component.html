@@ -1,0 +1,63 @@
+<div class="steps">
+  <div class="step done">
+    <div class="number"><img src="assets/svg/checked.svg"></div>
+    <div class="line"></div>
+  </div>
+  <!-- / Shipping -->
+  <div class="step active">
+    <div class="number">2</div>
+    <div class="line"></div>
+  </div>
+  <!-- / Payment -->
+  <div class="step">
+    <div class="number">3</div>
+  </div>
+  <!-- / Done -->
+</div>
+
+<!-- Payment method -->
+<div class="paymentForm">
+  <h4>How would you like to pay <span>1,030 EGP</span></h4>
+  <form>
+    <div class="form-check">
+      <!-- Visa or masterCard -->
+      <input class="form-check-input" type="radio" name="paymentChoise" id="visa" checked value="option1" (click)="showPaymentFields()">
+      <label class="form-check-label" for="visa">Credit or Debit Cards</label>
+      <div class="icons">
+        <img src="assets/svg/mastercard.svg">
+        <img src="assets/svg/visa.svg">
+      </div>
+    </div>
+    <!-- Card Name-->
+    <div class="payment-fields" *ngIf="PaymentFields">
+      <div class="form-group">
+        <label for="nameOnCard">Name on card</label>
+        <input type="text" class="form-control" id="nameOnCard">
+      </div>
+      <!-- Card Number -->
+      <div class="form-group">
+        <label for="cardNumber">Credit card number</label>
+        <input type="text" class="form-control" id="cardNumber" >
+      </div>
+      <!-- Expiration -->
+      <div class="form-group small">
+        <label for="Expiration">Expiration</label>
+        <input type="text" class="form-control" id="Expiration">
+      </div>
+      <!-- Cvv -->
+      <div class="form-group small">
+        <label for="cvv">CVV</label>
+        <input type="text" class="form-control" id="cvv">
+      </div>
+    </div>
+    <!-- Another choise => Cash on delivery -->
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="paymentChoise" id="cash" value="option1" (click)="hiddenPaymentFields()">
+      <label class="form-check-label" for="cash">Cash on delivery</label>
+    </div>
+    <div class="hasBtn">
+      <button class="submitBtn">Next</button>
+    </div>
+  </form>
+
+</div>

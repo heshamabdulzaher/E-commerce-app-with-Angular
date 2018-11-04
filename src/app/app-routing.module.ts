@@ -6,12 +6,15 @@ import { ProductDetailsComponent } from "./product-details/product-details.compo
 import { ShoppingCartComponent } from "./shopping-cart/shopping-cart.component";
 import { CheckoutComponent } from "./checkout/checkout.component";
 import { ShippingFormComponent } from "./checkout/shipping-form/shipping-form.component";
+import { PaymentComponent } from "./checkout/payment/payment.component";
 const routes: Routes = [
   { path: "", component: ShopPageComponent },
   { path: "admin", component: AdminDashboardComponent },
   { path: "product/:id", component: ProductDetailsComponent },
   { path: "shopping_cart", component: ShoppingCartComponent },
-  { path: "checkout", component: CheckoutComponent }
+  { path: "checkout", redirectTo: "checkout/shipping_cart", pathMatch: "full" },
+  { path: "checkout/shipping_cart", component: ShippingFormComponent },
+  { path: "checkout/payment_form", component: PaymentComponent }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
@@ -24,5 +27,6 @@ export const routingComponents = [
   ProductDetailsComponent,
   ShoppingCartComponent,
   CheckoutComponent,
-  ShippingFormComponent
+  ShippingFormComponent,
+  PaymentComponent
 ];

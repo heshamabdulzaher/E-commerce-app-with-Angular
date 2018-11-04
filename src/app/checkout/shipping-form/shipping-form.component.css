@@ -70,7 +70,7 @@ label::after {
 label.not-required::after {
   opacity: 0;
 }
-.action {
+.hasBtn {
   display: flex;
   justify-content: flex-end;
 }

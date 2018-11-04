@@ -1,0 +1,153 @@
+.steps {
+  padding: 0;
+  margin: 60px auto 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.step.active .number {
+  border: 2px solid var(--sColor);
+  color: var(--sColor);
+  font-weight: 700;
+}
+.step .number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  color: #666;
+  font-size: 16px;
+  position: relative;
+}
+.number img {
+  width: 15px;
+}
+.step .number::after {
+  font-size: 14px;
+  text-transform: uppercase;
+  position: absolute;
+  bottom: calc(100% + 5px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+.step:first-of-type .number::after {
+  content: "shipping";
+}
+.step:nth-of-type(2) .number::after {
+  content: "payment";
+}
+.step:last-of-type .number::after {
+  content: "done";
+}
+.step .line {
+  height: 2px;
+  width: 200px;
+  background-color: #ddd;
+}
+/* Active step */
+.step.done .number {
+  border: 2px solid var(--sColor);
+  color: var(--sColor);
+  background-color: var(--sColor);
+  font-weight: 700;
+}
+.step.done .line {
+  background-color: var(--sColor);
+}
+
+/* Payment Form */
+.paymentForm {
+  width: 500px;
+  margin: 50px auto;
+}
+.paymentForm h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.paymentForm h4 span {
+  color: var(--pColor);
+}
+.form-check {
+  padding: 15px 10px;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+}
+.form-check input {
+  display: none;
+}
+.payment-fields {
+  padding: 15px 24px;
+  border-right: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.form-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+.form-group.small {
+  width: 48%;
+}
+input {
+  padding: 12px;
+}
+
+.form-check label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.form-check label::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #ddd;
+  display: inline-block;
+  margin-right: 8px;
+}
+.form-check input:checked + label::before {
+  background-color: var(--pColor);
+  background-image: url("../../../assets/svg/checked.svg");
+  background-size: 10px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.form-check .icons {
+  display: flex;
+  align-items: center;
+}
+.form-check .icons img {
+  width: 34px;
+  margin-left: 8px;
+}
+
+.hasBtn {
+  display: flex;
+  justify-content: flex-end;
+}
+.submitBtn {
+  padding: 0 20px;
+  height: 38px;
+  line-height: 38px;
+  color: #fff;
+  background-color: var(--pColor);
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+}
