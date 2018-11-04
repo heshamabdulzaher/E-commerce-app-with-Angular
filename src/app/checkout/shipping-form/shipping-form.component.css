@@ -1,0 +1,79 @@
+form {
+  width: 600px;
+  margin: 0 auto 50px;
+  border: 1px solid #ddd;
+  padding: 10px 24px;
+}
+h3 {
+  font-size: 18px;
+  font-weight: 700;
+  padding: 20px 0 12px;
+  margin: 0 auto 10px;
+  display: flex;
+  justify-content: center;
+}
+h3 span {
+  position: relative;
+}
+h3 span::before,
+h3 span::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 10px);
+  transform: translateY(-50%);
+  width: 40px;
+  height: 2px;
+  background-color: #ddd;
+}
+h3 span::after {
+  right: auto;
+  left: calc(100% + 10px);
+}
+h3:last-of-type {
+  border-top: 2px dashed #ddd;
+  padding-top: 24px;
+}
+label {
+  position: relative;
+}
+label::after {
+  content: "*";
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--pColor);
+  margin-left: 3px;
+}
+label.not-required::after {
+  opacity: 0;
+}
+input {
+  border-radius: 1px;
+  height: auto;
+  padding: 8px 10px;
+}
+input#email {
+  margin-bottom: 28px;
+}
+.field-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.form-group {
+  padding: 0;
+  /* margin: 0; */
+}
+.small {
+  width: 48%;
+}
+
+.submitBtn {
+  display: flex;
+  justify-content: space-between;
+  /* justify-content: flex-end; */
+  align-items: center;
+}
+.mainBtn {
+  margin: 6px 0 15px 30px;
+}
