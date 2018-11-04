@@ -5,6 +5,7 @@ import { ShopPageComponent } from "./shop-page/shop-page.component";
 import { ProductDetailsComponent } from "./product-details/product-details.component";
 import { ShoppingCartComponent } from "./shopping-cart/shopping-cart.component";
 import { CheckoutComponent } from "./checkout/checkout.component";
+import { ShippingFormComponent } from "./checkout/shipping-form/shipping-form.component";
 const routes: Routes = [
   { path: "", component: ShopPageComponent },
   { path: "admin", component: AdminDashboardComponent },
@@ -22,5 +23,6 @@ export const routingComponents = [
   ShopPageComponent,
   ProductDetailsComponent,
   ShoppingCartComponent,
-  CheckoutComponent
+  CheckoutComponent,
+  ShippingFormComponent
 ];
