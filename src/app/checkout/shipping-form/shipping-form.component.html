@@ -1,3 +1,21 @@
+<div class="steps">
+    <div class="step shipping active">
+        <div class="number">1</div>
+        <div class="line"></div>
+    </div>
+    <!-- / Shipping -->
+    <div class="step payment">
+        <div class="number">2</div>
+        <div class="line"></div>
+    </div>
+    <!-- / Payment -->
+    <div class="step done">
+        <div class="number">3</div>
+    </div>
+    <!-- / Done -->
+</div>
+
+<!-- Shipping Form -->
 <form #shippingForm="ngForm" (ngSubmit)="onSubmit(shippingForm)" novalidate>
   <h3><span>Personal information</span></h3>
   <div class="field-container">

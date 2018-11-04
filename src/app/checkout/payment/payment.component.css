@@ -82,11 +82,14 @@
   display: flex;
   justify-content: space-between;
 }
+.form-check.cashRadio {
+  margin-top: -1px;
+}
 .form-check input {
   display: none;
 }
 .payment-fields {
-  padding: 15px 24px;
+  padding: 20px 24px 15px;
   border-right: 1px solid #ddd;
   border-left: 1px solid #ddd;
   display: flex;

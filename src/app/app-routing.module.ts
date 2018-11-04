@@ -4,7 +4,6 @@ import { AdminDashboardComponent } from "./admin-dashboard/admin-dashboard.compo
 import { ShopPageComponent } from "./shop-page/shop-page.component";
 import { ProductDetailsComponent } from "./product-details/product-details.component";
 import { ShoppingCartComponent } from "./shopping-cart/shopping-cart.component";
-import { CheckoutComponent } from "./checkout/checkout.component";
 import { ShippingFormComponent } from "./checkout/shipping-form/shipping-form.component";
 import { PaymentComponent } from "./checkout/payment/payment.component";
 const routes: Routes = [
@@ -26,7 +25,6 @@ export const routingComponents = [
   ShopPageComponent,
   ProductDetailsComponent,
   ShoppingCartComponent,
-  CheckoutComponent,
   ShippingFormComponent,
   PaymentComponent
 ];
