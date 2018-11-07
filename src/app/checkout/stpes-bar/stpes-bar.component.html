@@ -1,0 +1,10 @@
+<div class="steps_bar">
+  <div class="step" *ngFor="let step of steps; index as i" [class.active]="stepNumber == i + 1" [class.done]="stepNumber > i + 1">
+    <div class="circle">
+      <div class="step_name">{{step}}</div>
+      <div class="number" *ngIf="stepNumber == i + 1 || stepNumber < i + 1">{{i + 1}}</div>
+      <img src="assets/svg/checked.svg" alt="This step is done" *ngIf="stepNumber > i + 1">
+    </div>
+    <div class="line"></div>
+  </div>
+</div>

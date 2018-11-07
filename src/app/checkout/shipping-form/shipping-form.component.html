@@ -1,19 +1,4 @@
-<div class="steps">
-    <div class="step shipping active">
-        <div class="number">1</div>
-        <div class="line"></div>
-    </div>
-    <!-- / Shipping -->
-    <div class="step payment">
-        <div class="number">2</div>
-        <div class="line"></div>
-    </div>
-    <!-- / Payment -->
-    <div class="step done">
-        <div class="number">3</div>
-    </div>
-    <!-- / Done -->
-</div>
+<app-stpes-bar stepNumber="1"></app-stpes-bar>
 
 <!-- Shipping Form -->
 <form #shippingForm="ngForm" (ngSubmit)="onSubmit(shippingForm)" novalidate>
