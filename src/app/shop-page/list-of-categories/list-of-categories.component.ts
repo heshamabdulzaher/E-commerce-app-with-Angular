@@ -10,39 +10,39 @@ export class ListOfCategoriesComponent implements OnInit {
 
   listOfCategories = [
     {
-      img_url: "assets/svg/select-all.svg",
+      img_url: "assets/svg/categories/select-all.svg",
       name: "all"
     },
     {
-      img_url: "assets/svg/shoes.svg",
+      img_url: "assets/svg/categories/shoes.svg",
       name: "shoes"
     },
     {
-      img_url: "assets/svg/pants.svg",
+      img_url: "assets/svg/categories/pants.svg",
       name: "pants"
     },
     {
-      img_url: "assets/svg/t-shirt.svg",
+      img_url: "assets/svg/categories/t-shirt.svg",
       name: "t-shirt"
     },
     {
-      img_url: "assets/svg/shirt.svg",
+      img_url: "assets/svg/categories/shirt.svg",
       name: "shirt"
     },
     {
-      img_url: "assets/svg/jacket.svg",
+      img_url: "assets/svg/categories/jacket.svg",
       name: "jacket"
     },
     {
-      img_url: "assets/svg/blazer.svg",
+      img_url: "assets/svg/categories/blazer.svg",
       name: "blazer"
     },
     {
-      img_url: "assets/svg/coat.svg",
+      img_url: "assets/svg/categories/coat.svg",
       name: "coat"
     },
     {
-      img_url: "assets/svg/suit.svg",
+      img_url: "assets/svg/categories/suit.svg",
       name: "suit"
     }
   ];

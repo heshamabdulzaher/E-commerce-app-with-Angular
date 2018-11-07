@@ -11,19 +11,24 @@ export class ShoppingCartComponent implements OnInit {
 
   products: any = [];
   subtotalPrice = 0;
+
   ngOnInit() {
     let data = JSON.parse(localStorage.getItem("cart_shopping"));
-    data.forEach(product => {
-      product["qty"] = 1;
+    this.products = data;
+    data.forEach(product => (product["qty"] = 1));
+    this.reCalcTotalPrice();
+  }
+
+  reCalcTotalPrice() {
+    this.subtotalPrice = 0;
+    this.products.forEach(product => {
       product["total_price"] = product.qty * product.new_price;
       this.subtotalPrice += product.total_price;
     });
-    this.products = data;
+    console.log(this.products);
   }
 
   handleQTY(e, product) {
-    console.log(this.products);
-
     if (e.target.className === "plus") {
       product.qty += 1;
       product.total_price = product.qty * product.price;
@@ -31,16 +36,16 @@ export class ShoppingCartComponent implements OnInit {
       product.qty -= 1;
       product.total_price = product.qty * product.price;
     }
+    this.reCalcTotalPrice();
   }
 
   deleteProduct(product) {
-    this.products.splice(this.products.indexOf(product), 1);
-    localStorage.setItem("cart_shopping", JSON.stringify(this.products));
-    product.in_my_cart = false;
-
     this.productService.changeStatusOfProduct(product.id, false).subscribe(
       data => {
-        console.log(data);
+        this.products.splice(this.products.indexOf(product), 1);
+        localStorage.setItem("cart_shopping", JSON.stringify(this.products));
+        product.in_my_cart = false;
+        this.reCalcTotalPrice();
       },
       err => {
         console.log(err);
