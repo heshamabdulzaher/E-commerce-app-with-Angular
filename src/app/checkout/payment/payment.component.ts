@@ -8,8 +8,33 @@ import { Component, OnInit } from "@angular/core";
 export class PaymentComponent implements OnInit {
   constructor() {}
 
-  ngOnInit() {}
-  PaymentFields = true;
+  PaymentFields: boolean = true;
+  totalPrice: number = 0;
+  totalPriceAsString: string;
+  inputVal: string = "";
+  ngOnInit() {
+    let cartProducts = JSON.parse(localStorage.getItem("cart_shopping"));
+    cartProducts.forEach(product => {
+      this.totalPrice += product.total_price;
+    });
+    // Add comma to totalPrice after 3 digits
+    this.totalPriceAsString = this.totalPrice
+      .toString()
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+  // Some of the attempts failed for validation
+  // numberWithSpaces(x) {
+  //   var parts = x.toString().split(".");
+  //   parts[0] = parts[0].replace(/\B(?=(\d{4})+(?!\d))/g, " ");
+  //   return parts.join(".");
+  // }
+  //
+  // if (e.length === 4 || e.length === 9 || e.length === 14) {
+  //   this.inputVal += " ";
+  // }
+  // document.getElementById('cardNumber').addEventListener('input', function (e) {
+  //   e.target.value = e.target.value.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim();
+  // });
   showPaymentFields() {
     this.PaymentFields = true;
   }

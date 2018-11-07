@@ -9,6 +9,7 @@ import { ProductCardComponent } from "./shop-page/product-card/product-card.comp
 import { HeaderComponent } from "./header/header.component";
 import { ListOfCategoriesComponent } from "./shop-page/list-of-categories/list-of-categories.component";
 import { StpesBarComponent } from './checkout/stpes-bar/stpes-bar.component';
+import { DoneStepComponent } from './checkout/done-step/done-step.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { StpesBarComponent } from './checkout/stpes-bar/stpes-bar.component';
     ProductCardComponent,
     HeaderComponent,
     ListOfCategoriesComponent,
-    StpesBarComponent
+    StpesBarComponent,
+    DoneStepComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

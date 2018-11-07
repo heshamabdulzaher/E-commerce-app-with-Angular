@@ -1,0 +1,21 @@
+h1 {
+  text-align: center;
+  color: var(--pColor);
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+p {
+  text-align: center;
+  font-size: 20px;
+}
+button {
+  height: 50px;
+  line-height: 50px;
+  padding: 0 50px;
+  margin: 40px auto 20px;
+  display: block;
+  font-size: 18px;
+  background-color: var(--pColor);
+  color: #fff;
+  text-transform: capitalize;
+}
