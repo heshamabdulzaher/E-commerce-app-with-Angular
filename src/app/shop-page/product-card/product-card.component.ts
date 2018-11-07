@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ProductsService } from "src/app/services/products.service";
+import { ActivationEnd, Router } from "@angular/router";
 
 @Component({
   selector: "app-product-card",
@@ -7,12 +8,23 @@ import { ProductsService } from "src/app/services/products.service";
   styleUrls: ["./product-card.component.css"]
 })
 export class ProductCardComponent implements OnInit {
-  constructor(private productService: ProductsService) {}
-
+  carts = JSON.parse(localStorage.getItem("cart_shopping")) || [];
   allProducts: any = [];
+  category;
+
+  constructor(private productService: ProductsService, private router: Router) {
+    router.events.subscribe(data => {
+      if (data instanceof ActivationEnd) {
+        this.category = data.snapshot.queryParams["filter"];
+        this.filterProducts(this.category);
+      }
+    });
+  }
+
   ngOnInit() {
     this.getAllProducts();
   }
+
   getAllProducts() {
     this.productService.getProducts().subscribe(
       data => {
@@ -26,6 +38,22 @@ export class ProductCardComponent implements OnInit {
     );
   }
 
+  filterProducts(filterName) {
+    this.allProducts = this.allProducts.map(product => {
+      if (filterName.toLowerCase() === "all" || !filterName.toLowerCase()) {
+        product.show = true;
+      } else {
+        if (filterName.toLowerCase() === product.category.toLowerCase()) {
+          product.show = true;
+        } else {
+          product.show = false;
+        }
+      }
+      return product;
+    });
+    window.scrollTo(0, 0);
+  }
+
   handleDiscount(allProducts) {
     allProducts = allProducts.map(product => {
       product["new_price"] = Math.round(
@@ -36,7 +64,6 @@ export class ProductCardComponent implements OnInit {
     });
   }
 
-  carts = JSON.parse(localStorage.getItem("cart_shopping")) || [];
   handleAddToCart(product) {
     this.carts.push(product);
     localStorage.setItem("cart_shopping", JSON.stringify(this.carts));

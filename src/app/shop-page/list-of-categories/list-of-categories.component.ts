@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, Router, Params } from "@angular/router";
 
 @Component({
   selector: "app-list-of-categories",
@@ -6,7 +7,17 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./list-of-categories.component.css"]
 })
 export class ListOfCategoriesComponent implements OnInit {
-  constructor() {}
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
+
+  changingQueryParams(name) {
+    const queryParams: Params = Object.assign(
+      {},
+      this.activatedRoute.snapshot.queryParams
+    );
+    // Do something with the params
+    queryParams["filter"] = name;
+    this.router.navigate(["."], { queryParams: queryParams });
+  }
 
   listOfCategories = [
     {

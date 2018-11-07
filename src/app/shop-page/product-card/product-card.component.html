@@ -1,5 +1,5 @@
 <section class="products-area">
-  <div class="card" *ngFor="let product of allProducts">
+  <div class="card" *ngFor="let product of allProducts" [class.hide]="product.show == false">
     <div class="productImg">
       <img src="{{product.img_url}}">
     </div>
@@ -15,5 +15,4 @@
       <button #removeBtn *ngIf="product.in_my_cart" class="added_to_cart">Added to cart</button>
     </div>
   </div>
-
 </section>

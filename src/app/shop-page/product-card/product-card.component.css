@@ -9,6 +9,9 @@
   width: calc(100% / 4 - 20px);
   border: 1px solid #ddd;
 }
+.card.hide {
+  display: none;
+}
 .card .productImg {
   max-width: 96%;
   height: 240px;

@@ -2,7 +2,7 @@
   <div class="categories">
     <h4>categories</h4>
     <ul>
-      <li *ngFor="let category of listOfCategories" (click)="giveMeTheCategoryName($event, cateforyName)">
+      <li *ngFor="let category of listOfCategories" (click)="changingQueryParams(category.name)">
         <div><img src="{{category.img_url}}"></div>
         <span #cateforyName>{{category.name}}</span>
       </li>
