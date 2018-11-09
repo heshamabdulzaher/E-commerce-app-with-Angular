@@ -1,4 +1,5 @@
 import { Component, OnInit, OnChanges, SimpleChanges } from "@angular/core";
+import { ProductsService } from "../services/products.service";
 
 @Component({
   selector: "app-header",
@@ -6,7 +7,12 @@ import { Component, OnInit, OnChanges, SimpleChanges } from "@angular/core";
   styleUrls: ["./header.component.css"]
 })
 export class HeaderComponent {
-  constructor() {}
+  constructor(private productService: ProductsService) {}
 
-  cartLength = JSON.parse(localStorage.getItem("cart_shopping")).length;
+  cartLength;
+  ngOnInit() {
+    this.productService.cartAsObservable.subscribe(
+      cart => (this.cartLength = cart)
+    );
+  }
 }

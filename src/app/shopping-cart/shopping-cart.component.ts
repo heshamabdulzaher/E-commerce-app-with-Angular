@@ -46,6 +46,9 @@ export class ShoppingCartComponent implements OnInit {
         localStorage.setItem("cart_shopping", JSON.stringify(this.products));
         product.in_my_cart = false;
         this.reCalcTotalPrice();
+        // Update cart length
+        let theNewCartLengthValue = (this.productService.cartLength -= 1);
+        this.productService.updataCartLengthNumber(theNewCartLengthValue);
       },
       err => {
         console.log(err);

@@ -11,6 +11,7 @@ export class ProductCardComponent implements OnInit {
   carts = JSON.parse(localStorage.getItem("cart_shopping")) || [];
   allProducts: any = [];
   category;
+  cart;
 
   constructor(private productService: ProductsService, private router: Router) {
     router.events.subscribe(data => {
@@ -28,7 +29,6 @@ export class ProductCardComponent implements OnInit {
   getAllProducts() {
     this.productService.getProducts().subscribe(
       data => {
-        // console.log(data);
         this.allProducts = data;
         this.handleDiscount(this.allProducts);
       },
@@ -65,17 +65,20 @@ export class ProductCardComponent implements OnInit {
   }
 
   handleAddToCart(product) {
-    this.carts.push(product);
-    localStorage.setItem("cart_shopping", JSON.stringify(this.carts));
-    product.in_my_cart = true;
-
     this.productService.changeStatusOfProduct(product.id, true).subscribe(
       data => {
-        // console.log(data);
+        this.carts.push(product);
+        localStorage.setItem("cart_shopping", JSON.stringify(this.carts));
+        product.in_my_cart = true;
+        // Update cart length
+        let theNewCartLengthValue = (this.productService.cartLength += 1);
+        this.productService.updataCartLengthNumber(theNewCartLengthValue);
       },
       err => {
         console.log(err);
       }
     );
   }
+
+  //
 }
