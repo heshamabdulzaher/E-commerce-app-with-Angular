@@ -8,12 +8,13 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ["./product-details.component.css"]
 })
 export class ProductDetailsComponent implements OnInit {
+  product = {};
+  carts = JSON.parse(localStorage.getItem("cart_shopping")) || [];
   constructor(
     private productService: ProductsService,
     private route: ActivatedRoute
   ) {}
 
-  product = {};
   ngOnInit() {
     // this.product = this.productService.theSingleProduct;
     const id = this.route.snapshot.paramMap.get("id");
@@ -23,5 +24,20 @@ export class ProductDetailsComponent implements OnInit {
         (singleProduct.discount / 100) * singleProduct.price;
       this.product = singleProduct;
     });
+  }
+  handleAddToCart(product) {
+    this.productService.changeStatusOfProduct(product.id, true).subscribe(
+      data => {
+        this.carts.push(product);
+        localStorage.setItem("cart_shopping", JSON.stringify(this.carts));
+        product.in_my_cart = true;
+        // Update cart length
+        let theNewCartLengthValue = (this.productService.cartLength += 1);
+        this.productService.updataCartLengthNumber(theNewCartLengthValue);
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 }

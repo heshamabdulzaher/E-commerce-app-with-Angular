@@ -5,7 +5,7 @@
     </div>
     <div class="details">
       <h6>{{product.category}}</h6>
-      <h2 (click)="giveMeTheProduct(product)" routerLink="product/{{product.id}}">{{product.name}}</h2>
+      <h2 routerLink="product/{{product.id}}">{{product.name}}</h2>
       <div class="price">
         <span *ngIf="product.discount">{{product.price}} EGP</span>
         {{product.new_price}} EGP

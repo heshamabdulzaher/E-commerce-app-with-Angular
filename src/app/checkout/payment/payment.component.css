@@ -154,3 +154,6 @@ input {
   font-weight: bold;
   margin-top: 20px;
 }
+#cardNumber {
+  letter-spacing: 1px;
+}

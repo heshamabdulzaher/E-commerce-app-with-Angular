@@ -17,13 +17,14 @@
     <div class="payment-fields" *ngIf="PaymentFields">
       <!-- Card Number -->
       <div class="form-group">
-        <label for="cardNumber">Credit card number</label>
-        <input type="number" class="form-control" id="cardNumber" maxlength="5" name="num" [(ngModel)]="inputVal" (ngModelChange)="changeValue($event)">
+        <label for="cardNumber">Card Number</label>
+        <input type="tel" class="form-control" id="cardNumber" placeholder="____ ____ ____ ____" maxlength="19" 
+          name="numberOfCard" [(ngModel)]="inputVal" (ngModelChange)="validationOfCardNumber($event)">
         {{inputVal}}
       </div>
       <!-- Card Name -->
       <div class="form-group">
-        <label for="nameOnCard">Name on card</label>
+        <label for="nameOnCard">Owner</label>
         <input type="text" class="form-control" id="nameOnCard">
       </div>
       <!-- Expiration -->

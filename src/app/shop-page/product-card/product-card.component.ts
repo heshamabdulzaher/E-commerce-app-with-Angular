@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ProductsService } from "src/app/services/products.service";
-import { ActivationEnd, Router } from "@angular/router";
+import { ActivationEnd, Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-product-card",
@@ -13,17 +13,31 @@ export class ProductCardComponent implements OnInit {
   category;
   cart;
 
-  constructor(private productService: ProductsService, private router: Router) {
+  constructor(
+    private productService: ProductsService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
     router.events.subscribe(data => {
       if (data instanceof ActivationEnd) {
         this.category = data.snapshot.queryParams["filter"];
-        this.filterProducts(this.category);
+        if (this.category) {
+          this.filterProducts(this.category);
+        }
       }
     });
   }
 
   ngOnInit() {
     this.getAllProducts();
+    this.removeQueryFromUrl();
+  }
+  removeQueryFromUrl() {
+    let url: string = this.router.url.substring(
+      0,
+      this.router.url.indexOf("?")
+    );
+    this.router.navigateByUrl(url);
   }
 
   getAllProducts() {
@@ -79,6 +93,4 @@ export class ProductCardComponent implements OnInit {
       }
     );
   }
-
-  //
 }
