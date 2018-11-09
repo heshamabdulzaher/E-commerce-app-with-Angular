@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ProductsService } from "src/app/services/products.service";
-import { ActivationEnd, Router, ActivatedRoute } from "@angular/router";
+import { ActivationEnd, Router } from "@angular/router";
 
 @Component({
   selector: "app-product-card",
@@ -13,11 +13,7 @@ export class ProductCardComponent implements OnInit {
   category;
   cart;
 
-  constructor(
-    private productService: ProductsService,
-    private router: Router,
-    private route: ActivatedRoute
-  ) {
+  constructor(private productService: ProductsService, private router: Router) {
     router.events.subscribe(data => {
       if (data instanceof ActivationEnd) {
         this.category = data.snapshot.queryParams["filter"];
@@ -79,18 +75,20 @@ export class ProductCardComponent implements OnInit {
   }
 
   handleAddToCart(product) {
-    this.productService.changeStatusOfProduct(product.id, true).subscribe(
-      data => {
-        this.carts.push(product);
-        localStorage.setItem("cart_shopping", JSON.stringify(this.carts));
-        product.in_my_cart = true;
-        // Update cart length
-        let theNewCartLengthValue = (this.productService.cartLength += 1);
-        this.productService.updataCartLengthNumber(theNewCartLengthValue);
-      },
-      err => {
-        console.log(err);
-      }
-    );
+    this.productService.sharingDataWithMyParent(true);
+
+    // this.productService.changeStatusOfProduct(product.id, true).subscribe(
+    //   data => {
+    //     this.carts.push(product);
+    //     localStorage.setItem("cart_shopping", JSON.stringify(this.carts));
+    //     product.in_my_cart = true;
+    //     // Update cart length
+    //     let theNewCartLengthValue = (this.productService.cartLength += 1);
+    //     this.productService.updataCartLengthNumber(theNewCartLengthValue);
+    //   },
+    //   err => {
+    //     console.log(err);
+    //   }
+    // );
   }
 }

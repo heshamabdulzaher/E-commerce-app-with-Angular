@@ -8,14 +8,22 @@ import { BehaviorSubject } from "rxjs";
 })
 export class ProductsService {
   // Get cartLength from localStorage and set it as a value to behaviorSubjectOfCart and make it as a observable
-  cartLength = JSON.parse(localStorage.getItem("cart_shopping")).length;
+  cart = JSON.parse(localStorage.getItem("cart_shopping")) || [];
+  cartLength = this.cart.length;
   behaviorSubjectOfCart = new BehaviorSubject<number>(this.cartLength);
   cartAsObservable = this.behaviorSubjectOfCart.asObservable();
+
+  shareData = new BehaviorSubject<boolean>(false);
+  shareDaraAsObservable = this.shareData.asObservable();
 
   constructor(private http: HttpClient) {}
 
   updataCartLengthNumber(n) {
     this.behaviorSubjectOfCart.next(n);
+  }
+
+  sharingDataWithMyParent(n) {
+    this.shareData.next(n);
   }
 
   addNewProduct(product) {
@@ -36,6 +44,4 @@ export class ProductsService {
       in_my_cart: status
     });
   }
-
-  cardClicked = false;
 }

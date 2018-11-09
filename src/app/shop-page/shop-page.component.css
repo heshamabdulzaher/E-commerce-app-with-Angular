@@ -23,34 +23,25 @@
   background-color: rgba(0, 0, 0, 0.4);
   overflow: hidden;
 }
-form {
-  background-color: #fff;
-  padding: 24px;
-  /* border-radius: 5px */
-  margin: 30px auto 0;
+.content {
   width: 400px;
+  background-color: #fff;
+  padding: 30px;
+  margin: 30px auto;
 }
-form img {
-  width: 100px;
-  margin-bottom: 22px;
+.the_other_choise {
+  font-size: 18px;
 }
-.form-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 16px;
+.the_other_choise button {
+  border: 0;
+  outline: 0;
+  color: var(--pColor);
+  padding: 0;
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 8px;
 }
-label {
-  display: inline-flex;
-}
-input {
-  padding: 11px;
-}
-button {
-  padding: 11px;
-  width: 100%;
-  background-color: var(--pColor);
-  color: #fff;
-  font-size: 15px;
-  font-weight: bold;
-  margin-top: 10px;
+.the_other_choise button:hover {
+  text-decoration: underline;
 }

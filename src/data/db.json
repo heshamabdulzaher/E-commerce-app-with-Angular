@@ -1,4 +1,5 @@
 {
+  "users": [],
   "products": [
     {
       "img_url": "https://media03.toms.com/static/www/images/Womens-Shoes/2018/JANLAUNCH/10011751-DrizzleGreyChambrayMixWomensCabrillo-P-1450x1015.jpg",
@@ -64,7 +65,7 @@
       "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJygHEyaIUGtX_x6cBw6gmAIu6QxNxsi-cqRv8JG0ELdHlP442",
       "name": "Shoes #7",
       "price": 300,
-      "in_my_cart": true,
+      "in_my_cart": false,
       "discount": null,
       "category": "Shoes",
       "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
@@ -294,7 +295,7 @@
       "img_url": "https://ae01.alicdn.com/kf/HTB1PHRPLpXXXXcdapXXq6xXFXXX0/New-2018-Jacket-Men-Fashion-Casual-Loose-Mens-Jacket-Sportswear-Bomber-Jacket-Mens-jackets-and-Coats.jpg_640x640.jpg",
       "name": "Jacket #1",
       "price": 850,
-      "in_my_cart": true,
+      "in_my_cart": false,
       "discount": 15,
       "category": "Jacket",
       "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
@@ -314,7 +315,7 @@
       "img_url": "https://images-na.ssl-images-amazon.com/images/I/71UHQB%2BTWBL._UX342_.jpg",
       "name": "Jacket #3",
       "price": 850,
-      "in_my_cart": true,
+      "in_my_cart": false,
       "discount": 25,
       "category": "Jacket",
       "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
@@ -334,7 +335,7 @@
       "img_url": "https://images-na.ssl-images-amazon.com/images/I/91Z8xEYfqUL._UY550_.jpg",
       "name": "Jacket #5",
       "price": 1200,
-      "in_my_cart": true,
+      "in_my_cart": false,
       "discount": 15,
       "category": "Jacket",
       "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",

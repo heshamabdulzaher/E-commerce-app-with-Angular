@@ -17,7 +17,6 @@ export class PaymentComponent implements OnInit {
     console.log(cartProducts);
     cartProducts.forEach(product => {
       this.totalPrice += product.total_price;
-      console.log(product);
     });
     // Add comma to totalPrice after 3 digits
     this.totalPriceAsString = this.totalPrice

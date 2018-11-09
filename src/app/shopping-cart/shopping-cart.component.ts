@@ -17,6 +17,7 @@ export class ShoppingCartComponent implements OnInit {
     this.products = data;
     data.forEach(product => (product["qty"] = 1));
     this.reCalcTotalPrice();
+    window.scrollTo(0, 0);
   }
 
   reCalcTotalPrice() {
@@ -26,6 +27,7 @@ export class ShoppingCartComponent implements OnInit {
       this.subtotalPrice += product.total_price;
     });
     console.log(this.products);
+    localStorage.setItem("cart_shopping", JSON.stringify(this.products));
   }
 
   handleQTY(e, product) {

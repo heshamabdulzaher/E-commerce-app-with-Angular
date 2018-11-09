@@ -2,6 +2,26 @@
   <section class="shop-sidebar-area">
     <app-list-of-categories></app-list-of-categories>
   </section>
-
+  
   <app-product-card class="products-area"></app-product-card>
 </div>
+<section *ngIf="showFormsToUser" class="modal" [class.show]="showFormsToUser">
+  <!-- Registeration form content -->
+  <div class="content" *ngIf="!showRegisterForm">
+    <app-login-form></app-login-form>
+    <div class="the_other_choise">
+      <small>New in essence?</small>
+      <button (click)="goToTheOtherForm()">sign up</button>  
+    </div>
+  </div>
+  <!-- Registeration form content -->
+  <div class="content" *ngIf="showRegisterForm">
+      <!-- Registeration form content -->
+      <app-registeration-from></app-registeration-from>
+      <!-- The other choise => Registeration form -->
+      <div class="the_other_choise">
+        <small>Already have an account?</small>
+        <button (click)="goToTheOtherForm()">Log in</button>  
+      </div>
+    </div>
+</section>

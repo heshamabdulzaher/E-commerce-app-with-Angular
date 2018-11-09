@@ -1,0 +1,24 @@
+<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" novalidate>
+  <!-- Email field -->
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input required type="email" class="form-control" id="email" placeholder="Test" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" 
+      name="email" #email="ngModel" [(ngModel)]="loginForm.email" [class.invalid]="email.invalid && email.touched" >
+    <div *ngIf="email.invalid && email.touched">
+      <small class="text-danger" *ngIf="email.errors.required">Email is required</small>
+      <small class="text-danger" *ngIf="email.errors.pattern">Email is invalid</small>
+    </div>
+  </div>
+  <!-- Password field -->
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input required type="password" class="form-control" id="password" placeholder="Test" pattern=".{6,}" 
+      name="password" #password="ngModel" [(ngModel)]="loginForm.password" [class.invalid]="password.invalid && password.touched" >
+    <div *ngIf="password.invalid && password.touched">
+      <small class="text-danger" *ngIf="password.errors.required">Password is required</small>
+      <small class="text-danger" *ngIf="password.errors.pattern">Make sure it's at least 6 characters</small>
+    </div>
+  </div>
+  <!-- Login Btn -->
+  <button class="mainBtn">LOGIN</button>
+</form>
