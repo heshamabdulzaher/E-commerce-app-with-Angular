@@ -58,18 +58,3 @@ input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
-form .mainBtn {
-  width: 100%;
-  padding: 12px;
-  background-color: var(--pColor);
-  color: #fff;
-  border: 0;
-  outline: 0;
-  font-size: 16px;
-  font-weight: 500;
-  margin: 10px 0 15px;
-}
-button[disabled] {
-  opacity: 0.7;
-  cursor: auto;
-}

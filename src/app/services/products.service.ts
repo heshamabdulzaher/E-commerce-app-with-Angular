@@ -22,7 +22,7 @@ export class ProductsService {
     this.behaviorSubjectOfCart.next(n);
   }
 
-  sharingDataWithMyParent(n) {
+  modalIsOpen(n) {
     this.shareData.next(n);
   }
 

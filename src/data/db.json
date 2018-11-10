@@ -1,5 +1,18 @@
 {
-  "users": [],
+  "users": [
+    {
+      "name": "hesham",
+      "email": "heshamabdulzaher@gmail.com",
+      "password": "12345678",
+      "id": 1
+    },
+    {
+      "name": "Shady",
+      "email": "ashady124@yahoo.com",
+      "password": "12345678",
+      "id": 2
+    }
+  ],
   "products": [
     {
       "img_url": "https://media03.toms.com/static/www/images/Womens-Shoes/2018/JANLAUNCH/10011751-DrizzleGreyChambrayMixWomensCabrillo-P-1450x1015.jpg",

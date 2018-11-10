@@ -75,7 +75,7 @@ export class ProductCardComponent implements OnInit {
   }
 
   handleAddToCart(product) {
-    this.productService.sharingDataWithMyParent(true);
+    this.productService.modalIsOpen(true);
 
     // this.productService.changeStatusOfProduct(product.id, true).subscribe(
     //   data => {

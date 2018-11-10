@@ -1,16 +1,19 @@
-<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" novalidate>
+<form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" novalidate>
+  <div class="err_msg" *ngIf="showErrorMsg">
+    Your email is already exist, <button (click)="goToLoginForm()">login</button>
+  </div>
   <!-- name field -->
   <div class="form-group">
     <label for="name">Name</label>
     <input required type="text" class="form-control" id="name" placeholder="John" 
-      name="name" #name="ngModel" [(ngModel)]="loginForm.name" [class.invalid]="name.invalid && name.touched" >
+      name="name" #name="ngModel" [(ngModel)]="registerForm.name" [class.invalid]="name.invalid && name.touched" >
       <small class="text-danger" *ngIf="name.invalid && name.touched">Name is required</small>
   </div>
   <!-- username field -->
   <!-- <div class="form-group">
     <label for="username">Username</label>
     <input required type="text" class="form-control" id="username" placeholder="unique username" 
-      name="username" #username="ngModel" [(ngModel)]="loginForm.username" [class.invalid]="username.invalid && username.touched" >
+      name="username" #username="ngModel" [(ngModel)]="registerForm.username" [class.invalid]="username.invalid && username.touched" >
     <div *ngIf="username.invalid && username.touched">
       <small class="text-danger" *ngIf="username.errors.required">Username is required</small>
       <small class="text-danger" *ngIf="username.errors.pattern">Username is invalid</small>
@@ -20,7 +23,7 @@
   <div class="form-group">
     <label for="email">Email</label>
     <input required type="email" class="form-control" id="email" placeholder="you@example.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" 
-      name="email" #email="ngModel" [(ngModel)]="loginForm.email" [class.invalid]="email.invalid && email.touched" >
+      name="email" #email="ngModel" [(ngModel)]="registerForm.email" [class.invalid]="email.invalid && email.touched" >
     <div *ngIf="email.invalid && email.touched">
       <small class="text-danger" *ngIf="email.errors.required">Email is required</small>
       <small class="text-danger" *ngIf="email.errors.pattern">Email is invalid</small>
@@ -30,12 +33,12 @@
   <div class="form-group">
     <label for="password">Password</label>
     <input required type="password" class="form-control" id="password" placeholder="Type a password" pattern=".{6,}" 
-      name="password" #password="ngModel" [(ngModel)]="loginForm.password" [class.invalid]="password.invalid && password.touched" >
+      name="password" #password="ngModel" [(ngModel)]="registerForm.password" [class.invalid]="password.invalid && password.touched" >
     <div *ngIf="password.invalid && password.touched">
       <small class="text-danger" *ngIf="password.errors.required">Password is required</small>
       <small class="text-danger" *ngIf="password.errors.pattern">Make sure it's at least 6 characters</small>
     </div>
   </div>
   <!-- Login Btn -->
-  <button class="mainBtn" [disabled]="loginForm.form.invalid">LOGIN</button>
+  <button class="mainBtn" [disabled]="registerForm.form.invalid">SING UP</button>
 </form>

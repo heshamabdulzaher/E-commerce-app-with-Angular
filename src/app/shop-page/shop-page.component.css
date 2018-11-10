@@ -14,7 +14,7 @@
   width: 79%;
 }
 .modal {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -26,11 +26,12 @@
 .content {
   width: 400px;
   background-color: #fff;
-  padding: 30px;
+  padding-bottom: 30px;
   margin: 30px auto;
 }
 .the_other_choise {
   font-size: 18px;
+  margin-left: 30px;
 }
 .the_other_choise button {
   border: 0;

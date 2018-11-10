@@ -1,6 +1,5 @@
-import { Component, OnInit, HostListener, ElementRef } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { ProductsService } from "../services/products.service";
-import { LoginModel } from "../login-model";
 
 @Component({
   selector: "app-shop-page",
@@ -11,17 +10,25 @@ export class ShopPageComponent implements OnInit {
   showFormsToUser: boolean = false;
   showRegisterForm: boolean = false;
   constructor(private productService: ProductsService) {}
-  loginModel = new LoginModel("", "");
   ngOnInit() {
-    this.productService.shareDaraAsObservable.subscribe(data => {
-      this.showFormsToUser = data;
-      document.body.style.overflow = "hidden";
-    });
-    if (this.showFormsToUser) {
-      console.log("hi");
-    }
+    this.openModal();
   }
+
   goToTheOtherForm() {
     this.showRegisterForm = !this.showRegisterForm;
+  }
+  openModal() {
+    this.productService.shareDaraAsObservable.subscribe(data => {
+      this.showFormsToUser = data;
+      if (this.showFormsToUser) {
+        document.body.style.overflow = "hidden";
+      }
+    });
+  }
+  colseModal(modal, e) {
+    if (e.target == modal) {
+      this.productService.modalIsOpen(false);
+      document.body.style.overflow = "auto";
+    }
   }
 }

@@ -8,10 +8,10 @@ import { AppComponent } from "./app.component";
 import { ProductCardComponent } from "./shop-page/product-card/product-card.component";
 import { HeaderComponent } from "./header/header.component";
 import { ListOfCategoriesComponent } from "./shop-page/list-of-categories/list-of-categories.component";
-import { StpesBarComponent } from './checkout/stpes-bar/stpes-bar.component';
-import { DoneStepComponent } from './checkout/done-step/done-step.component';
-import { LoginFormComponent } from './login-form/login-form.component';
-import { RegisterationFromComponent } from './registeration-from/registeration-from.component';
+import { StpesBarComponent } from "./checkout/stpes-bar/stpes-bar.component";
+import { DoneStepComponent } from "./checkout/done-step/done-step.component";
+import { LoginFormComponent } from "./login-form/login-form.component";
+import { RegistrationFromComponent } from "./registration-from/registration-from.component";
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { RegisterationFromComponent } from './registeration-from/registeration-f
     StpesBarComponent,
     DoneStepComponent,
     LoginFormComponent,
-    RegisterationFromComponent
+    RegistrationFromComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
