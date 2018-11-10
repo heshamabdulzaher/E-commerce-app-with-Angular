@@ -1,4 +1,23 @@
 {
+  "carts": [
+    {
+      "user_id": 1,
+      "cart_items": [
+        {
+          "img_url": "https://scene7.zumiez.com/is/image/zumiez/pdp_hero/Made-In-Paradise-High%2C-How-Are-You-Yellow-T-Shirt-_295535-front-US.jpg",
+          "name": "T-shirt #6",
+          "price": 230,
+          "in_my_cart": false,
+          "discount": 20,
+          "category": "T-shirt",
+          "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
+          "id": 17,
+          "new_price": 184
+        }
+      ],
+      "id": 1
+    }
+  ],
   "users": [
     {
       "name": "Hesham",
@@ -9,6 +28,28 @@
   ],
   "products": [
     {
+      "0": {
+        "img_url": "http://dimg.dillards.com/is/image/DillardsZoom/zoom/nike-juvenate-womens-lifestyle-shoes/04388514_zi_vintage_green_outdoor_green_metallic_field.jpg",
+        "name": "Shoes #3",
+        "price": 320,
+        "in_my_cart": false,
+        "discount": null,
+        "category": "Shoes",
+        "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
+        "id": 4,
+        "new_price": 320
+      },
+      "1": {
+        "img_url": "http://dimg.dillards.com/is/image/DillardsZoom/zoom/nike-juvenate-womens-lifestyle-shoes/04388514_zi_vintage_green_outdoor_green_metallic_field.jpg",
+        "name": "Shoes #3",
+        "price": 320,
+        "in_my_cart": false,
+        "discount": null,
+        "category": "Shoes",
+        "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
+        "id": 4,
+        "new_price": 320
+      },
       "img_url": "https://media03.toms.com/static/www/images/Womens-Shoes/2018/JANLAUNCH/10011751-DrizzleGreyChambrayMixWomensCabrillo-P-1450x1015.jpg",
       "name": "Shoes #1",
       "price": 350,

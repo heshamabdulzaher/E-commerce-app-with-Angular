@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "src/environments/environment";
-import { BehaviorSubject } from "rxjs";
 
 @Injectable({
   providedIn: "root"
@@ -17,7 +16,6 @@ export class ProductsService {
     return this.http.get(environment.base_URL + "/products");
   }
 
-  theSingleProduct = {};
   getSingleProduct(id) {
     return this.http.get(environment.base_URL + "/products/" + id);
   }

@@ -49,7 +49,6 @@ li {
   border-left: 1px solid #ebebeb;
   display: flex;
   align-items: center;
-  cursor: pointer;
 }
 .search input {
   border: 0;
@@ -67,6 +66,9 @@ li {
 .search img {
   width: 18px !important;
   margin-right: 10px;
+}
+.shopping-cart {
+  cursor: pointer;
 }
 .shopping-cart .icon {
   position: relative;
