@@ -15,6 +15,9 @@ export class SharingDataService {
   behaviorSubjectOfModal = new BehaviorSubject<boolean>(false);
   modalAsObservable = this.behaviorSubjectOfModal.asObservable();
 
+  searchQuery = new BehaviorSubject<string>("");
+  searchQueryAsObservable = this.searchQuery.asObservable();
+
   constructor(private http: HttpClient) {}
 
   updataCartLengthNumber(n) {
@@ -23,5 +26,9 @@ export class SharingDataService {
 
   modalIsOpen(n) {
     this.behaviorSubjectOfModal.next(n);
+  }
+
+  getQueryWord(n) {
+    this.searchQuery.next(n);
   }
 }

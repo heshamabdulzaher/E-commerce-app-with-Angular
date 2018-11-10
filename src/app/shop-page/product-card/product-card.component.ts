@@ -12,7 +12,9 @@ export class ProductCardComponent implements OnInit {
   carts = JSON.parse(localStorage.getItem("cart_shopping")) || [];
   allProducts: any = [];
   category;
-  cart;
+  searchQueryWord: string = "";
+  theProductsIsHidden: number = 0;
+  noResultsFound: boolean = false;
 
   constructor(
     private productService: ProductsService,
@@ -32,7 +34,43 @@ export class ProductCardComponent implements OnInit {
   ngOnInit() {
     this.getAllProducts();
     this.removeQueryFromUrl();
+    this.SearchInProducts();
   }
+  // Handle search in products functionality
+  SearchInProducts() {
+    this.sharingDataService.searchQueryAsObservable.subscribe(data => {
+      this.theProductsIsHidden = 0;
+      this.searchQueryWord = data.toLowerCase();
+
+      if (this.searchQueryWord === "" || this.searchQueryWord === " ") {
+        this.allProducts = this.allProducts.map(product => {
+          product.show = true;
+          this.theProductsIsHidden = 0;
+          return product;
+        });
+      } else {
+        this.allProducts = this.allProducts.map(product => {
+          if (product.name.toLowerCase().search(this.searchQueryWord) == -1) {
+            product.show = false;
+          } else {
+            product.show = true;
+          }
+          return product;
+        });
+      }
+      this.allProducts.forEach(product => {
+        if (!product.show) {
+          this.theProductsIsHidden++;
+          if (this.theProductsIsHidden == this.allProducts.length) {
+            this.noResultsFound = true;
+          } else {
+            this.noResultsFound = false;
+          }
+        }
+      });
+    });
+  }
+  // There is a problem here
   removeQueryFromUrl() {
     let url: string = this.router.url.substring(
       0,
@@ -41,6 +79,7 @@ export class ProductCardComponent implements OnInit {
     this.router.navigateByUrl(url);
   }
 
+  // Get all products from DB
   getAllProducts() {
     this.productService.getProducts().subscribe(
       data => {
@@ -53,6 +92,7 @@ export class ProductCardComponent implements OnInit {
     );
   }
 
+  // Filter function
   filterProducts(filterName) {
     this.allProducts = this.allProducts.map(product => {
       if (filterName.toLowerCase() === "all" || !filterName.toLowerCase()) {
@@ -69,16 +109,17 @@ export class ProductCardComponent implements OnInit {
     window.scrollTo(0, 0);
   }
 
+  // Add new property to every product called new_price => After discount
   handleDiscount(allProducts) {
     allProducts = allProducts.map(product => {
       product["new_price"] = Math.round(
         product.price - (product.discount / 100) * product.price
       );
-
       return product;
     });
   }
 
+  // Handle Add to cart function
   handleAddToCart(product) {
     let user = JSON.parse(localStorage.getItem("user"));
     if (user) {

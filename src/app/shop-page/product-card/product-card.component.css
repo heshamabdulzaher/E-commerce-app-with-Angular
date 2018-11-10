@@ -67,3 +67,19 @@
   color: #333;
   cursor: auto;
 }
+
+/* No results found */
+.no_data {
+  flex: 1;
+}
+.no_data img {
+  width: 200px;
+  margin: auto;
+  display: block;
+}
+.no_data p {
+  color: #898989;
+  font-size: 14px;
+  margin: 20px auto;
+  text-align: center;
+}

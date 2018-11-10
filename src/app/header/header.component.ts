@@ -8,6 +8,7 @@ import { SharingDataService } from "../services/sharing-data.service";
   styleUrls: ["./header.component.css"]
 })
 export class HeaderComponent implements OnInit {
+  queryWord = "";
   constructor(
     private productService: ProductsService,
     private sharingDataService: SharingDataService
@@ -18,5 +19,9 @@ export class HeaderComponent implements OnInit {
     this.sharingDataService.cartAsObservable.subscribe(
       cart => (this.cartLength = cart)
     );
+  }
+
+  getTheQuery(e) {
+    this.sharingDataService.getQueryWord(e);
   }
 }

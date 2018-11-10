@@ -10,9 +10,13 @@
         <span *ngIf="product.discount">{{product.price}} EGP</span>
         {{product.new_price}} EGP
       </div>
-      <!-- {{product.in_my_cart}} -->
       <button #addBtn (click)="handleAddToCart(product)" *ngIf="!product.in_my_cart">Add to cart</button>
       <button #removeBtn *ngIf="product.in_my_cart" class="added_to_cart">Added to cart</button>
     </div>
+  </div>
+
+  <div class="no_data" *ngIf="noResultsFound == true">
+    <img src="assets/svg/illustrations/no-data.svg" alt="No results found">
+    <p>No results found...</p>
   </div>
 </section>
