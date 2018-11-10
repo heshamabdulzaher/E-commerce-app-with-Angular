@@ -51,6 +51,23 @@ li {
   align-items: center;
   cursor: pointer;
 }
+.search input {
+  border: 0;
+  outline: 0;
+  height: 60px;
+  width: 70px;
+  flex: 1;
+  color: #777;
+  font-size: 16px;
+  transition: 0.3s ease-out;
+}
+.search input:focus {
+  width: 220px;
+}
+.search img {
+  width: 18px !important;
+  margin-right: 10px;
+}
 .shopping-cart .icon {
   position: relative;
 }

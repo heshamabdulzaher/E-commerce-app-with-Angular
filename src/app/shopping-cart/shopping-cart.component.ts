@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ProductsService } from "../services/products.service";
+import { SharingDataService } from "../services/sharing-data.service";
 
 @Component({
   selector: "app-shopping-cart",
@@ -7,7 +8,10 @@ import { ProductsService } from "../services/products.service";
   styleUrls: ["./shopping-cart.component.css"]
 })
 export class ShoppingCartComponent implements OnInit {
-  constructor(private productService: ProductsService) {}
+  constructor(
+    private productService: ProductsService,
+    private sharingDataService: SharingDataService
+  ) {}
 
   products: any = [];
   subtotalPrice = 0;
@@ -26,7 +30,6 @@ export class ShoppingCartComponent implements OnInit {
       product["total_price"] = product.qty * product.new_price;
       this.subtotalPrice += product.total_price;
     });
-    console.log(this.products);
     localStorage.setItem("cart_shopping", JSON.stringify(this.products));
   }
 
@@ -49,8 +52,8 @@ export class ShoppingCartComponent implements OnInit {
         product.in_my_cart = false;
         this.reCalcTotalPrice();
         // Update cart length
-        let theNewCartLengthValue = (this.productService.cartLength -= 1);
-        this.productService.updataCartLengthNumber(theNewCartLengthValue);
+        let theNewCartLengthValue = (this.sharingDataService.cartLength -= 1);
+        this.sharingDataService.updataCartLengthNumber(theNewCartLengthValue);
       },
       err => {
         console.log(err);

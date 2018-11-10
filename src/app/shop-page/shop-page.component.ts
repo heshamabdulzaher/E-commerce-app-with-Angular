@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ProductsService } from "../services/products.service";
+import { SharingDataService } from "../services/sharing-data.service";
 
 @Component({
   selector: "app-shop-page",
@@ -9,7 +10,10 @@ import { ProductsService } from "../services/products.service";
 export class ShopPageComponent implements OnInit {
   showFormsToUser: boolean = false;
   showRegisterForm: boolean = false;
-  constructor(private productService: ProductsService) {}
+  constructor(
+    private productService: ProductsService,
+    private sharingDataService: SharingDataService
+  ) {}
   ngOnInit() {
     this.openModal();
   }
@@ -18,7 +22,7 @@ export class ShopPageComponent implements OnInit {
     this.showRegisterForm = !this.showRegisterForm;
   }
   openModal() {
-    this.productService.shareDaraAsObservable.subscribe(data => {
+    this.sharingDataService.modalAsObservable.subscribe(data => {
       this.showFormsToUser = data;
       if (this.showFormsToUser) {
         document.body.style.overflow = "hidden";
@@ -27,7 +31,7 @@ export class ShopPageComponent implements OnInit {
   }
   colseModal(modal, e) {
     if (e.target == modal) {
-      this.productService.modalIsOpen(false);
+      this.sharingDataService.modalIsOpen(false);
       document.body.style.overflow = "auto";
     }
   }

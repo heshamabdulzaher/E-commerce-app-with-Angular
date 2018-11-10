@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ProductsService } from "src/app/services/products.service";
 import { ActivationEnd, Router } from "@angular/router";
+import { SharingDataService } from "src/app/services/sharing-data.service";
 
 @Component({
   selector: "app-product-card",
@@ -13,7 +14,11 @@ export class ProductCardComponent implements OnInit {
   category;
   cart;
 
-  constructor(private productService: ProductsService, private router: Router) {
+  constructor(
+    private productService: ProductsService,
+    private sharingDataService: SharingDataService,
+    private router: Router
+  ) {
     router.events.subscribe(data => {
       if (data instanceof ActivationEnd) {
         this.category = data.snapshot.queryParams["filter"];
@@ -75,20 +80,23 @@ export class ProductCardComponent implements OnInit {
   }
 
   handleAddToCart(product) {
-    this.productService.modalIsOpen(true);
-
-    // this.productService.changeStatusOfProduct(product.id, true).subscribe(
-    //   data => {
-    //     this.carts.push(product);
-    //     localStorage.setItem("cart_shopping", JSON.stringify(this.carts));
-    //     product.in_my_cart = true;
-    //     // Update cart length
-    //     let theNewCartLengthValue = (this.productService.cartLength += 1);
-    //     this.productService.updataCartLengthNumber(theNewCartLengthValue);
-    //   },
-    //   err => {
-    //     console.log(err);
-    //   }
-    // );
+    let user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
+      this.productService.changeStatusOfProduct(product.id, true).subscribe(
+        data => {
+          this.carts.push(product);
+          localStorage.setItem("cart_shopping", JSON.stringify(this.carts));
+          product.in_my_cart = true;
+          // Update cart length
+          let theNewCartLengthValue = (this.sharingDataService.cartLength += 1);
+          this.sharingDataService.updataCartLengthNumber(theNewCartLengthValue);
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    } else {
+      this.sharingDataService.modalIsOpen(true);
+    }
   }
 }

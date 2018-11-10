@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { UsersService } from "../services/users.service";
 import { ProductsService } from "../services/products.service";
+import { SharingDataService } from "../services/sharing-data.service";
 
 @Component({
   selector: "app-login-form",
@@ -13,7 +14,8 @@ export class LoginFormComponent implements OnInit {
   @Output() messageEvent = new EventEmitter();
   constructor(
     private userService: UsersService,
-    private productService: ProductsService
+    private productService: ProductsService,
+    private sharingDataService: SharingDataService
   ) {}
 
   ngOnInit() {}
@@ -21,7 +23,6 @@ export class LoginFormComponent implements OnInit {
     // Get all users
     this.userService.getUsers().subscribe(
       (users: any) => {
-        console.log(users);
         // If I have users
         if (users.length > 0) {
           users.forEach(user => {
@@ -51,7 +52,7 @@ export class LoginFormComponent implements OnInit {
     this.messageEvent.emit(this.changeForm);
   }
   closeModal() {
-    this.productService.modalIsOpen(false);
+    this.sharingDataService.modalIsOpen(false);
     document.body.style.overflow = "auto";
   }
 }

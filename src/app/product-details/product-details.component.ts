@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ProductsService } from "src/app/services/products.service";
 import { ActivatedRoute } from "@angular/router";
+import { SharingDataService } from "../services/sharing-data.service";
 
 @Component({
   selector: "app-product-details",
@@ -12,6 +13,7 @@ export class ProductDetailsComponent implements OnInit {
   carts = JSON.parse(localStorage.getItem("cart_shopping")) || [];
   constructor(
     private productService: ProductsService,
+    private sharingDataService: SharingDataService,
     private route: ActivatedRoute
   ) {}
 
@@ -32,8 +34,8 @@ export class ProductDetailsComponent implements OnInit {
         localStorage.setItem("cart_shopping", JSON.stringify(this.carts));
         product.in_my_cart = true;
         // Update cart length
-        let theNewCartLengthValue = (this.productService.cartLength += 1);
-        this.productService.updataCartLengthNumber(theNewCartLengthValue);
+        let theNewCartLengthValue = (this.sharingDataService.cartLength += 1);
+        this.sharingDataService.updataCartLengthNumber(theNewCartLengthValue);
       },
       err => {
         console.log(err);

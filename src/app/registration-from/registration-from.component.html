@@ -1,7 +1,7 @@
 <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" novalidate>
-  <div class="err_msg" *ngIf="showErrorMsg">
+  <!-- <div class="err_msg" *ngIf="showErrorMsg">
     Your email is already exist, <button (click)="goToLoginForm()">login</button>
-  </div>
+  </div> -->
   <!-- name field -->
   <div class="form-group">
     <label for="name">Name</label>
@@ -9,16 +9,6 @@
       name="name" #name="ngModel" [(ngModel)]="registerForm.name" [class.invalid]="name.invalid && name.touched" >
       <small class="text-danger" *ngIf="name.invalid && name.touched">Name is required</small>
   </div>
-  <!-- username field -->
-  <!-- <div class="form-group">
-    <label for="username">Username</label>
-    <input required type="text" class="form-control" id="username" placeholder="unique username" 
-      name="username" #username="ngModel" [(ngModel)]="registerForm.username" [class.invalid]="username.invalid && username.touched" >
-    <div *ngIf="username.invalid && username.touched">
-      <small class="text-danger" *ngIf="username.errors.required">Username is required</small>
-      <small class="text-danger" *ngIf="username.errors.pattern">Username is invalid</small>
-    </div>
-  </div> -->
   <!-- Email field -->
   <div class="form-group">
     <label for="email">Email</label>
