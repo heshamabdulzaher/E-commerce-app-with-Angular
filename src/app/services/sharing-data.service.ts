@@ -1,13 +1,13 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { BehaviorSubject } from "rxjs";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class SharingDataService {
   // Get cartLength from localStorage and set it as a value to behaviorSubjectOfCart and make it as a observable
-  cart = JSON.parse(localStorage.getItem("cart_shopping")) || [];
+  cart = JSON.parse(localStorage.getItem('cart_shopping')) || [];
   cartLength = this.cart.length;
   behaviorSubjectOfCart = new BehaviorSubject<number>(this.cartLength);
   cartAsObservable = this.behaviorSubjectOfCart.asObservable();
@@ -15,8 +15,12 @@ export class SharingDataService {
   behaviorSubjectOfModal = new BehaviorSubject<boolean>(false);
   modalAsObservable = this.behaviorSubjectOfModal.asObservable();
 
-  searchQuery = new BehaviorSubject<string>("");
+  searchQuery = new BehaviorSubject<string>('');
   searchQueryAsObservable = this.searchQuery.asObservable();
+
+  // Re run the filter for the proucts when the user visit the shop page AND the url has a filter param
+  reInitProuctsFilter = new BehaviorSubject<string>('');
+  reInitProuctsFilterAsObservable = this.reInitProuctsFilter.asObservable();
 
   constructor(private http: HttpClient) {}
 
@@ -30,5 +34,9 @@ export class SharingDataService {
 
   getQueryWord(n) {
     this.searchQuery.next(n);
+  }
+
+  reInitFilterFunction(n) {
+    this.reInitProuctsFilter.next(n);
   }
 }
