@@ -2,90 +2,21 @@
   "carts": [
     {
       "user_id": 1,
-      "items": [
-        {
-          "img_url": "https://images-na.ssl-images-amazon.com/images/I/61OJd3JtYWL._UL1500_.jpg",
-          "name": "T-shirt #5",
-          "price": 160,
-          "in_my_cart": false,
-          "discount": 10,
-          "category": "T-shirt",
-          "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
-          "id": 16,
-          "new_price": 144,
-          "show": true
-        },
-        {
-          "img_url": "https://ae01.alicdn.com/kf/HTB1RncSJXXXXXX5XpXXq6xXFXXXd/Star-Wars-Element-Hype-T-Shirts-Men-Cotton-Dragon-Ball-Diamond-Train-Hard-Man-T-Shirt.jpg",
-          "name": "T-shirt #4",
-          "price": 180,
-          "in_my_cart": false,
-          "discount": null,
-          "category": "T-shirt",
-          "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
-          "id": 15,
-          "new_price": 180,
-          "show": true
-        },
-        {
-          "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7_fmSsrRF-TOjwHbzfbF1std6uF3Ic--6wBP-Wu-6KFhb42QG",
-          "name": "T-shirt #3",
-          "price": 120,
-          "in_my_cart": false,
-          "discount": 0,
-          "category": "T-shirt",
-          "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
-          "id": 14,
-          "new_price": 120,
-          "show": true
-        },
-        {
-          "img_url": "https://media03.toms.com/static/www/images/Womens-Shoes/2018/JANLAUNCH/10011751-DrizzleGreyChambrayMixWomensCabrillo-P-1450x1015.jpg",
-          "name": "Shoes #1",
-          "price": 350,
-          "in_my_cart": false,
-          "discount": 0,
-          "category": "Shoes",
-          "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
-          "id": 1,
-          "new_price": 350,
-          "show": true
-        }
-      ],
+      "items": [],
       "id": 1
     },
     {
       "user_id": 1,
-      "items": [
-        {
-          "img_url": "https://media03.toms.com/static/www/images/Womens-Shoes/2018/JANLAUNCH/10011751-DrizzleGreyChambrayMixWomensCabrillo-P-1450x1015.jpg",
-          "name": "Shoes #1",
-          "price": 350,
-          "in_my_cart": false,
-          "discount": 0,
-          "category": "Shoes",
-          "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
-          "id": 1,
-          "new_price": 350,
-          "show": true
-        },
-        {
-          "img_url": "http://dimg.dillards.com/is/image/DillardsZoom/zoom/nike-juvenate-womens-lifestyle-shoes/04388514_zi_vintage_green_outdoor_green_metallic_field.jpg",
-          "name": "Shoes #3",
-          "price": 320,
-          "in_my_cart": false,
-          "discount": null,
-          "category": "Shoes",
-          "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
-          "id": 4,
-          "new_price": 320,
-          "show": true
-        }
-      ],
+      "items": [],
       "id": 2
     },
     {
       "user_id": 1,
+      "items": [],
+      "id": 3
+    },
+    {
+      "user_id": 1,
       "items": [
         {
           "img_url": "https://media03.toms.com/static/www/images/Womens-Shoes/2018/JANLAUNCH/10011751-DrizzleGreyChambrayMixWomensCabrillo-P-1450x1015.jpg",
@@ -96,28 +27,66 @@
           "category": "Shoes",
           "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
           "id": 1,
-          "new_price": 350,
-          "show": true
-        },
-        {
-          "img_url": "http://dimg.dillards.com/is/image/DillardsZoom/zoom/nike-juvenate-womens-lifestyle-shoes/04388514_zi_vintage_green_outdoor_green_metallic_field.jpg",
-          "name": "Shoes #3",
-          "price": 320,
-          "in_my_cart": false,
-          "discount": null,
-          "category": "Shoes",
-          "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
-          "id": 4,
-          "new_price": 320,
-          "show": true
+          "new_price": 350
         }
       ],
-      "id": 3
+      "id": 4
     },
     {
       "user_id": 1,
       "items": [],
-      "id": 4
+      "id": 5
+    },
+    {
+      "user_id": 1,
+      "items": [
+        {
+          "img_url": "https://media03.toms.com/static/www/images/Womens-Shoes/2018/JANLAUNCH/10011751-DrizzleGreyChambrayMixWomensCabrillo-P-1450x1015.jpg",
+          "name": "Shoes #1",
+          "price": 350,
+          "in_my_cart": false,
+          "discount": 0,
+          "category": "Shoes",
+          "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
+          "id": 1,
+          "new_price": 350
+        }
+      ],
+      "id": 6
+    },
+    {
+      "user_id": 1,
+      "items": [
+        {
+          "img_url": "https://media03.toms.com/static/www/images/Womens-Shoes/2018/JANLAUNCH/10011751-DrizzleGreyChambrayMixWomensCabrillo-P-1450x1015.jpg",
+          "name": "Shoes #1",
+          "price": 350,
+          "in_my_cart": false,
+          "discount": 0,
+          "category": "Shoes",
+          "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
+          "id": 1,
+          "new_price": 350
+        }
+      ],
+      "id": 7
+    },
+    {
+      "user_id": 1,
+      "items": [
+        {
+          "img_url": "https://images-na.ssl-images-amazon.com/images/I/611yVySf%2BJL._UY395_.jpg",
+          "name": "Shoes #2",
+          "price": 650,
+          "in_my_cart": false,
+          "discount": 30,
+          "category": "Shoes",
+          "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
+          "id": 3,
+          "new_price": 455
+        }
+      ],
+      "id": 8
     }
   ],
   "users": [

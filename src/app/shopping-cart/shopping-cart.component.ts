@@ -18,9 +18,11 @@ export class ShoppingCartComponent implements OnInit {
   cartOnLocalStorage = JSON.parse(localStorage.getItem("userCart")) || [];
 
   ngOnInit() {
-    this.cartOnLocalStorage.items.map(product => (product["qty"] = 1));
-    this.products = this.cartOnLocalStorage.items;
-    this.reCalcTotalPrice();
+    if (this.cartOnLocalStorage.length !== 0) {
+      this.cartOnLocalStorage.items.map(product => (product["qty"] = 1));
+      this.products = this.cartOnLocalStorage.items;
+      this.reCalcTotalPrice();
+    }
     // window.scrollTo(0, 0);
   }
 

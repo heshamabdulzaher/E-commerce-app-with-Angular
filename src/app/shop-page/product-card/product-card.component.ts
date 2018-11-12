@@ -143,8 +143,6 @@ export class ProductCardComponent implements OnInit {
     const userCartInLocalStorage = JSON.parse(localStorage.getItem("userCart"));
     let copyOfLocalCart;
     if (user && userCartInLocalStorage) {
-      console.log("You're user and you have a cart");
-
       // If this is user and have a cart in localStorage
       copyOfLocalCart = { ...userCartInLocalStorage };
       copyOfLocalCart.items.push(product);
@@ -153,7 +151,6 @@ export class ProductCardComponent implements OnInit {
       this.cartService
         .updatingMyCart(copyOfLocalCart)
         .subscribe(updatedCart => {
-          console.log("cart updated!", updatedCart);
           localStorage.setItem("userCart", JSON.stringify(updatedCart));
           product.in_my_cart = true;
           this.sharingDataService.updataCartLengthNumber(
@@ -161,7 +158,6 @@ export class ProductCardComponent implements OnInit {
           );
         });
     } else if (user && !userCartInLocalStorage) {
-      console.log("You're user but you don't have a cart");
       // If this is user but dosen't have a cart in localStorage
       // the new cart
       const newCart = {
@@ -171,7 +167,6 @@ export class ProductCardComponent implements OnInit {
 
       // POST new cart
       this.cartService.saveNewCart(newCart).subscribe(savedCart => {
-        console.log("cart saved", savedCart);
         localStorage.setItem("userCart", JSON.stringify(savedCart));
         copyOfLocalCart = JSON.parse(localStorage.getItem("userCart"));
         product.in_my_cart = true;

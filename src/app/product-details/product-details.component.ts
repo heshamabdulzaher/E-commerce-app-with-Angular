@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ProductsService } from "src/app/services/products.service";
 import { ActivatedRoute } from "@angular/router";
 import { SharingDataService } from "../services/sharing-data.service";
+import { CartService } from "../services/cart.service";
 
 @Component({
   selector: "app-product-details",
@@ -10,10 +11,13 @@ import { SharingDataService } from "../services/sharing-data.service";
 })
 export class ProductDetailsComponent implements OnInit {
   product = {};
-  carts = JSON.parse(localStorage.getItem("cart_shopping")) || [];
+  showFormsToUser: boolean = false;
+  showRegisterForm: boolean = false;
+  carts = JSON.parse(localStorage.getItem("userCart")) || [];
   constructor(
     private productService: ProductsService,
     private sharingDataService: SharingDataService,
+    private cartService: CartService,
     private route: ActivatedRoute
   ) {}
 
@@ -26,20 +30,55 @@ export class ProductDetailsComponent implements OnInit {
         (singleProduct.discount / 100) * singleProduct.price;
       this.product = singleProduct;
     });
-  }
-  handleAddToCart(product) {
-    this.productService.changeStatusOfProduct(product.id, true).subscribe(
-      data => {
-        this.carts.push(product);
-        localStorage.setItem("cart_shopping", JSON.stringify(this.carts));
-        product.in_my_cart = true;
-        // Update cart length
-        let theNewCartLengthValue = (this.sharingDataService.cartLength += 1);
-        this.sharingDataService.updataCartLengthNumber(theNewCartLengthValue);
-      },
-      err => {
-        console.log(err);
+    // this.sharingDataService.test();
+
+    this.sharingDataService.modalAsObservable.subscribe(data => {
+      this.showFormsToUser = data;
+      if (this.showFormsToUser) {
+        document.body.style.overflow = "hidden";
       }
-    );
+    });
+  }
+  // Handle Add to cart function
+  handleAddToCart(product) {
+    const user = JSON.parse(localStorage.getItem("user"));
+    const userCartInLocalStorage = JSON.parse(localStorage.getItem("userCart"));
+    let copyOfLocalCart;
+    if (user && userCartInLocalStorage) {
+      console.log("hi user");
+      // If this is user and have a cart in localStorage
+      copyOfLocalCart = { ...userCartInLocalStorage };
+      copyOfLocalCart.items.push(product);
+      // PATCH the db cart
+      this.cartService
+        .updatingMyCart(copyOfLocalCart)
+        .subscribe(updatedCart => {
+          localStorage.setItem("userCart", JSON.stringify(updatedCart));
+          product.in_my_cart = true;
+          this.sharingDataService.updataCartLengthNumber(
+            copyOfLocalCart.items.length
+          );
+        });
+    } else if (user && !userCartInLocalStorage) {
+      console.log("You don't have cart ");
+      // If this is user but dosen't have a cart in localStorage
+      // the new cart
+      const newCart = {
+        user_id: user.id,
+        items: [product]
+      };
+      // POST new cart
+      this.cartService.saveNewCart(newCart).subscribe(savedCart => {
+        localStorage.setItem("userCart", JSON.stringify(savedCart));
+        copyOfLocalCart = JSON.parse(localStorage.getItem("userCart"));
+        product.in_my_cart = true;
+        this.sharingDataService.updataCartLengthNumber(
+          copyOfLocalCart.items.length
+        );
+      });
+    } else {
+      console.log("You're not a user");
+      this.sharingDataService.modalIsOpen(true);
+    }
   }
 }

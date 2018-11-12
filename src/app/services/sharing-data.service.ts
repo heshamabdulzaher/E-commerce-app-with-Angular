@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { BehaviorSubject } from "rxjs";
+import { CartService } from "./cart.service";
 
 @Injectable({
   providedIn: "root"
@@ -22,7 +23,7 @@ export class SharingDataService {
   reInitProuctsFilter = new BehaviorSubject<string>("");
   reInitProuctsFilterAsObservable = this.reInitProuctsFilter.asObservable();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private cartService: CartService) {}
 
   updataCartLengthNumber(n) {
     this.behaviorSubjectOfCart.next(n);

@@ -6,22 +6,3 @@
   <app-product-card class="products-area"></app-product-card>
 </div>
 
-<!-- Pop up here -->
-<section #myModal *ngIf="showFormsToUser" class="modal" [class.show]="showFormsToUser" (click)="colseModal(myModal, $event)">
-  <!-- Registeration form content -->
-  <div class="content" *ngIf="!showRegisterForm">
-    <app-login-form (messageEvent)="goToTheOtherForm()"></app-login-form>
-    <div class="the_other_choise">
-      <small>New in essence?</small>
-      <button (click)="goToTheOtherForm()">Create an account</button>  
-    </div>
-  </div>
-  <!-- Registeration form content -->
-  <div class="content" *ngIf="showRegisterForm">
-    <app-registration-from (messageEvent)="goToTheOtherForm()"></app-registration-from>
-    <div class="the_other_choise">
-      <small>Already have an account?</small>
-      <button (click)="goToTheOtherForm()">Log in</button>  
-    </div>
-  </div>
-</section>
