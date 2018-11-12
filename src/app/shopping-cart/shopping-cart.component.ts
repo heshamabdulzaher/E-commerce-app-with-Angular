@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { ProductsService } from "../services/products.service";
 import { SharingDataService } from "../services/sharing-data.service";
+import { CartService } from "../services/cart.service";
 
 @Component({
   selector: "app-shopping-cart",
@@ -9,19 +9,19 @@ import { SharingDataService } from "../services/sharing-data.service";
 })
 export class ShoppingCartComponent implements OnInit {
   constructor(
-    private productService: ProductsService,
+    private cartService: CartService,
     private sharingDataService: SharingDataService
   ) {}
 
   products: any = [];
   subtotalPrice = 0;
+  cartOnLocalStorage = JSON.parse(localStorage.getItem("userCart")) || [];
 
   ngOnInit() {
-    let data = JSON.parse(localStorage.getItem("cart_shopping"));
-    this.products = data;
-    data.forEach(product => (product["qty"] = 1));
+    this.cartOnLocalStorage.items.map(product => (product["qty"] = 1));
+    this.products = this.cartOnLocalStorage.items;
     this.reCalcTotalPrice();
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
   }
 
   reCalcTotalPrice() {
@@ -30,7 +30,8 @@ export class ShoppingCartComponent implements OnInit {
       product["total_price"] = product.qty * product.new_price;
       this.subtotalPrice += product.total_price;
     });
-    localStorage.setItem("cart_shopping", JSON.stringify(this.products));
+    let newCart = { ...this.cartOnLocalStorage };
+    localStorage.setItem("userCart", JSON.stringify(newCart));
   }
 
   handleQTY(e, product) {
@@ -45,19 +46,13 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   deleteProduct(product) {
-    this.productService.changeStatusOfProduct(product.id, false).subscribe(
-      data => {
-        this.products.splice(this.products.indexOf(product), 1);
-        localStorage.setItem("cart_shopping", JSON.stringify(this.products));
-        product.in_my_cart = false;
-        this.reCalcTotalPrice();
-        // Update cart length
-        let theNewCartLengthValue = (this.sharingDataService.cartLength -= 1);
-        this.sharingDataService.updataCartLengthNumber(theNewCartLengthValue);
-      },
-      err => {
-        console.log(err);
-      }
-    );
+    let newCart = { ...this.cartOnLocalStorage };
+    newCart.items.splice(this.products.indexOf(product), 1);
+
+    // PATCH the db cart
+    this.cartService.updatingMyCart(newCart).subscribe(updatedCart => {
+      localStorage.setItem("userCart", JSON.stringify(updatedCart));
+      this.sharingDataService.updataCartLengthNumber(newCart.items.length);
+    });
   }
 }

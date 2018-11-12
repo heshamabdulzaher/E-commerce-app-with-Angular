@@ -8,17 +8,24 @@ import { SharingDataService } from "../services/sharing-data.service";
   styleUrls: ["./header.component.css"]
 })
 export class HeaderComponent implements OnInit {
+  cartLength;
   queryWord = "";
   constructor(
     private productService: ProductsService,
     private sharingDataService: SharingDataService
   ) {}
 
-  cartLength;
   ngOnInit() {
-    this.sharingDataService.cartAsObservable.subscribe(
-      cart => (this.cartLength = cart)
-    );
+    let cartFromLocalStorage = JSON.parse(localStorage.getItem("userCart"));
+    this.sharingDataService.cartAsObservable.subscribe(cart => {
+      if (cart) {
+        this.cartLength = cart;
+      } else {
+        this.cartLength = cartFromLocalStorage
+          ? (this.cartLength = cartFromLocalStorage.items.length)
+          : 0;
+      }
+    });
   }
 
   getTheQuery(e) {
