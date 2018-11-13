@@ -33,30 +33,29 @@ export class ProductCardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getAllProducts();
+    this.getProductsFromDB();
     this.SearchInProducts();
-    this.openModal();
+    this.observeModals();
     this.observeFilterQueryFunction();
   }
-  observeFilterQueryFunction() {
-    this.sharingDataService.reInitProuctsFilter_asObs.subscribe(queryParam => {
-      this.filterProducts(queryParam);
-    });
-  }
 
-  openModal() {
-    this.sharingDataService.modalStatus_asObs.subscribe(modalIsOpen => {
-      let user = JSON.parse(localStorage.getItem("user"));
-
-      if (user) {
-        // If you're a user
-        this.sharingDataService.changeStatusOfUser(true);
-      } else {
-        // If you're not a user
-        this.sharingDataService.changeStatusOfUser(false);
+  // Get all products from DB
+  getProductsFromDB() {
+    this.productService.getProducts().subscribe(
+      data => {
+        this.allProducts = data;
+        this.handleDiscount(this.allProducts);
+        this.disabledAddToCartBtn(this.allProducts);
+        this.sharingDataService.reInitProuctsFilter_asObs.subscribe(data =>
+          this.filterProducts(data)
+        );
+      },
+      err => {
+        console.log(err);
       }
-    });
+    );
   }
+
   // Handle search in products functionality
   SearchInProducts() {
     this.sharingDataService.searchQuery_asObs.subscribe(data => {
@@ -92,37 +91,21 @@ export class ProductCardComponent implements OnInit {
     });
   }
 
-  // Get all products from DB
-  getAllProducts() {
-    this.productService.getProducts().subscribe(
-      data => {
-        this.allProducts = data;
-        this.handleDiscount(this.allProducts);
-        this.disabledAddToCartBtn(this.allProducts);
-        this.sharingDataService.reInitProuctsFilter_asObs.subscribe(data => {
-          this.filterProducts(data);
-        });
-      },
-      err => {
-        console.log(err);
-      }
-    );
+  // This function to Share status of modlas with other components >>> is open or not
+  observeModals() {
+    this.sharingDataService.modalStatus_asObs.subscribe(modalIsOpen => {
+      let user = JSON.parse(localStorage.getItem("user"));
+      user
+        ? this.sharingDataService.changeStatusOfUser(true)
+        : this.sharingDataService.changeStatusOfUser(false);
+    });
   }
 
-  disabledAddToCartBtn(Products) {
-    let cart = JSON.parse(localStorage.getItem("userCart"));
-    if (cart) {
-      Products = Products.map(item => {
-        for (let i = 0; i < cart.items.length; i++) {
-          if (item.id === cart.items[i].id) {
-            item.in_my_cart = true;
-          }
-        }
-        return item;
-      });
-    } else {
-      return false;
-    }
+  // This function to reCall filterProducts(), run when component is gonna render with a query param
+  observeFilterQueryFunction() {
+    this.sharingDataService.reInitProuctsFilter_asObs.subscribe(queryParam => {
+      this.filterProducts(queryParam);
+    });
   }
 
   // Filter function
@@ -144,7 +127,24 @@ export class ProductCardComponent implements OnInit {
     window.scrollTo(0, 0);
   }
 
-  // Add new property to every product called new_price => After discount
+  // Disable addToCart btn
+  disabledAddToCartBtn(Products) {
+    let cart = JSON.parse(localStorage.getItem("userCart"));
+    if (cart) {
+      Products = Products.map(item => {
+        for (let i = 0; i < cart.items.length; i++) {
+          if (item.id === cart.items[i].id) {
+            item.in_my_cart = true;
+          }
+        }
+        return item;
+      });
+    } else {
+      return false;
+    }
+  }
+
+  // Set a new property to each product >>> new_price
   handleDiscount(allProducts) {
     allProducts = allProducts.map(product => {
       product["new_price"] = Math.round(
@@ -158,64 +158,59 @@ export class ProductCardComponent implements OnInit {
   // Handle Add to cart function
   handleAddToCart(product) {
     const user = JSON.parse(localStorage.getItem("user"));
-    const userCartInLocalStorage = JSON.parse(localStorage.getItem("userCart"));
-    let copyOfLocalCart;
-    if (user && userCartInLocalStorage) {
-      // If this is user and have a cart in localStorage
-      copyOfLocalCart = { ...userCartInLocalStorage };
-      copyOfLocalCart.items.push(product);
-      // PATCH the db cart
-      this.cartService
-        .updatingMyCart(copyOfLocalCart)
-        .subscribe(updatedCart => {
-          localStorage.setItem("userCart", JSON.stringify(updatedCart));
-          product.in_my_cart = true;
-          this.sharingDataService.updataCartLengthNumber(
-            copyOfLocalCart.items.length
-          );
-        });
-    } else if (user && !userCartInLocalStorage) {
-      // If this is user but dosen't have a cart in localStorage
-      // the new cart
-      const newCart = {
-        user_id: user.id,
-        items: [product]
-      };
-      // POST new cart
-      this.cartService.saveNewCart(newCart).subscribe(savedCart => {
-        localStorage.setItem("userCart", JSON.stringify(savedCart));
-        copyOfLocalCart = JSON.parse(localStorage.getItem("userCart"));
-        product.in_my_cart = true;
-        this.sharingDataService.updataCartLengthNumber(
-          copyOfLocalCart.items.length
-        );
-      });
+
+    if (user) {
+      // If you're a user
+      this.ifUserWnanaAddProduct(product, user);
     } else {
+      // If you're not a user
       this.sharingDataService.changeStatusOfModal(true);
-      this.sharingDataService.modalStatus_asObs.subscribe(modal => {
-        if (!modal) {
-          this.sharingDataService.userLoggedIn_asObs.subscribe(userLogged => {
-            if (userLogged) {
-              let user = JSON.parse(localStorage.getItem("user"));
-              const newCart = {
-                user_id: user.id,
-                items: [product]
-              };
-              // POST new cart
-              this.cartService.saveNewCart(newCart).subscribe(savedCart => {
-                localStorage.setItem("userCart", JSON.stringify(savedCart));
-                copyOfLocalCart = JSON.parse(localStorage.getItem("userCart"));
-                product.in_my_cart = true;
-                this.sharingDataService.updataCartLengthNumber(
-                  copyOfLocalCart.items.length
-                );
-              });
-            } else {
-              console.log("msh");
-            }
-          });
+      this.sharingDataService.modalStatus_asObs.subscribe(modalIsOpen => {
+        if (!modalIsOpen) {
+          let user = JSON.parse(localStorage.getItem("user"));
+          // If you're a user
+          if (user) {
+            this.ifUserWnanaAddProduct(product, user);
+          }
         }
       });
     }
+  }
+
+  ifUserWnanaAddProduct(product, user) {
+    // If you're a user
+    this.cartService
+      .getSingleCartByUserId(user.id)
+      .subscribe((userCartInDB: any) => {
+        if (userCartInDB.length > 0) {
+          // This user have cart in DB
+          let copyOfUserCart = userCartInDB[0];
+          copyOfUserCart.items.push(product);
+
+          // PATCH MY CART
+          this.cartService
+            .updatingMyCart(copyOfUserCart)
+            .subscribe(updatedCart => {
+              localStorage.setItem("userCart", JSON.stringify(updatedCart));
+              product.in_my_cart = true;
+              this.sharingDataService.updataCartLengthNumber(
+                copyOfUserCart.items.length
+              );
+            });
+        } else {
+          // This user don't have cart in DB
+          const newCart = {
+            user_id: user.id,
+            items: [product]
+          };
+          // POST NEW CART
+          this.cartService.saveNewCart(newCart).subscribe(savedCart => {
+            localStorage.setItem("userCart", JSON.stringify(savedCart));
+            localStorage.setItem("userCart", JSON.stringify(savedCart));
+            product.in_my_cart = true;
+            this.sharingDataService.updataCartLengthNumber(1);
+          });
+        }
+      });
   }
 }

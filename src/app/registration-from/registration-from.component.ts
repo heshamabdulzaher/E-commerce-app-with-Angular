@@ -16,7 +16,6 @@ export class RegistrationFromComponent implements OnInit {
 
   constructor(
     private userService: UsersService,
-    private productService: ProductsService,
     private sharingDataService: SharingDataService
   ) {}
 
