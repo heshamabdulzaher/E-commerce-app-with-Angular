@@ -54,6 +54,7 @@ export class ShoppingCartComponent implements OnInit {
     // PATCH the db cart
     this.cartService.updatingMyCart(newCart).subscribe(updatedCart => {
       localStorage.setItem("userCart", JSON.stringify(updatedCart));
+      this.reCalcTotalPrice();
       this.sharingDataService.updataCartLengthNumber(newCart.items.length);
     });
   }
