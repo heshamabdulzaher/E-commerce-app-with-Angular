@@ -6,9 +6,12 @@ import { ShoppingCartComponent } from "./shopping-cart/shopping-cart.component";
 import { ShippingFormComponent } from "./checkout/shipping-form/shipping-form.component";
 import { PaymentComponent } from "./checkout/payment/payment.component";
 import { DoneStepComponent } from "./checkout/done-step/done-step.component";
+import { AboutComponent } from "./about/about.component";
 const routes: Routes = [
-  { path: "", component: ShopPageComponent },
-  { path: "product/:id", component: ProductDetailsComponent },
+  { path: "", redirectTo: "shopping", pathMatch: "full" },
+  { path: "shopping", component: ShopPageComponent },
+  { path: "about", component: AboutComponent },
+  { path: "shopping/product/:id", component: ProductDetailsComponent },
   { path: "shopping_cart", component: ShoppingCartComponent },
   { path: "checkout", redirectTo: "checkout/shipping_cart", pathMatch: "full" },
   { path: "checkout/shipping_cart", component: ShippingFormComponent },
@@ -25,5 +28,7 @@ export const routingComponents = [
   ProductDetailsComponent,
   ShoppingCartComponent,
   ShippingFormComponent,
-  PaymentComponent
+  PaymentComponent,
+  DoneStepComponent,
+  AboutComponent
 ];

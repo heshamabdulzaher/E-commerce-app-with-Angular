@@ -11,52 +11,103 @@ header {
   z-index: 99;
   max-height: 80px;
   font-family: "Montserrat", sans-serif;
+  padding: 0 60px;
+  height: 70px;
 }
 /* Navbar */
-header .navbar {
-  display: flex;
-  padding: 10px 0;
-  padding-left: 60px;
+
+header > * {
+  width: calc(100% / 3);
 }
-.navbar img {
-  width: 90px;
-  height: 60px;
-  cursor: pointer;
-  margin-right: 35px;
-}
-.navbar ul {
+/* Left section */
+ul.left {
   padding: 0;
   margin: 0;
   list-style-type: none;
   display: flex;
   align-items: center;
 }
-li {
-  padding: 0 12px;
-  margin-right: 5px;
+.left li {
+  padding: 0;
+  outline: 0;
+  margin-right: 30px;
   color: #2d2d2d;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   cursor: pointer;
-  outline: 0;
+}
+.left li.active {
+  position: relative;
+  color: var(--pColor);
+}
+.left li.active::after {
+  content: "";
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 30px;
+  height: 4px;
+  background-color: var(--pColor);
+  border-radius: 15px;
+  transform: scaleX(0) translateX(-10px);
+  animation: afterOfActiveLink 0.2s ease forwards;
+}
+@keyframes afterOfActiveLink {
+  to {
+    transform: scaleX(1) translateX(0);
+  }
 }
 
-/* Actions */
-.actions {
+/* BRAND */
+.brand {
   display: flex;
-}
-.actions > div {
-  padding: 10px 30px;
-  border-left: 1px solid #ebebeb;
-  display: flex;
+  justify-content: center;
   align-items: center;
 }
+.brand img {
+  width: 100px;
+}
+
+/* Right section */
+.right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.right > div {
+  position: relative;
+  margin-left: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.right > div::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 15px);
+  transform: translateY(-50%);
+  height: 23px;
+  width: 2px;
+  border-radius: 15px;
+  background-color: #f0f0f0;
+}
+.right > div:first-of-type::after {
+  display: none;
+}
+
+/* Shopping cart icon && user icon */
+.shopping-cart img,
+.user_icon img {
+  width: 36px;
+}
+
 .search input {
   border: 0;
   outline: 0;
   height: 60px;
-  width: 100px;
+  width: 80px;
   flex: 1;
   color: #777;
   transition: 0.3s ease-out;
@@ -68,17 +119,15 @@ li {
   width: 220px;
 }
 .search img {
-  width: 18px !important;
+  width: 18px;
   margin-right: 10px;
 }
 .shopping-cart {
   cursor: pointer;
+  outline: 0;
 }
 .shopping-cart .icon {
   position: relative;
-}
-.shopping-cart .icon img {
-  width: 33px;
 }
 .shopping-cart .cart-length {
   width: 26px;
@@ -94,10 +143,7 @@ li {
   position: absolute;
   top: 0;
   right: 0;
-  transform: translate(10px, -10px);
-}
-.user img {
-  width: 34px;
+  transform: translate(10px, -8px);
 }
 .firstChar {
   width: 34px;
