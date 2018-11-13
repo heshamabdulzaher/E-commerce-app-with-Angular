@@ -16,7 +16,7 @@ body {
   padding: 0;
   padding-top: 80px;
   margin: 0;
-  font-family: Roboto, arial;
+  font-family: Montserrat, arial;
 }
 .container {
   padding: 20px 60px;
@@ -41,6 +41,8 @@ button:focus {
   padding: 0 12px;
   border: 1px solid #ddd;
   border-radius: 1px;
+  font-family: Montserrat, arial;
+  font-weight: 500;
 }
 label {
   font-weight: 500;

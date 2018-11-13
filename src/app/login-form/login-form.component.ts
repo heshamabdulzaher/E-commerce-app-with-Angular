@@ -52,7 +52,7 @@ export class LoginFormComponent implements OnInit {
     this.messageEvent.emit(this.changeForm);
   }
   closeModal() {
-    this.sharingDataService.modalIsOpen(false);
+    this.sharingDataService.changeStatusOfModal(false);
     document.body.style.overflow = "auto";
   }
 }

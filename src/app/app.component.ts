@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
     this.openModal();
   }
   openModal() {
-    this.sharingDataService.modalAsObservable.subscribe(data => {
+    this.sharingDataService.modalStatus_asObs.subscribe(data => {
       this.showFormsToUser = data;
       if (this.showFormsToUser) {
         document.body.style.overflow = "hidden";
@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
   }
   colseModal(modal, e) {
     if (e.target == modal) {
-      this.sharingDataService.modalIsOpen(false);
+      this.sharingDataService.changeStatusOfModal(false);
       document.body.style.overflow = "auto";
     }
   }

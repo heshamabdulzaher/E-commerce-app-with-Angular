@@ -79,7 +79,7 @@ export class ProductDetailsComponent implements OnInit {
       });
     } else {
       console.log("You're not a user");
-      this.sharingDataService.modalIsOpen(true);
+      this.sharingDataService.changeStatusOfModal(true);
     }
   }
 }

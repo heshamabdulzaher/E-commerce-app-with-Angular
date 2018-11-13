@@ -32,10 +32,8 @@
 .categories li:last-of-type {
   border-bottom: 0;
 }
-.categories li:hover {
-  background-color: #f0f0f0;
-}
-.categories li.active {
+.categories li:hover,
+li.active {
   background-color: #f0f0f0;
 }
 .categories li div {

@@ -9,40 +9,43 @@ import { CartService } from "./cart.service";
 export class SharingDataService {
   constructor(private http: HttpClient, private cartService: CartService) {}
 
-  behaviorSubjectOfCart = new BehaviorSubject<number>(0);
-  cartAsObservable = this.behaviorSubjectOfCart.asObservable();
+  // Share cart length
+  cartLength = new BehaviorSubject<number>(0);
+  cartLength_asObs = this.cartLength.asObservable();
 
-  behaviorSubjectOfModal = new BehaviorSubject<boolean>(false);
-  modalAsObservable = this.behaviorSubjectOfModal.asObservable();
+  // Share status of modal It's open or not
+  modalIsOpen = new BehaviorSubject<boolean>(false);
+  modalStatus_asObs = this.modalIsOpen.asObservable();
 
+  // Listen to Search Query word
   searchQuery = new BehaviorSubject<string>("");
-  searchQueryAsObservable = this.searchQuery.asObservable();
+  searchQuery_asObs = this.searchQuery.asObservable();
 
   // Re run the filter for the proucts when the user visit the shop page AND the url has a filter param
   reInitProuctsFilter = new BehaviorSubject<string>("");
-  reInitProuctsFilterAsObservable = this.reInitProuctsFilter.asObservable();
+  reInitProuctsFilter_asObs = this.reInitProuctsFilter.asObservable();
 
-  // USER
-  user = new BehaviorSubject<boolean>(false);
-  userAsObservable = this.user.asObservable();
+  // Check if this is user Logged in or not
+  userLoggedIn = new BehaviorSubject<boolean>(false);
+  userLoggedIn_asObs = this.userLoggedIn.asObservable();
 
   updataCartLengthNumber(n) {
-    this.behaviorSubjectOfCart.next(n);
+    this.cartLength.next(n);
   }
 
-  modalIsOpen(n) {
-    this.behaviorSubjectOfModal.next(n);
+  changeStatusOfModal(status: boolean) {
+    this.modalIsOpen.next(status);
   }
 
-  getQueryWord(n) {
-    this.searchQuery.next(n);
+  getQueryWord(w) {
+    this.searchQuery.next(w);
   }
 
   reInitFilterFunction(n) {
     this.reInitProuctsFilter.next(n);
   }
 
-  detectUser(n) {
-    this.user.next(n);
+  changeStatusOfUser(status: boolean) {
+    this.userLoggedIn.next(status);
   }
 }

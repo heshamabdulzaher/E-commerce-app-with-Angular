@@ -1,12 +1,12 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { UsersService } from '../services/users.service';
-import { ProductsService } from '../services/products.service';
-import { SharingDataService } from '../services/sharing-data.service';
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { UsersService } from "../services/users.service";
+import { ProductsService } from "../services/products.service";
+import { SharingDataService } from "../services/sharing-data.service";
 
 @Component({
-  selector: 'app-registration-from',
-  templateUrl: './registration-from.component.html',
-  styleUrls: ['./registration-from.component.css']
+  selector: "app-registration-from",
+  templateUrl: "./registration-from.component.html",
+  styleUrls: ["./registration-from.component.css"]
 })
 export class RegistrationFromComponent implements OnInit {
   changeForm: boolean = true;
@@ -30,7 +30,7 @@ export class RegistrationFromComponent implements OnInit {
           this.showErrorMsg = true;
         } else {
           this.userService.postNewUser(registerForm.value).subscribe(user => {
-            localStorage.setItem('user', JSON.stringify(user));
+            localStorage.setItem("user", JSON.stringify(user));
             this.closeModal();
           });
         }
@@ -41,7 +41,7 @@ export class RegistrationFromComponent implements OnInit {
     this.messageEvent.emit(this.changeForm);
   }
   closeModal() {
-    this.sharingDataService.modalIsOpen(false);
-    document.body.style.overflow = 'auto';
+    this.sharingDataService.changeStatusOfModal(false);
+    document.body.style.overflow = "auto";
   }
 }

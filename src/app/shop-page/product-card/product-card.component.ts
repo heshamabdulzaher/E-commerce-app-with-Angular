@@ -36,24 +36,30 @@ export class ProductCardComponent implements OnInit {
     this.getAllProducts();
     this.SearchInProducts();
     this.openModal();
+    this.observeFilterQueryFunction();
+  }
+  observeFilterQueryFunction() {
+    this.sharingDataService.reInitProuctsFilter_asObs.subscribe(queryParam => {
+      this.filterProducts(queryParam);
+    });
   }
 
   openModal() {
-    this.sharingDataService.modalAsObservable.subscribe(modalIsOpen => {
+    this.sharingDataService.modalStatus_asObs.subscribe(modalIsOpen => {
       let user = JSON.parse(localStorage.getItem("user"));
 
       if (user) {
         // If you're a user
-        this.sharingDataService.detectUser(true);
+        this.sharingDataService.changeStatusOfUser(true);
       } else {
         // If you're not a user
-        this.sharingDataService.detectUser(false);
+        this.sharingDataService.changeStatusOfUser(false);
       }
     });
   }
   // Handle search in products functionality
   SearchInProducts() {
-    this.sharingDataService.searchQueryAsObservable.subscribe(data => {
+    this.sharingDataService.searchQuery_asObs.subscribe(data => {
       this.theProductsIsHidden = 0;
       this.searchQueryWord = data.toLowerCase();
 
@@ -93,11 +99,9 @@ export class ProductCardComponent implements OnInit {
         this.allProducts = data;
         this.handleDiscount(this.allProducts);
         this.disabledAddToCartBtn(this.allProducts);
-        this.sharingDataService.reInitProuctsFilterAsObservable.subscribe(
-          data => {
-            this.filterProducts(data);
-          }
-        );
+        this.sharingDataService.reInitProuctsFilter_asObs.subscribe(data => {
+          this.filterProducts(data);
+        });
       },
       err => {
         console.log(err);
@@ -112,7 +116,6 @@ export class ProductCardComponent implements OnInit {
         for (let i = 0; i < cart.items.length; i++) {
           if (item.id === cart.items[i].id) {
             item.in_my_cart = true;
-            console.log(item);
           }
         }
         return item;
@@ -125,13 +128,15 @@ export class ProductCardComponent implements OnInit {
   // Filter function
   filterProducts(filterName) {
     this.allProducts = this.allProducts.map(product => {
-      if (filterName.toLowerCase() === "all" || !filterName.toLowerCase()) {
-        product.show = true;
-      } else {
-        if (filterName.toLowerCase() === product.category.toLowerCase()) {
+      if (filterName) {
+        if (filterName.toLowerCase() === "all" || !filterName.toLowerCase()) {
           product.show = true;
         } else {
-          product.show = false;
+          if (filterName.toLowerCase() === product.category.toLowerCase()) {
+            product.show = true;
+          } else {
+            product.show = false;
+          }
         }
       }
       return product;
@@ -189,7 +194,7 @@ export class ProductCardComponent implements OnInit {
         );
       });
     } else {
-      this.sharingDataService.modalIsOpen(true);
+      this.sharingDataService.changeStatusOfModal(true);
     }
   }
 }

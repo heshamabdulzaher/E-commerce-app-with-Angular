@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { ProductsService } from "../services/products.service";
 import { SharingDataService } from "../services/sharing-data.service";
-import { Router, ActivatedRoute } from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-shop-page",
@@ -12,31 +11,30 @@ export class ShopPageComponent implements OnInit {
   showFormsToUser: boolean = false;
   showRegisterForm: boolean = false;
   constructor(
-    private productService: ProductsService,
     private sharingDataService: SharingDataService,
-    private router: Router,
     private route: ActivatedRoute
   ) {}
   ngOnInit() {
     // we need to call filterProducts() again here with the param from the url IF the url has a param!
-    this.openModal();
+    this.route.queryParams.subscribe(params => {
+      this.sharingDataService.reInitFilterFunction(params.filter);
+    });
+
+    this.observeModalFunction();
   }
 
   goToTheOtherForm() {
     this.showRegisterForm = !this.showRegisterForm;
   }
-  openModal() {
-    this.sharingDataService.modalAsObservable.subscribe(data => {
+  observeModalFunction() {
+    this.sharingDataService.modalStatus_asObs.subscribe(data => {
       this.showFormsToUser = data;
-      if (this.showFormsToUser) {
-        document.body.style.overflow = "hidden";
-        console.log(this.showFormsToUser);
-      }
+      this.showFormsToUser ? (document.body.style.overflow = "hidden") : false;
     });
   }
   colseModal(modal, e) {
     if (e.target == modal) {
-      this.sharingDataService.modalIsOpen(false);
+      this.sharingDataService.changeStatusOfModal(false);
       document.body.style.overflow = "auto";
     }
   }

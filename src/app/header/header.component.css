@@ -10,6 +10,7 @@ header {
   border-bottom: 1px solid #ebebeb;
   z-index: 99;
   max-height: 80px;
+  font-family: "Montserrat", sans-serif;
 }
 /* Navbar */
 header .navbar {
@@ -34,9 +35,9 @@ li {
   padding: 0 12px;
   margin-right: 5px;
   color: #2d2d2d;
-  font-size: 16px;
-  font-weight: 500;
-  text-transform: capitalize;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
   cursor: pointer;
 }
 
@@ -54,11 +55,13 @@ li {
   border: 0;
   outline: 0;
   height: 60px;
-  width: 70px;
+  width: 100px;
   flex: 1;
   color: #777;
-  font-size: 16px;
   transition: 0.3s ease-out;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
 }
 .search input:focus {
   width: 220px;

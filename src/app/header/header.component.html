@@ -2,7 +2,7 @@
   <div class="navbar">
     <img src="assets/svg/essence.svg" alt="logo">
     <ul>
-      <li>shopping</li>
+      <li routerLink="/">shopping</li>
       <li>About</li>
       <li>contact</li>
     </ul>
@@ -11,7 +11,7 @@
   <div class="actions">
     <div class="search">
       <img src="assets/svg/search.svg">
-      <input type="text" placeholder="Search" [ngModel]="queryWord" (ngModelChange)="getTheQuery($event)">
+      <input type="text" placeholder="Search" [ngModel]="searchQueryWord" (ngModelChange)="shareQuerWord($event)">
     </div>
     <div class="user">
       <img src="assets/svg/user.svg" *ngIf="!user">
