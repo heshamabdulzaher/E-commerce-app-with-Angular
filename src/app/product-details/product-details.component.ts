@@ -10,9 +10,7 @@ import { CartService } from "../services/cart.service";
   styleUrls: ["./product-details.component.css"]
 })
 export class ProductDetailsComponent implements OnInit {
-  product = {};
-  showFormsToUser: boolean = false;
-  showRegisterForm: boolean = false;
+  product: any = {};
   carts = JSON.parse(localStorage.getItem("userCart")) || [];
   constructor(
     private productService: ProductsService,
@@ -29,16 +27,19 @@ export class ProductDetailsComponent implements OnInit {
         singleProduct.price -
         (singleProduct.discount / 100) * singleProduct.price;
       this.product = singleProduct;
-    });
-    // this.sharingDataService.test();
 
-    this.sharingDataService.modalAsObservable.subscribe(data => {
-      this.showFormsToUser = data;
-      if (this.showFormsToUser) {
-        document.body.style.overflow = "hidden";
-      }
+      this.handleStatusOfMyBtn();
     });
   }
+  handleStatusOfMyBtn() {
+    let itemAlreadyInTheCart = item => {
+      return item.id === this.product.id;
+    };
+    if (this.carts.items.some(itemAlreadyInTheCart)) {
+      this.product.in_my_cart = true;
+    }
+  }
+
   // Handle Add to cart function
   handleAddToCart(product) {
     const user = JSON.parse(localStorage.getItem("user"));

@@ -10,6 +10,8 @@ import { SharingDataService } from "../services/sharing-data.service";
 export class HeaderComponent implements OnInit {
   cartLength;
   queryWord = "";
+  user: boolean = false;
+  firstChar = "";
   constructor(
     private productService: ProductsService,
     private sharingDataService: SharingDataService
@@ -24,6 +26,13 @@ export class HeaderComponent implements OnInit {
         this.cartLength = cartFromLocalStorage
           ? (this.cartLength = cartFromLocalStorage.items.length)
           : 0;
+      }
+    });
+    this.sharingDataService.userAsObservable.subscribe(data => {
+      this.user = data;
+      if (data) {
+        let user = JSON.parse(localStorage.getItem("user"));
+        this.firstChar = user.name.charAt(0);
       }
     });
   }

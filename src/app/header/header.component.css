@@ -74,7 +74,7 @@ li {
   position: relative;
 }
 .shopping-cart .icon img {
-  width: 35px;
+  width: 33px;
 }
 .shopping-cart .cart-length {
   width: 26px;
@@ -91,4 +91,19 @@ li {
   top: 0;
   right: 0;
   transform: translate(10px, -10px);
+}
+.user img {
+  width: 34px;
+}
+.firstChar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #eee;
+  color: #1f1f20;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
 }

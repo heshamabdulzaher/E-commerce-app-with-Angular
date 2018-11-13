@@ -7,10 +7,9 @@ import { CartService } from "./cart.service";
   providedIn: "root"
 })
 export class SharingDataService {
-  // Get cartLength from localStorage and set it as a value to behaviorSubjectOfCart and make it as a observable
-  cart = JSON.parse(localStorage.getItem("userCart")) || [];
-  cartLength = this.cart.length;
-  behaviorSubjectOfCart = new BehaviorSubject<number>(this.cartLength);
+  constructor(private http: HttpClient, private cartService: CartService) {}
+
+  behaviorSubjectOfCart = new BehaviorSubject<number>(0);
   cartAsObservable = this.behaviorSubjectOfCart.asObservable();
 
   behaviorSubjectOfModal = new BehaviorSubject<boolean>(false);
@@ -23,7 +22,9 @@ export class SharingDataService {
   reInitProuctsFilter = new BehaviorSubject<string>("");
   reInitProuctsFilterAsObservable = this.reInitProuctsFilter.asObservable();
 
-  constructor(private http: HttpClient, private cartService: CartService) {}
+  // USER
+  user = new BehaviorSubject<boolean>(false);
+  userAsObservable = this.user.asObservable();
 
   updataCartLengthNumber(n) {
     this.behaviorSubjectOfCart.next(n);
@@ -39,5 +40,9 @@ export class SharingDataService {
 
   reInitFilterFunction(n) {
     this.reInitProuctsFilter.next(n);
+  }
+
+  detectUser(n) {
+    this.user.next(n);
   }
 }

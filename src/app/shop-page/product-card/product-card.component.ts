@@ -10,10 +10,8 @@ import { CartService } from "../../services/cart.service";
   styleUrls: ["./product-card.component.css"]
 })
 export class ProductCardComponent implements OnInit {
-  carts = JSON.parse(localStorage.getItem("cart_shopping")) || [];
   allProducts: any = [];
   category;
-  cartItems: any = [];
   searchQueryWord: string = "";
   theProductsIsHidden: number = 0;
   noResultsFound: boolean = false;
@@ -37,6 +35,21 @@ export class ProductCardComponent implements OnInit {
   ngOnInit() {
     this.getAllProducts();
     this.SearchInProducts();
+    this.openModal();
+  }
+
+  openModal() {
+    this.sharingDataService.modalAsObservable.subscribe(modalIsOpen => {
+      let user = JSON.parse(localStorage.getItem("user"));
+
+      if (user) {
+        // If you're a user
+        this.sharingDataService.detectUser(true);
+      } else {
+        // If you're not a user
+        this.sharingDataService.detectUser(false);
+      }
+    });
   }
   // Handle search in products functionality
   SearchInProducts() {
