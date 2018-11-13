@@ -39,6 +39,7 @@ li {
   font-weight: 600;
   text-transform: uppercase;
   cursor: pointer;
+  outline: 0;
 }
 
 /* Actions */

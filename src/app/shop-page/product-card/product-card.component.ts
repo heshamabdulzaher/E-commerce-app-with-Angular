@@ -164,7 +164,6 @@ export class ProductCardComponent implements OnInit {
       // If this is user and have a cart in localStorage
       copyOfLocalCart = { ...userCartInLocalStorage };
       copyOfLocalCart.items.push(product);
-
       // PATCH the db cart
       this.cartService
         .updatingMyCart(copyOfLocalCart)
@@ -182,19 +181,41 @@ export class ProductCardComponent implements OnInit {
         user_id: user.id,
         items: [product]
       };
-
       // POST new cart
       this.cartService.saveNewCart(newCart).subscribe(savedCart => {
         localStorage.setItem("userCart", JSON.stringify(savedCart));
         copyOfLocalCart = JSON.parse(localStorage.getItem("userCart"));
         product.in_my_cart = true;
-
         this.sharingDataService.updataCartLengthNumber(
           copyOfLocalCart.items.length
         );
       });
     } else {
       this.sharingDataService.changeStatusOfModal(true);
+      this.sharingDataService.modalStatus_asObs.subscribe(modal => {
+        if (!modal) {
+          this.sharingDataService.userLoggedIn_asObs.subscribe(userLogged => {
+            if (userLogged) {
+              let user = JSON.parse(localStorage.getItem("user"));
+              const newCart = {
+                user_id: user.id,
+                items: [product]
+              };
+              // POST new cart
+              this.cartService.saveNewCart(newCart).subscribe(savedCart => {
+                localStorage.setItem("userCart", JSON.stringify(savedCart));
+                copyOfLocalCart = JSON.parse(localStorage.getItem("userCart"));
+                product.in_my_cart = true;
+                this.sharingDataService.updataCartLengthNumber(
+                  copyOfLocalCart.items.length
+                );
+              });
+            } else {
+              console.log("msh");
+            }
+          });
+        }
+      });
     }
   }
 }
