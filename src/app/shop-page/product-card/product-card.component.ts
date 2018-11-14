@@ -15,6 +15,7 @@ export class ProductCardComponent implements OnInit {
   searchQueryWord: string = "";
   theProductsIsHidden: number = 0;
   noResultsFound: boolean = false;
+  cartLength: number = 0;
 
   constructor(
     private productService: ProductsService,
@@ -37,6 +38,18 @@ export class ProductCardComponent implements OnInit {
     this.SearchInProducts();
     this.observeModals();
     this.observeFilterQueryFunction();
+    this.sharingDataService.cartLength_asObs.subscribe(res => {
+      res ? (this.cartLength = res) : this.setCartLength();
+    });
+  }
+
+  setCartLength() {
+    let cartFromLocalStorage = JSON.parse(localStorage.getItem("userCart"));
+    if (!cartFromLocalStorage || cartFromLocalStorage.items.length === 0) {
+      this.cartLength = 0;
+    } else {
+      this.cartLength = cartFromLocalStorage.items.length;
+    }
   }
 
   // Get all products from DB

@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  transform: translateY(-10px);
 }
 .illustration img {
   width: 600px;
@@ -19,8 +18,8 @@ a.starOnGit {
   background-color: rgba(2, 87, 233, 0.1);
   color: var(--pColor);
   border-radius: 2px;
-  height: 50px;
-  line-height: 50px;
+  height: 46px;
+  line-height: 46px;
   padding: 0 40px;
   margin: 30px auto;
   display: inline-block;

@@ -27,7 +27,7 @@ ul.left {
   display: flex;
   align-items: center;
 }
-.left li {
+ul.left li {
   padding: 0;
   outline: 0;
   margin-right: 30px;
@@ -93,12 +93,12 @@ ul.left {
   border-radius: 15px;
   background-color: #f0f0f0;
 }
-.right > div:first-of-type::after {
+.right > div:first-of-type::after,
+.right .dots {
   display: none;
 }
 
-/* Shopping cart icon && user icon */
-.shopping-cart img,
+/* user icon */
 .user_icon img {
   width: 36px;
 }
@@ -125,6 +125,9 @@ ul.left {
 .shopping-cart {
   cursor: pointer;
   outline: 0;
+}
+.shopping-cart img {
+  width: 33px;
 }
 .shopping-cart .icon {
   position: relative;

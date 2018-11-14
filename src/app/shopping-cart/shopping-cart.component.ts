@@ -5,7 +5,10 @@ import { CartService } from "../services/cart.service";
 @Component({
   selector: "app-shopping-cart",
   templateUrl: "./shopping-cart.component.html",
-  styleUrls: ["./shopping-cart.component.css"]
+  styleUrls: [
+    "./shopping-cart.component.css",
+    "./sm_shopping-cart.component.css"
+  ]
 })
 export class ShoppingCartComponent implements OnInit {
   constructor(
@@ -16,12 +19,16 @@ export class ShoppingCartComponent implements OnInit {
   products: any = [];
   subtotalPrice = 0;
   cartOnLocalStorage = JSON.parse(localStorage.getItem("userCart")) || [];
+  mobileScreen: boolean = false;
 
   ngOnInit() {
     if (this.cartOnLocalStorage.length !== 0) {
       this.cartOnLocalStorage.items.map(product => (product["qty"] = 1));
       this.products = this.cartOnLocalStorage.items;
       this.reCalcTotalPrice();
+    }
+    if (window.outerWidth < 575) {
+      this.mobileScreen = true;
     }
     // window.scrollTo(0, 0);
   }

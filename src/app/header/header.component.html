@@ -6,12 +6,14 @@
   </ul>
   <!-- Brand -->
   <div class="brand">
+      <!-- <img src="assets/svg/essence-white.svg" alt="Essence's logo"> -->
       <img src="assets/svg/essence.svg" alt="Essence's logo">
   </div>
   <!-- right -->
   <div class="right">
     <div class="search">
       <img src="assets/svg/search.svg">
+      <!-- <img src="assets/svg/search2.svg"> -->
       <input type="text" placeholder="Search" [ngModel]="searchQueryWord" (ngModelChange)="shareQuerWord($event)">
     </div>
     <div class="user_icon">
@@ -20,8 +22,24 @@
     </div>
     <div class="shopping-cart" routerLink="shopping_cart">
       <div class="icon">
-        <img src="assets/svg/shopping-cart.svg">
+        <img src="assets/svg/shopping-cart.svg" alt="My Cart">
         <div class="cart-length" *ngIf="cartLength">{{cartLength}}</div>
+      </div>
+    </div>
+    <div class="dots" (click)="toggleDropMenu()">
+      <img src="assets/svg/dots.svg" alt="Open dropdown menu">
+      <div class="drop_menu" *ngIf="dropMenuIsOpen" >
+        <div class="user_icon" *ngIf="user">
+          <div class="firstChar" *ngIf="user">{{firstChar}}</div>
+          <div class="name">Hi, {{userName}}</div>
+        </div>
+        <ul>
+          <li routerLink="/shopping" routerLinkActive="active">Shopping</li>
+          <li routerLink="/about" routerLinkActive="active">About</li>
+          <li routerLink="/shopping_cart" routerLinkActive="active">My cart</li>
+        </ul>
+        <div *ngIf="!user" (click)="logIn()">Log In</div>
+        <div *ngIf="user" (click)="logOut()">Log Out</div>
       </div>
     </div>
   </div>

@@ -1,81 +1,61 @@
-<div class="container" *ngIf="products.length > 0">
-  <h1>Your cart</h1>
-  <div class="cart-details">
-    <table>
-      <!-- / Main and static row -->
-      <tr>
-        <th>Product details</th>
-        <th>quantity</th>
-        <th>Total price</th>
-        <th></th>
-      </tr>
-      <!-- / Dynamic row -->
-      <tr *ngFor="let product of products">
-        <td>
-          <div class="product-details">
-            <div class="productImg">
-              <img src="{{product.img_url}}">
-            </div>
-            <div class="details">
-              <div class="name">{{product.name}}</div>
-              <div class="price">
-                  <span *ngIf="product.discount">{{product.price}} EGP</span>
-                  {{product.new_price}} EGP
-                </div>
-            </div>
-          </div>
-        </td>
-        <!-- / Details -->
-        <td class="quantity">
+<section class="cart" *ngIf="products.length > 0">
+  <!-- DETAILS -->
+  <div class="details">
+    <div class="product" *ngFor="let product of products">
+      <div class="product_img">
+        <img src="{{product.img_url}}" alt="">
+      </div>
+      <!-- Content -->
+      <div class="content">
+        <div class="name">{{product.name}}</div>
+        <div class="price">
+          <span *ngIf="product.discount">{{product.price}} EGP</span>
+          {{product.new_price}} EGP
+        </div>
+        <div class="qty">
+          <span>QTY: </span>
           <div>
             <button class="minus" (click)="handleQTY($event, product)" [disabled]="product.qty == 1">-</button>
             <input #number readonly class="number" type="text" [value]="product.qty">
             <button class="plus" (click)="handleQTY($event, product)">+</button>
           </div>
-        </td>
-        <!-- / Quantity -->
-        <td class="total-price">
-          <span #total_price class="priceNumber">{{product.total_price}}</span>
-            <span> EGP</span>
-        </td>
-        <!-- / Final price -->
-        <td class="delete">
-          <img src="assets/svg/delete.svg" (click)="deleteProduct(product)">
-        </td>
-        <!-- / Delete Btn -->
-      </tr>
-    </table>
-    <!-- / Order table -->
+        </div>
+        <div class="final_price">Final price: <span>{{product.total_price}} EGP</span></div>
+      </div>
+      <!-- More details & Delete Icons -->
+      <div class="icons">
+        <img src="assets/svg/about.svg" alt="More details icon" routerLink="/shopping/product/{{product.id}}">
+        <img src="assets/svg/delete.svg" alt="Delete icon" (click)="deleteProduct(product)">
+      </div>
+    </div>
   </div>
-  <!-- / Order section -->
-  <div class="cart-summary">
+  <!-- SUMMARY -->
+  <div class="summary">
     <h2>Cart summary</h2>
-    <div class="content">
-      <div>
-        <span>Subtotal:</span>
+    <ul>
+      <li>
+        <label>Subtotal:</label>
         <input type="text" readonly value="{{subtotalPrice}} EGP">
-      </div>
-      <!-- / Subtotal -->
-      <div class="shipping">
-        <span>Shipping:</span>
+      </li>
+      <!-- / -->
+      <li>
+        <label>Shipping:</label>
         <input type="text" readonly value="Free">
-      </div>
-      <!-- / Shipping -->
-      <div class="total">
-        <span>Total:</span>
+      </li>
+      <!-- / -->
+      <li>
+        <label>Total:</label>
         <input type="text" readonly value="{{subtotalPrice}} EGP">
-      </div>
-      <!-- / Total -->
-    </div>
-    <!-- / Content -->
-    <div class="actions">
-      <button class="keep-shopping" routerLink="/">Keep shopping</button>
-      <button class="checkout" routerLink="/checkout">Checkout</button>
-    </div>
+      </li>
+    </ul>
+    <button class="checkout_btn" routerLink="/checkout">Checkout</button>
   </div>
 
-</div>
+  <!-- BLOB -->
+  <img src="assets/svg/illustrations/shopping_cart_blob.svg" alt="Blob" class="blob">
+</section>
 
+<!-- If Cart Empty -->
 <div class="container if_cart_empty" *ngIf="products.length == 0">
   <h2>Your cart is empty</h2>
   <img src="assets/svg/illustrations/empty.svg" class="empty" alt="You cart is empty">
