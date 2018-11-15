@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: "", redirectTo: "shopping", pathMatch: "full" },
   { path: "shopping", component: ShopPageComponent },
   { path: "about", component: AboutComponent },
-  { path: "shopping/product/:id", component: ProductDetailsComponent },
+  { path: "product_details/:id", component: ProductDetailsComponent },
   { path: "shopping_cart", component: ShoppingCartComponent },
   { path: "checkout", redirectTo: "checkout/shipping_cart", pathMatch: "full" },
   { path: "checkout/shipping_cart", component: ShippingFormComponent },

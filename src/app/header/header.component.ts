@@ -9,7 +9,7 @@ import { SharingDataService } from "../services/sharing-data.service";
 export class HeaderComponent implements OnInit {
   cartLength: number = 0;
   searchQueryWord = "";
-  user: boolean = false;
+  isUserLoggedIn: boolean = false;
   userName: string = "";
   firstChar = "";
   dropMenuIsOpen: boolean = false;
@@ -20,30 +20,18 @@ export class HeaderComponent implements OnInit {
       res ? (this.cartLength = res) : this.setCartLength();
     });
 
-    // console.log(userOnLocalStorage.name);
-    // if (userOnLocalStorage.name) {
-    //   console.log("hi");
-    // } else {
-    //   console.log("msh");
-    // }
-
-    let userOnLocalStorage = JSON.parse(localStorage.getItem("user"));
     this.sharingDataService.userLoggedIn_asObs.subscribe(res => {
-      this.user = res;
+      let userOnLocalStorage = JSON.parse(localStorage.getItem("user"));
       if (res) {
-        this.firstChar = userOnLocalStorage.name.charAt(0);
+        this.isUserLoggedIn = true;
         this.userName = userOnLocalStorage.name;
       } else {
-        // if (
-        //   Object.keys(userOnLocalStorage).length === 0 &&
-        //   userOnLocalStorage.constructor === Object
-        // ) {
-        //   this.user = false;
-        // } else {
-        //   this.firstChar = userOnLocalStorage.name.charAt(0);
-        //   this.userName = userOnLocalStorage.name;
-        //   this.user = true;
-        // }
+        if (userOnLocalStorage) {
+          this.isUserLoggedIn = true;
+          this.userName = userOnLocalStorage.name;
+        } else {
+          this.isUserLoggedIn = false;
+        }
       }
     });
   }

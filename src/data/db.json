@@ -24,17 +24,6 @@
           "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
           "id": 3,
           "new_price": 455
-        },
-        {
-          "img_url": "http://dimg.dillards.com/is/image/DillardsZoom/zoom/nike-juvenate-womens-lifestyle-shoes/04388514_zi_vintage_green_outdoor_green_metallic_field.jpg",
-          "name": "Shoes #3",
-          "price": 320,
-          "in_my_cart": false,
-          "discount": null,
-          "category": "Shoes",
-          "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
-          "id": 4,
-          "new_price": 320
         }
       ],
       "id": 1

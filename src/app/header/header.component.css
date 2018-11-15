@@ -121,6 +121,7 @@ ul.left li {
 .search img {
   width: 18px;
   margin-right: 10px;
+  cursor: pointer;
 }
 .shopping-cart {
   cursor: pointer;

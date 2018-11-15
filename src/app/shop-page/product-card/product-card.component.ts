@@ -39,6 +39,8 @@ export class ProductCardComponent implements OnInit {
     this.observeModals();
     this.observeFilterQueryFunction();
     this.sharingDataService.cartLength_asObs.subscribe(res => {
+      // console.log(res);
+
       res ? (this.cartLength = res) : this.setCartLength();
     });
   }
@@ -190,6 +192,7 @@ export class ProductCardComponent implements OnInit {
     }
   }
 
+  // If user wanna add a product to cart
   ifUserWnanaAddProduct(product, user) {
     // If you're a user
     this.cartService
