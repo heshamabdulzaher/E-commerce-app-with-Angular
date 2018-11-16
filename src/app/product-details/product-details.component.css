@@ -8,41 +8,41 @@
   display: flex;
   width: 800px;
 }
-.about_product .productImg {
+.productImg {
   width: 250px;
   flex: 1;
 }
-.about_product .productImg img {
+.productImg img {
   max-width: 100%;
 }
-.about_product .details {
+.details {
   flex: 1;
   padding: 15px 30px;
 }
-.about_product h6 {
+h6 {
   margin: 0;
   font-size: 16px;
 }
-.about_product h2 {
+h2 {
   margin-top: 10px;
 }
-.about_product .price {
+.price {
   font-size: 16px;
   font-weight: bold;
   color: var(--sColor);
 }
-.about_product .price span {
+.price span {
   color: #787878;
   text-decoration: line-through;
   margin-right: 8px;
   opacity: 0.8;
 }
-.about_product p {
+p {
   line-height: 1.6;
   color: #787878;
   font-size: 16px;
 }
-.about_product button {
+button {
   font-size: 15px;
   font-weight: bold;
   margin: 12px 0 10px;
@@ -51,8 +51,65 @@
   color: #fff;
   padding: 11px;
 }
-.about_product button.added_to_cart {
+button.added_to_cart {
   background-color: #ddd;
   color: #333;
   cursor: auto;
+}
+
+/* PHONE */
+@media all and (max-width: 575px) {
+  .container {
+    padding-top: 30px;
+  }
+  .about_product {
+    display: block;
+    width: 100%;
+  }
+  .details {
+    padding: 0;
+    margin-top: 20px;
+  }
+  h2 {
+    margin: 6px 0 15px;
+  }
+
+  .cartIcon_sm {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 2;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background-color: var(--sColor);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    outline: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .cartIcon_sm .icon {
+    position: relative;
+    transform: translateY(5px);
+  }
+  .cartIcon_sm img {
+    width: 35px;
+  }
+  .cartIcon_sm .cart-length {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid var(--sColor);
+    background-color: #fff;
+    color: var(--sColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(10px, -8px);
+  }
 }

@@ -1,16 +1,23 @@
 .about {
-  display: flex;
+  /* display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-start; */
+  /* direction: rtl; */
+  position: relative;
 }
-.illustration img {
-  width: 600px;
+img {
+  width: 44%;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 .content {
-  padding: 60px 30px 30px 60px;
+  width: 50%;
+  padding: 60px;
+  padding-right: 0;
 }
 h1 {
-  margin: 20px 0;
+  margin: 0;
   font-size: 30px;
 }
 a.starOnGit {
@@ -18,8 +25,8 @@ a.starOnGit {
   background-color: rgba(2, 87, 233, 0.1);
   color: var(--pColor);
   border-radius: 2px;
-  height: 46px;
-  line-height: 46px;
+  height: 50px;
+  line-height: 50px;
   padding: 0 40px;
   margin: 30px auto;
   display: inline-block;
@@ -41,4 +48,35 @@ p a {
 }
 p a:hover {
   text-decoration: underline;
+}
+
+@media all and (max-width: 575px) {
+  .about {
+    text-align: right;
+    position: static;
+  }
+  img {
+    position: static;
+    width: 85%;
+  }
+  .content {
+    width: 100%;
+    padding: 40px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  h1 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+  p {
+    line-height: 1.6;
+  }
+  a.starOnGit {
+    width: 100%;
+    text-align: center;
+    background-color: var(--pColor);
+    color: #fff;
+  }
 }

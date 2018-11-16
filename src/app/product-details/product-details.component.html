@@ -17,3 +17,11 @@
     </div>
   </section>
 </div>
+
+
+<div class="cartIcon_sm" routerLink="/shopping_cart" *ngIf="cartLength">
+  <div class="icon">
+    <img src="assets/svg/shopping-cart2.svg" alt="My Cart">
+    <div class="cart-length">{{cartLength}}</div>
+  </div>
+</div>

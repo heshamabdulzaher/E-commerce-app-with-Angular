@@ -4,7 +4,7 @@ import { SharingDataService } from "../services/sharing-data.service";
 @Component({
   selector: "app-header",
   templateUrl: "./header.component.html",
-  styleUrls: ["./header.component.css", "./responsive.component.css"]
+  styleUrls: ["./header.component.css"]
 })
 export class HeaderComponent implements OnInit {
   cartLength: number = 0;
@@ -13,9 +13,14 @@ export class HeaderComponent implements OnInit {
   userName: string = "";
   firstChar = "";
   dropMenuIsOpen: boolean = false;
+  focusOnSearchInp: boolean = false;
+  phoneScreen: boolean = false;
   constructor(private sharingDataService: SharingDataService) {}
 
   ngOnInit() {
+    if (window.outerWidth < 575) {
+      this.phoneScreen = true;
+    }
     this.sharingDataService.cartLength_asObs.subscribe(res => {
       res ? (this.cartLength = res) : this.setCartLength();
     });
@@ -34,6 +39,10 @@ export class HeaderComponent implements OnInit {
         }
       }
     });
+  }
+
+  handleSearchMode() {
+    this.focusOnSearchInp = !this.focusOnSearchInp;
   }
 
   setCartLength() {

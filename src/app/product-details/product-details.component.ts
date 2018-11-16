@@ -12,6 +12,7 @@ import { CartService } from "../services/cart.service";
 export class ProductDetailsComponent implements OnInit {
   product: any = {};
   carts = JSON.parse(localStorage.getItem("userCart")) || [];
+  cartLength: number = 0;
   constructor(
     private productService: ProductsService,
     private sharingDataService: SharingDataService,
@@ -30,7 +31,20 @@ export class ProductDetailsComponent implements OnInit {
 
       this.handleStatusOfMyBtn();
     });
+    this.sharingDataService.cartLength_asObs.subscribe(res => {
+      res ? (this.cartLength = res) : this.setCartLength();
+    });
   }
+
+  setCartLength() {
+    let cartFromLocalStorage = JSON.parse(localStorage.getItem("userCart"));
+    if (!cartFromLocalStorage || cartFromLocalStorage.items.length === 0) {
+      this.cartLength = 0;
+    } else {
+      this.cartLength = cartFromLocalStorage.items.length;
+    }
+  }
+
   handleStatusOfMyBtn() {
     let itemAlreadyInTheCart = item => {
       return item.id === this.product.id;

@@ -1,7 +1,7 @@
 <section class="products-area">
   <div class="card" *ngFor="let product of allProducts" [class.hide]="product.show == false">
     <div class="productImg">
-      <img src="{{product.img_url}}">
+      <img src="{{product.img_url}}" routerLink="/product_details/{{product.id}}">
     </div>
     <div class="details">
       <h6>{{product.category}}</h6>
@@ -22,8 +22,8 @@
 </section>
 
 <div class="cartIcon_sm" routerLink="/shopping_cart" *ngIf="cartLength">
-    <div class="icon">
-      <img src="assets/svg/shopping-cart2.svg" alt="My Cart">
-      <div class="cart-length">{{cartLength}}</div>
-    </div>
+  <div class="icon">
+    <img src="assets/svg/shopping-cart2.svg" alt="My Cart">
+    <div class="cart-length">{{cartLength}}</div>
   </div>
+</div>

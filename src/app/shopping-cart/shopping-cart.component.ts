@@ -27,7 +27,7 @@ export class ShoppingCartComponent implements OnInit {
       this.reCalcTotalPrice();
       this.sharingDataService.changeStatusOfUser(true);
     }
-    // window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
   }
 
   reCalcTotalPrice() {

@@ -157,3 +157,9 @@ input {
 #cardNumber {
   letter-spacing: 1px;
 }
+
+@media all and (max-width: 575px) {
+  .paymentForm {
+    width: 90%;
+  }
+}

@@ -1,6 +1,5 @@
 h1 {
   text-align: center;
-  color: var(--pColor);
   font-size: 50px;
   margin-bottom: 20px;
 }
@@ -18,4 +17,40 @@ button {
   background-color: var(--pColor);
   color: #fff;
   text-transform: capitalize;
+}
+
+svg {
+  width: 100px;
+  display: block;
+  margin: 40px auto 0;
+}
+svg g {
+  stroke-dasharray: 2200;
+  stroke-dashoffset: 2200;
+  animation: circle 0.7s 0.3s ease-in-out forwards;
+}
+svg path {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: dash-check 0.7s 0.3s ease-in-out forwards;
+}
+@keyframes dash-check {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes circle {
+  50% {
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media all and (max-width: 575px) {
+  h1 {
+    font-size: 24px;
+    margin-top: 40px;
+  }
 }
