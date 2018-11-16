@@ -14,17 +14,24 @@ export class HeaderComponent implements OnInit {
   firstChar = "";
   dropMenuIsOpen: boolean = false;
   focusOnSearchInp: boolean = false;
-  phoneScreen: boolean = false;
+  phoneMode: boolean = false;
+  ipadAndSmallPcMode: boolean = false;
+
   constructor(private sharingDataService: SharingDataService) {}
 
   ngOnInit() {
     if (window.outerWidth < 575) {
-      this.phoneScreen = true;
+      this.phoneMode = true;
+    } else if (window.outerWidth > 575 && window.outerWidth < 1100) {
+      this.ipadAndSmallPcMode = true;
     }
+
+    // Observe the change to the cartLength if return false run handleCartLengthFunction()
     this.sharingDataService.cartLength_asObs.subscribe(res => {
-      res ? (this.cartLength = res) : this.setCartLength();
+      res ? (this.cartLength = res) : this.handleCartLengthFunction();
     });
 
+    // Listen if user is logged or not
     this.sharingDataService.userLoggedIn_asObs.subscribe(res => {
       let userOnLocalStorage = JSON.parse(localStorage.getItem("user"));
       if (res) {
@@ -41,11 +48,13 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  // run search mode On small devices
   handleSearchMode() {
     this.focusOnSearchInp = !this.focusOnSearchInp;
   }
 
-  setCartLength() {
+  // Handle CartLength
+  handleCartLengthFunction() {
     let cartFromLocalStorage = JSON.parse(localStorage.getItem("userCart"));
     if (!cartFromLocalStorage || cartFromLocalStorage.items.length === 0) {
       this.cartLength = 0;
@@ -54,11 +63,12 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  // Get the search query word
   shareQuerWord(e) {
     this.sharingDataService.getQueryWord(e);
   }
 
-  // Drop Menu
+  // Toggle Drop Menu
   toggleDropMenu() {
     this.dropMenuIsOpen = !this.dropMenuIsOpen;
   }

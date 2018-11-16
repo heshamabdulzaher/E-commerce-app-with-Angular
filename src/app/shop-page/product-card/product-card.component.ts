@@ -38,13 +38,17 @@ export class ProductCardComponent implements OnInit {
     this.SearchInProducts();
     this.observeModals();
     this.observeFilterQueryFunction();
-    this.sharingDataService.cartLength_asObs.subscribe(res => {
-      // console.log(res);
+    this.observeCartLength();
+  }
 
+  // Observe CartLength
+  observeCartLength() {
+    this.sharingDataService.cartLength_asObs.subscribe(res => {
       res ? (this.cartLength = res) : this.setCartLength();
     });
   }
 
+  // Update cartLength
   setCartLength() {
     let cartFromLocalStorage = JSON.parse(localStorage.getItem("userCart"));
     if (!cartFromLocalStorage || cartFromLocalStorage.items.length === 0) {
@@ -183,8 +187,11 @@ export class ProductCardComponent implements OnInit {
       this.sharingDataService.modalStatus_asObs.subscribe(modalIsOpen => {
         if (!modalIsOpen) {
           let user = JSON.parse(localStorage.getItem("user"));
+
           // If you're a user
-          if (user) {
+          if (!user) {
+            product = {};
+          } else {
             this.ifUserWnanaAddProduct(product, user);
           }
         }

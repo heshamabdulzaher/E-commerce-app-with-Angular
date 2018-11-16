@@ -5,10 +5,7 @@ import { CartService } from "../services/cart.service";
 @Component({
   selector: "app-shopping-cart",
   templateUrl: "./shopping-cart.component.html",
-  styleUrls: [
-    "./shopping-cart.component.css",
-    "./sm_shopping-cart.component.css"
-  ]
+  styleUrls: ["./shopping-cart.component.css"]
 })
 export class ShoppingCartComponent implements OnInit {
   constructor(
@@ -30,6 +27,7 @@ export class ShoppingCartComponent implements OnInit {
     window.scrollTo(0, 0);
   }
 
+  // How much total price
   reCalcTotalPrice() {
     this.subtotalPrice = 0;
     this.products.forEach(product => {
@@ -40,6 +38,7 @@ export class ShoppingCartComponent implements OnInit {
     localStorage.setItem("userCart", JSON.stringify(newCart));
   }
 
+  // Handle quantity functionality
   handleQTY(e, product) {
     if (e.target.className === "plus") {
       product.qty += 1;
@@ -51,6 +50,7 @@ export class ShoppingCartComponent implements OnInit {
     this.reCalcTotalPrice();
   }
 
+  // Delete Item from cart on localStorage && DB
   deleteProduct(product) {
     let newCart = { ...this.cartOnLocalStorage };
     newCart.items.splice(this.products.indexOf(product), 1);

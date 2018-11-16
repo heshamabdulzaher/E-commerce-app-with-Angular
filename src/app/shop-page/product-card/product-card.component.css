@@ -87,6 +87,13 @@
   display: none;
 }
 
+@media (min-width: 575px) and (max-width: 780px) {
+  .card {
+    width: calc(100% / 2 - 20px);
+  }
+}
+
+/* PHONE */
 @media all and (max-width: 575px) {
   .products-area {
     padding-top: 15px;

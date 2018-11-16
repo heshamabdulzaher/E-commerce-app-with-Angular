@@ -20,34 +20,31 @@ export class LoginFormComponent implements OnInit {
 
   ngOnInit() {}
   onSubmit(loginForm) {
-    // Get all users
-    this.userService.getUsers().subscribe(
-      (users: any) => {
-        // If I have users
-        if (users.length > 0) {
-          users.forEach(user => {
-            if (
-              user.email == loginForm.value.email &&
-              user.password === loginForm.value.password
-            ) {
-              this.showErrorMsg = false;
-              localStorage.setItem("user", JSON.stringify(user));
-              this.closeModal();
-            } else {
-              this.showErrorMsg = true;
-            }
-          });
-        } else {
-          // If this user is a first
-          this.showErrorMsg = true;
-        }
-      },
-      err => {
-        console.log(err);
+    // Get all users from DB
+    this.userService.getUsers().subscribe((users: any) => {
+      // Make sure that user's email is aleady exist in DB
+      if (users.length > 0) {
+        users.forEach(user => {
+          if (
+            user.email == loginForm.value.email &&
+            user.password === loginForm.value.password
+          ) {
+            // You'
+            this.showErrorMsg = false;
+            localStorage.setItem("user", JSON.stringify(user));
+            this.closeModal();
+          } else {
+            this.showErrorMsg = true;
+          }
+        });
+      } else {
+        // If no users in DB
+        this.showErrorMsg = true;
       }
-    );
+    });
   }
-  // End Submit btn functionality
+
+  // the user type something wrong
   goToRegistrationForm() {
     this.messageEvent.emit(this.changeForm);
   }

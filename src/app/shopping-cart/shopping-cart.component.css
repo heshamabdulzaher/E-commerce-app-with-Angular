@@ -115,7 +115,6 @@
   position: fixed;
   top: 110px;
   right: 120px;
-  background-color: #fff;
   z-index: 2;
 }
 .summary h2 {
@@ -190,6 +189,37 @@
   font-size: 18px;
 }
 
+/* Small pc */
+@media all and (max-width: 1200px) {
+  .cart {
+    display: block;
+    width: 100%;
+  }
+  .details {
+    width: 85%;
+    margin: auto;
+  }
+  .summary {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 85%;
+    margin: 40px auto;
+  }
+}
+
+/* IPAD */
+@media (min-width: 575px) and (max-width: 780px) {
+  .cart {
+    display: block;
+    width: 100%;
+  }
+  .details {
+    width: 85%;
+    margin: auto;
+  }
+}
+
 /* PHONE SCREEN */
 @media all and (max-width: 575px) {
   .cart {
@@ -197,10 +227,13 @@
     display: block;
   }
   .details {
-    width: 100%;
+    width: 90%;
   }
   .product {
     display: block;
+  }
+  .product_img {
+    justify-content: flex-start;
   }
   .content {
     margin-top: 15px;

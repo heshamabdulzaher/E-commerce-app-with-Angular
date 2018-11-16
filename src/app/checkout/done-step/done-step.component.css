@@ -25,25 +25,17 @@ svg {
   margin: 40px auto 0;
 }
 svg g {
-  stroke-dasharray: 2200;
-  stroke-dashoffset: 2200;
-  animation: circle 0.7s 0.3s ease-in-out forwards;
+  stroke-dasharray: 2150;
+  stroke-dashoffset: 2150;
+  animation: dash-check 0.7s 0.1s ease-in-out forwards;
 }
 svg path {
   stroke-dasharray: 600;
   stroke-dashoffset: 600;
-  animation: dash-check 0.7s 0.3s ease-in-out forwards;
+  animation: dash-check 0.5s 0.3s ease-in-out forwards;
 }
 @keyframes dash-check {
   to {
-    stroke-dashoffset: 0;
-  }
-}
-@keyframes circle {
-  50% {
-    stroke-dashoffset: 100;
-  }
-  100% {
     stroke-dashoffset: 0;
   }
 }

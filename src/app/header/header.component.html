@@ -1,4 +1,4 @@
-<header class="lg_header" *ngIf="!phoneScreen">
+<header class="lg_header" *ngIf="!phoneMode">
   <!-- Left -->
   <ul class="left">
     <li routerLink="/shopping" routerLinkActive="active">shopping</li>
@@ -6,13 +6,14 @@
   </ul>
   <!-- Brand -->
   <div class="brand">
-      <img src="assets/svg/essence.svg" alt="Essence's logo">
+      <img src="assets/svg/essence.svg" alt="Essence's logo" *ngIf="!ipadAndSmallPcMode || ipadAndSmallPcMode && !focusOnSearchInp">
   </div>
   <!-- right -->
   <div class="right">
     <div class="search">
       <img src="assets/svg/search.svg" (click)="lg_searchInp.focus()">
-      <input #lg_searchInp type="text" placeholder="Search" [ngModel]="searchQueryWord" (ngModelChange)="shareQuerWord($event)">
+      <input #lg_searchInp type="text" placeholder="Search" [ngModel]="searchQueryWord"
+      (focus)="handleSearchMode()" (focusout)="handleSearchMode()" (ngModelChange)="shareQuerWord($event)">
     </div>
     <div class="user_icon">
       <img src="assets/svg/user.svg" *ngIf="!isUserLoggedIn">
@@ -30,7 +31,7 @@
 
 
 <!-- Header On phone screen -->
-<header class="sm_header" *ngIf="phoneScreen">
+<header class="sm_header" *ngIf="phoneMode">
   <div class="brand" *ngIf="!focusOnSearchInp">
     <img src="assets/svg/essence-white.svg" alt="Essence's logo" class="brand" routerLink="/">
   </div>

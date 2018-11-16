@@ -50,7 +50,7 @@ p a:hover {
   text-decoration: underline;
 }
 
-@media all and (max-width: 575px) {
+@media all and (max-width: 780px) {
   .about {
     text-align: right;
     position: static;
@@ -74,7 +74,6 @@ p a:hover {
     line-height: 1.6;
   }
   a.starOnGit {
-    width: 100%;
     text-align: center;
     background-color: var(--pColor);
     color: #fff;

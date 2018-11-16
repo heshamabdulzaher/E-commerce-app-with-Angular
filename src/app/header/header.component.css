@@ -106,17 +106,20 @@ ul.left li {
 .search input {
   border: 0;
   outline: 0;
-  height: 60px;
-  width: 80px;
+  height: 36px;
+  width: 90px;
   flex: 1;
   color: #777;
   transition: 0.3s ease-out;
   font-family: "Montserrat", sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
+  background-color: #f3f3f3;
+  border-radius: 50px;
+  padding: 15px;
 }
 .search input:focus {
-  width: 220px;
+  width: 250px;
 }
 .search img {
   width: 18px;
@@ -153,13 +156,25 @@ ul.left li {
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background-color: #eee;
+  background-color: #f3f3f3;
   color: #1f1f20;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 18px;
   font-weight: bold;
+}
+@media (min-width: 575px) and (max-width: 780px) {
+  .lg_header {
+    padding: 0 40px;
+  }
+  .search input {
+    background-color: #f4f4f4;
+    border-radius: 50px;
+    padding: 15px;
+    height: 38px;
+    width: 90px;
+  }
 }
 
 /* PHONE SCREEN */
