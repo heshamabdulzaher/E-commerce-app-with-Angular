@@ -50,14 +50,14 @@ p a:hover {
   text-decoration: underline;
 }
 
-@media all and (max-width: 780px) {
+@media all and (max-width: 1100px) {
   .about {
     text-align: right;
     position: static;
   }
   img {
     position: static;
-    width: 85%;
+    width: 75%;
   }
   .content {
     width: 100%;

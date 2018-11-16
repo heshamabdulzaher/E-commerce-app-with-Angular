@@ -57,6 +57,21 @@ button.added_to_cart {
   cursor: auto;
 }
 
+@media (min-width: 575px) and (max-width: 1100px) {
+  .about_product {
+    width: 100%;
+    display: block;
+  }
+  .productImg {
+    width: 100%;
+  }
+  .productImg img {
+    display: block;
+    margin: auto;
+    max-height: 300px;
+  }
+}
+
 /* PHONE */
 @media all and (max-width: 575px) {
   .container {
