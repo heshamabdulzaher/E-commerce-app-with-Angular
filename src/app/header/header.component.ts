@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { SharingDataService } from "../services/sharing-data.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-header",
@@ -17,7 +18,10 @@ export class HeaderComponent implements OnInit {
   phoneMode: boolean = false;
   ipadAndSmallPcMode: boolean = false;
 
-  constructor(private sharingDataService: SharingDataService) {}
+  constructor(
+    private sharingDataService: SharingDataService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     if (window.outerWidth < 575) {
@@ -66,6 +70,9 @@ export class HeaderComponent implements OnInit {
   // Get the search query word
   shareQuerWord(e) {
     this.sharingDataService.getQueryWord(e);
+    if (e.length > 0) {
+      this.router.navigate(["/"]);
+    }
   }
 
   // Toggle Drop Menu

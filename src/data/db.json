@@ -24,6 +24,17 @@
           "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
           "id": 1,
           "new_price": 350
+        },
+        {
+          "img_url": "https://scene7.zumiez.com/is/image/zumiez/pdp_hero/Made-In-Paradise-High%2C-How-Are-You-Yellow-T-Shirt-_295535-front-US.jpg",
+          "name": "T-shirt #6",
+          "price": 230,
+          "in_my_cart": false,
+          "discount": 20,
+          "category": "T-shirt",
+          "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
+          "id": 17,
+          "new_price": 184
         }
       ],
       "id": 1
