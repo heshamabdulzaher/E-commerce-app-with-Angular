@@ -16,7 +16,8 @@ const routes: Routes = [
   { path: "checkout", redirectTo: "checkout/shipping_cart", pathMatch: "full" },
   { path: "checkout/shipping_cart", component: ShippingFormComponent },
   { path: "checkout/payment_form", component: PaymentComponent },
-  { path: "checkout/done", component: DoneStepComponent }
+  { path: "checkout/done", component: DoneStepComponent },
+  { path: "**", redirectTo: "shopping", pathMatch: "full" }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -15,39 +15,15 @@
           "new_price": 350
         },
         {
-          "img_url": "https://ae01.alicdn.com/kf/HTB1PHRPLpXXXXcdapXXq6xXFXXX0/New-2018-Jacket-Men-Fashion-Casual-Loose-Mens-Jacket-Sportswear-Bomber-Jacket-Mens-jackets-and-Coats.jpg_640x640.jpg",
-          "name": "Jacket #1",
-          "price": 850,
+          "img_url": "https://images-na.ssl-images-amazon.com/images/I/611yVySf%2BJL._UY395_.jpg",
+          "name": "Shoes #2",
+          "price": 650,
           "in_my_cart": false,
-          "discount": 15,
-          "category": "Jacket",
-          "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
-          "id": 31,
-          "new_price": 723,
-          "show": true
-        },
-        {
-          "img_url": "https://5.imimg.com/data5/UC/TY/MY-9601095/100-25-cotton-fancy-casual-shirt-for-men-500x500.jpg",
-          "name": "Shirt #2",
-          "price": 360,
-          "in_my_cart": false,
-          "discount": 10,
-          "category": "Shirt",
-          "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
-          "id": 23,
-          "new_price": 324,
-          "show": true
-        },
-        {
-          "img_url": "https://media03.toms.com/static/www/images/product/MENS/ATG/SIDE/10011588-GreyLinenMensPreston-P-1450x1015.jpg",
-          "name": "Shoes #10",
-          "price": 600,
-          "in_my_cart": false,
-          "discount": 5,
+          "discount": 30,
           "category": "Shoes",
           "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
-          "id": 11,
-          "new_price": 570
+          "id": 3,
+          "new_price": 455
         }
       ],
       "id": 1
