@@ -72,6 +72,6 @@
     <input name="landmark" #landmark="ngModel" [(ngModel)]="shippingForm.landmark" type="Landmark" class="form-control" id="Landmark">
   </div>
   <div class="hasBtn">
-    <button class="submitBtn" routerLink="/checkout/payment_form">Next</button>
+    <button class="submitBtn" [disabled]="shippingForm.form.invalid" routerLink="/checkout/payment_form">Next</button>
   </div>
 </form>

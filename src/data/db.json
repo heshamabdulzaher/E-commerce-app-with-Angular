@@ -37,6 +37,17 @@
           "id": 23,
           "new_price": 324,
           "show": true
+        },
+        {
+          "img_url": "https://media03.toms.com/static/www/images/product/MENS/ATG/SIDE/10011588-GreyLinenMensPreston-P-1450x1015.jpg",
+          "name": "Shoes #10",
+          "price": 600,
+          "in_my_cart": false,
+          "discount": 5,
+          "category": "Shoes",
+          "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
+          "id": 11,
+          "new_price": 570
         }
       ],
       "id": 1
