@@ -4,17 +4,6 @@
       "user_id": 1,
       "items": [
         {
-          "img_url": "https://www.tmlewin.com/dw/image/v2/BBQF_PRD/on/demandware.static/-/Sites-tml-catalog-en/default/dw20fdf15e/images/portrait/59195S.jpg?sw=1556&sh=1680&sm=fit",
-          "name": "Suit #1",
-          "price": 1900,
-          "in_my_cart": false,
-          "discount": 15,
-          "category": "Suit",
-          "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
-          "id": 36,
-          "new_price": 1615
-        },
-        {
           "img_url": "https://media03.toms.com/static/www/images/Womens-Shoes/2018/JANLAUNCH/10011751-DrizzleGreyChambrayMixWomensCabrillo-P-1450x1015.jpg",
           "name": "Shoes #1",
           "price": 350,
@@ -26,15 +15,28 @@
           "new_price": 350
         },
         {
-          "img_url": "https://scene7.zumiez.com/is/image/zumiez/pdp_hero/Made-In-Paradise-High%2C-How-Are-You-Yellow-T-Shirt-_295535-front-US.jpg",
-          "name": "T-shirt #6",
-          "price": 230,
+          "img_url": "https://ae01.alicdn.com/kf/HTB1PHRPLpXXXXcdapXXq6xXFXXX0/New-2018-Jacket-Men-Fashion-Casual-Loose-Mens-Jacket-Sportswear-Bomber-Jacket-Mens-jackets-and-Coats.jpg_640x640.jpg",
+          "name": "Jacket #1",
+          "price": 850,
           "in_my_cart": false,
-          "discount": 20,
-          "category": "T-shirt",
+          "discount": 15,
+          "category": "Jacket",
           "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
-          "id": 17,
-          "new_price": 184
+          "id": 31,
+          "new_price": 723,
+          "show": true
+        },
+        {
+          "img_url": "https://5.imimg.com/data5/UC/TY/MY-9601095/100-25-cotton-fancy-casual-shirt-for-men-500x500.jpg",
+          "name": "Shirt #2",
+          "price": 360,
+          "in_my_cart": false,
+          "discount": 10,
+          "category": "Shirt",
+          "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
+          "id": 23,
+          "new_price": 324,
+          "show": true
         }
       ],
       "id": 1
