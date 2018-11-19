@@ -60,19 +60,14 @@ export class ProductCardComponent implements OnInit {
 
   // Get all products from DB
   getProductsFromDB() {
-    this.productService.getProducts().subscribe(
-      data => {
-        this.allProducts = data;
-        this.handleDiscount(this.allProducts);
-        this.disabledAddToCartBtn(this.allProducts);
-        this.sharingDataService.reInitProuctsFilter_asObs.subscribe(data =>
-          this.filterProducts(data)
-        );
-      },
-      err => {
-        console.log(err);
-      }
-    );
+    this.productService.getProducts().subscribe(data => {
+      this.allProducts = data;
+      this.handleDiscount(this.allProducts);
+      this.disabledAddToCartBtn(this.allProducts);
+      this.sharingDataService.reInitProuctsFilter_asObs.subscribe(data =>
+        this.filterProducts(data)
+      );
+    });
   }
 
   // Handle search in products functionality
@@ -176,7 +171,7 @@ export class ProductCardComponent implements OnInit {
 
   // Handle Add to cart function
   handleAddToCart(product) {
-    const user = JSON.parse(localStorage.getItem("user"));
+    let user = JSON.parse(localStorage.getItem("user"));
 
     if (user) {
       // If you're a user
@@ -215,7 +210,10 @@ export class ProductCardComponent implements OnInit {
             .updatingMyCart(copyOfUserCart)
             .subscribe(updatedCart => {
               localStorage.setItem("userCart", JSON.stringify(updatedCart));
-              product.in_my_cart = true;
+              userCartInDB[0].items.map(item => {
+                this.getProductsFromDB();
+                return item;
+              });
               this.sharingDataService.updataCartLengthNumber(
                 copyOfUserCart.items.length
               );
