@@ -39,6 +39,13 @@ button {
   border-radius: 2px;
   cursor: pointer;
 }
+button.mainBtn {
+  padding: 11px 20px;
+  background-color: var(--pColor);
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+}
 button[disabled] {
   opacity: 0.7;
   cursor: auto;

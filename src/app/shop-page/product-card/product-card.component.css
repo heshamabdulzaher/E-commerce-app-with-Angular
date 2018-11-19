@@ -54,18 +54,16 @@
   opacity: 0.8;
 }
 .card button {
-  font-size: 15px;
-  font-weight: bold;
-  margin: 12px 0 10px;
+  margin: 12px 0;
   width: 100%;
-  background-color: var(--pColor);
-  color: #fff;
-  padding: 11px;
 }
-.card button.added_to_cart {
+.card .added_to_cart {
+  cursor: auto;
   background-color: #ddd;
   color: #333;
-  cursor: auto;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 /* No results found */

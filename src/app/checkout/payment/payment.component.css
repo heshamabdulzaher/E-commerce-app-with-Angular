@@ -144,14 +144,7 @@ input {
   display: flex;
   justify-content: flex-end;
 }
-.submitBtn {
-  padding: 0 20px;
-  height: 38px;
-  line-height: 38px;
-  color: #fff;
-  background-color: var(--pColor);
-  font-size: 16px;
-  font-weight: bold;
+.mainBtn {
   margin-top: 20px;
 }
 #cardNumber {
@@ -161,5 +154,6 @@ input {
 @media all and (max-width: 575px) {
   .paymentForm {
     width: 90%;
+    margin-top: 30px;
   }
 }

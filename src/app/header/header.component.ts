@@ -56,6 +56,9 @@ export class HeaderComponent implements OnInit {
   handleSearchMode() {
     this.focusOnSearchInp = !this.focusOnSearchInp;
   }
+  test() {
+    console.log(this.dropMenuIsOpen);
+  }
 
   // Handle CartLength
   handleCartLengthFunction() {

@@ -77,14 +77,7 @@ label.not-required::after {
   display: flex;
   justify-content: flex-end;
 }
-.submitBtn {
-  padding: 0 20px;
-  height: 38px;
-  line-height: 38px;
-  color: #fff;
-  background-color: var(--pColor);
-  font-size: 16px;
-  font-weight: bold;
+.mainBtn {
   margin: 10px 0;
 }
 

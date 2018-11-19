@@ -1,8 +1,4 @@
 .about {
-  /* display: flex;
-  justify-content: space-between;
-  align-items: flex-start; */
-  /* direction: rtl; */
   position: relative;
 }
 img {
@@ -19,6 +15,7 @@ img {
 h1 {
   margin: 0;
   font-size: 30px;
+  font-weight: 100;
 }
 a.starOnGit {
   text-decoration: none;
@@ -61,8 +58,8 @@ p a:hover {
   }
   .content {
     width: 100%;
-    padding: 40px;
     text-align: center;
+    padding: 20px;
     margin-top: 20px;
   }
   h1 {

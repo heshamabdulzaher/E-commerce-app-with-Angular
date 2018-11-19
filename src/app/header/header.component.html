@@ -31,7 +31,7 @@
 
 
 <!-- Header On phone screen -->
-<header class="sm_header" *ngIf="phoneMode">
+<header class="sm_header" *ngIf="phoneMode" (click)="test()">
   <div class="brand" *ngIf="!focusOnSearchInp">
     <img src="assets/svg/essence-white.svg" alt="Essence's logo" class="brand" routerLink="/">
   </div>
@@ -43,7 +43,8 @@
     </div>
     <div class="menu_icon" (click)="toggleDropMenu()" *ngIf="!focusOnSearchInp">
       <img src="assets/svg/dots.svg" alt="Open dropdown menu">
-      <div class="drop_menu" *ngIf="dropMenuIsOpen" >
+      <div class="bg" *ngIf="dropMenuIsOpen"></div>
+      <div class="drop_menu" *ngIf="dropMenuIsOpen">
         <div class="user_icon" *ngIf="isUserLoggedIn">
           <div class="firstChar" *ngIf="isUserLoggedIn">{{userName.charAt(0)}}</div>
           <div class="name">Hi, {{userName}}</div>
@@ -53,8 +54,8 @@
           <li routerLink="/about" routerLinkActive="active">About</li>
           <li routerLink="/shopping_cart" routerLinkActive="active">My cart</li>
         </ul>
-        <div *ngIf="!user" (click)="logIn()">Log In</div>
-        <div *ngIf="user" (click)="logOut()">Log Out</div>
+        <div *ngIf="!isUserLoggedIn" (click)="logIn()">Log In</div>
+        <div *ngIf="isUserLoggedIn" (click)="logOut()">Log Out</div>
       </div>
     </div>
   </div>
