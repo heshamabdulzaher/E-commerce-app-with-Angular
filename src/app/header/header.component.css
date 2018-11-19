@@ -163,7 +163,65 @@ ul.left li {
   align-items: center;
   font-size: 18px;
   font-weight: bold;
+  cursor: pointer;
 }
+
+/* DROP MENU */
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.drop_menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  padding: 6px 0;
+  width: 220px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  font-weight: 600;
+}
+.drop_menu > * {
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+.drop_menu > div:first-of-type {
+  border: 0;
+  padding: 11px 20px;
+}
+.drop_menu ul {
+  padding: 8px 0;
+}
+.drop_menu ul li {
+  padding: 8px 20px;
+  text-transform: uppercase;
+  outline: 0;
+}
+.drop_menu .user_icon {
+  border: 0;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 16px;
+}
+.drop_menu .user_icon .firstChar {
+  margin-right: 10px;
+}
+.drop_menu > div:last-of-type {
+  padding: 11px 20px;
+  cursor: pointer;
+}
+
 @media (min-width: 575px) and (max-width: 780px) {
   .lg_header {
     padding: 0 40px;
@@ -243,67 +301,14 @@ ul.left li {
       opacity: 1;
     }
   }
-  .sm_header .menu_icon img {
-    width: 6px;
-    margin-left: 15px;
-  }
-
-  /* DROP MENU */
   .menu_icon {
     position: relative;
     margin-left: 5px;
     display: flex;
     align-items: center;
   }
-  .bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.2);
-  }
   .menu_icon img {
-    width: 30px;
-  }
-  .menu_icon .drop_menu {
-    position: absolute;
-    top: calc(100% + 10px);
-    right: 0;
-    padding: 6px 0;
-    width: 220px;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    border-radius: 4px;
-    background-color: #fff;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-    font-size: 15px;
-    font-weight: 600;
-  }
-  .drop_menu ul {
-    padding: 8px 0;
-  }
-  .drop_menu ul li {
-    padding: 8px 20px;
-    text-transform: uppercase;
-    outline: 0;
-  }
-  .user_icon {
-    border: 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-    padding: 10px 15px;
-    display: flex;
-    align-items: center;
-    font-weight: 700;
-    font-size: 16px;
-  }
-  .user_icon .firstChar {
-    margin-right: 10px;
-  }
-  .drop_menu > div:last-of-type {
-    border: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.15);
-    padding: 13px 20px;
+    width: 6px;
+    margin-left: 15px;
   }
 }

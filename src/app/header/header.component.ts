@@ -56,10 +56,6 @@ export class HeaderComponent implements OnInit {
   handleSearchMode() {
     this.focusOnSearchInp = !this.focusOnSearchInp;
   }
-  test() {
-    console.log(this.dropMenuIsOpen);
-  }
-
   // Handle CartLength
   handleCartLengthFunction() {
     let cartFromLocalStorage = JSON.parse(localStorage.getItem("userCart"));
@@ -90,7 +86,9 @@ export class HeaderComponent implements OnInit {
 
   // LogOut
   logOut() {
+    localStorage.removeItem("user");
     localStorage.removeItem("userCart");
     this.sharingDataService.changeStatusOfUser(false);
+    location.reload();
   }
 }

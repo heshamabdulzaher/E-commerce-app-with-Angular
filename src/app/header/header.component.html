@@ -15,9 +15,16 @@
       <input #lg_searchInp type="text" placeholder="Search" [ngModel]="searchQueryWord"
       (focus)="handleSearchMode()" (focusout)="handleSearchMode()" (ngModelChange)="shareQuerWord($event)">
     </div>
-    <div class="user_icon">
+    <div class="user_icon" (click)="toggleDropMenu()">
       <img src="assets/svg/user.svg" *ngIf="!isUserLoggedIn">
       <div class="firstChar" *ngIf="isUserLoggedIn">{{userName.charAt(0)}}</div>
+      <!-- DROPMENU -->
+      <div class="bg" *ngIf="dropMenuIsOpen"></div>
+      <div class="drop_menu" *ngIf="dropMenuIsOpen">
+          <div class="name" *ngIf="isUserLoggedIn">Hi, {{userName}}</div>
+          <div *ngIf="!isUserLoggedIn" (click)="logIn()">Log In</div>
+          <div *ngIf="isUserLoggedIn" (click)="logOut()">Log Out</div>
+        </div>
     </div>
     <div class="shopping-cart" routerLink="shopping_cart">
       <div class="icon">
@@ -31,7 +38,7 @@
 
 
 <!-- Header On phone screen -->
-<header class="sm_header" *ngIf="phoneMode" (click)="test()">
+<header class="sm_header" *ngIf="phoneMode">
   <div class="brand" *ngIf="!focusOnSearchInp">
     <img src="assets/svg/essence-white.svg" alt="Essence's logo" class="brand" routerLink="/">
   </div>
