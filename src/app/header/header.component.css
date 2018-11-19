@@ -222,16 +222,9 @@ ul.left li {
   cursor: pointer;
 }
 
-@media (min-width: 575px) and (max-width: 780px) {
+@media (min-width: 575px) and (max-width: 1100px) {
   .lg_header {
-    padding: 0 40px;
-  }
-  .search input {
-    background-color: #f4f4f4;
-    border-radius: 50px;
-    padding: 15px;
-    height: 38px;
-    width: 90px;
+    padding: 0 30px;
   }
 }
 

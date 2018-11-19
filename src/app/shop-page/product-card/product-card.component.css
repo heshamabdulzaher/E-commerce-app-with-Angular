@@ -65,6 +65,27 @@
   font-size: 15px;
   font-weight: bold;
 }
+/* msg */
+.msg {
+  padding: 0 30px;
+  height: 54px;
+  line-height: 54px;
+  border-radius: 4px;
+  background-color: #111;
+  color: #fff;
+  position: fixed;
+  bottom: 30px;
+  left: 60px;
+  transform: translateY(100px) scale(0.85);
+  opacity: 0.5;
+  animation: showMsg 0.3s ease forwards;
+}
+@keyframes showMsg {
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
 
 /* No results found */
 .no_data {

@@ -21,6 +21,11 @@
   </div>
 </section>
 
+<!-- This item is already exist in your cart -->
+<div class="msg" *ngIf="itemIsExistInCart">
+  This item is already exist in your cart!
+</div>
+
 <!-- I'm gonna display this icon in phone screen -->
 <div class="cartIcon_sm" routerLink="/shopping_cart" *ngIf="cartLength">
   <div class="icon">
@@ -28,3 +33,4 @@
     <div class="cart-length">{{cartLength}}</div>
   </div>
 </div>
+

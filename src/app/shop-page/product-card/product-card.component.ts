@@ -16,6 +16,7 @@ export class ProductCardComponent implements OnInit {
   theProductsIsHidden: number = 0;
   noResultsFound: boolean = false;
   cartLength: number = 0;
+  itemIsExistInCart: boolean = false;
 
   constructor(
     private productService: ProductsService,
@@ -62,8 +63,8 @@ export class ProductCardComponent implements OnInit {
   getProductsFromDB() {
     this.productService.getProducts().subscribe(data => {
       this.allProducts = data;
-      this.handleDiscount(this.allProducts);
-      this.disabledAddToCartBtn(this.allProducts);
+      this.handleDiscount();
+      this.disabledAddToCartBtn();
       this.sharingDataService.reInitProuctsFilter_asObs.subscribe(data =>
         this.filterProducts(data)
       );
@@ -142,10 +143,10 @@ export class ProductCardComponent implements OnInit {
   }
 
   // Disable addToCart btn
-  disabledAddToCartBtn(Products) {
+  disabledAddToCartBtn() {
     let cart = JSON.parse(localStorage.getItem("userCart"));
     if (cart) {
-      Products = Products.map(item => {
+      this.allProducts = this.allProducts.map(item => {
         for (let i = 0; i < cart.items.length; i++) {
           if (item.id === cart.items[i].id) {
             item.in_my_cart = true;
@@ -159,8 +160,8 @@ export class ProductCardComponent implements OnInit {
   }
 
   // Set a new property to each product >>> new_price
-  handleDiscount(allProducts) {
-    allProducts = allProducts.map(product => {
+  handleDiscount() {
+    this.allProducts = this.allProducts.map(product => {
       product["new_price"] = Math.round(
         product.price - (product.discount / 100) * product.price
       );
@@ -203,17 +204,29 @@ export class ProductCardComponent implements OnInit {
         if (userCartInDB.length > 0) {
           // This user have cart in DB
           let copyOfUserCart = userCartInDB[0];
-          copyOfUserCart.items.push(product);
 
+          var matchItems = function(item) {
+            // checks whether an item is matchItems
+            return item.id === product.id;
+          };
+
+          if (copyOfUserCart.items.some(matchItems)) {
+            // This item is already exist in your cart, man!
+            this.itemIsExistInCart = true;
+            setTimeout(() => {
+              this.itemIsExistInCart = false;
+            }, 6000);
+          } else {
+            // This item is not exist in your cart, man!
+            copyOfUserCart.items.push(product);
+          }
           // PATCH MY CART
           this.cartService
             .updatingMyCart(copyOfUserCart)
             .subscribe(updatedCart => {
               localStorage.setItem("userCart", JSON.stringify(updatedCart));
-              userCartInDB[0].items.map(item => {
-                this.getProductsFromDB();
-                return item;
-              });
+              this.disabledAddToCartBtn();
+              product.in_my_cart = true;
               this.sharingDataService.updataCartLengthNumber(
                 copyOfUserCart.items.length
               );
