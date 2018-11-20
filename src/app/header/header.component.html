@@ -40,7 +40,7 @@
 <!-- Header On phone screen -->
 <header class="sm_header" *ngIf="phoneMode">
   <div class="brand" *ngIf="!focusOnSearchInp">
-    <img src="assets/svg/essence-white.svg" alt="Essence's logo" class="brand" routerLink="/">
+    <img src="assets/svg/essence.svg" alt="Essence's logo" class="brand" routerLink="/">
   </div>
   <div class="actions">
     <div class="search">
@@ -49,7 +49,7 @@
       <img src="assets/svg/search2.svg" (click)="searchInp.focus()">
     </div>
     <div class="menu_icon" (click)="toggleDropMenu()" *ngIf="!focusOnSearchInp">
-      <img src="assets/svg/dots.svg" alt="Open dropdown menu">
+      <img src="assets/svg/dots2.svg" alt="Open dropdown menu">
       <div class="bg" *ngIf="dropMenuIsOpen"></div>
       <div class="drop_menu" *ngIf="dropMenuIsOpen">
         <div class="user_icon" *ngIf="isUserLoggedIn">

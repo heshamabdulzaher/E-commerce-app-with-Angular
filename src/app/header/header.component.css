@@ -157,6 +157,7 @@ ul.left li {
   height: 34px;
   border-radius: 50%;
   background-color: #f3f3f3;
+  text-transform: uppercase;
   color: #1f1f20;
   display: flex;
   justify-content: center;
@@ -193,10 +194,13 @@ ul.left li {
 .drop_menu > * {
   border: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.15);
-}
-.drop_menu > div:first-of-type {
-  border: 0;
   padding: 11px 20px;
+}
+.drop_menu > *:first-child {
+  border: 0;
+}
+.drop_menu > *:last-child {
+  cursor: pointer;
 }
 .drop_menu ul {
   padding: 8px 0;
@@ -217,10 +221,6 @@ ul.left li {
 .drop_menu .user_icon .firstChar {
   margin-right: 10px;
 }
-.drop_menu > div:last-of-type {
-  padding: 11px 20px;
-  cursor: pointer;
-}
 
 @media (min-width: 575px) and (max-width: 1100px) {
   .lg_header {
@@ -238,8 +238,9 @@ ul.left li {
     width: 100%;
     height: 65px;
     padding: 0 24px;
-    background-color: #2d2d2d;
+    background-color: #fff;
     border: 0;
+    border-bottom: 1px solid #ddd;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -272,15 +273,14 @@ ul.left li {
     margin: 0;
   }
   .sm_header .search input {
-    /* border: 0; */
     outline: 0;
-    border: 1px solid #555;
-    background-color: #222;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background-color: #f0f0f0;
     border-radius: 40px;
     margin-right: 10px;
     height: 40px;
     padding: 10px 14px;
-    color: #fff;
+    color: #000;
     transform: scaleX(0);
     opacity: 0;
     transform-origin: right;
@@ -301,7 +301,7 @@ ul.left li {
     align-items: center;
   }
   .menu_icon img {
-    width: 6px;
+    width: 38px;
     margin-left: 15px;
   }
 }
