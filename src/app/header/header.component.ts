@@ -89,6 +89,6 @@ export class HeaderComponent implements OnInit {
     localStorage.removeItem("user");
     localStorage.removeItem("userCart");
     this.sharingDataService.changeStatusOfUser(false);
-    location.reload();
+    this.router.navigate(["/"]);
   }
 }
