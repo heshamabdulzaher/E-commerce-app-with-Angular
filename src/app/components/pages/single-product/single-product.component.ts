@@ -1,15 +1,15 @@
 import { Component, OnInit } from "@angular/core";
 import { ProductsService } from "src/app/services/products.service";
 import { ActivatedRoute } from "@angular/router";
-import { SharingDataService } from "../services/sharing-data.service";
-import { CartService } from "../services/cart.service";
+import { SharingDataService } from "src/app/services/sharing-data.service";
+import { CartService } from "src/app/services/cart.service";
 
 @Component({
-  selector: "app-product-details",
-  templateUrl: "./product-details.component.html",
-  styleUrls: ["./product-details.component.css"]
+  selector: "app-single-product",
+  templateUrl: "./single-product.component.html",
+  styleUrls: ["./single-product.component.css"]
 })
-export class ProductDetailsComponent implements OnInit {
+export class singleProductComponent implements OnInit {
   product: any = {};
   carts = JSON.parse(localStorage.getItem("userCart")) || [];
   cartLength: number = 0;

@@ -125,7 +125,7 @@ input {
 }
 .form-check input:checked + label::before {
   background-color: var(--pColor);
-  background-image: url("../../../assets/svg/checked.svg");
+  /* background-image: url("app/src/assets/svg/checked.svg"); */
   background-size: 10px;
   background-position: center center;
   background-repeat: no-repeat;

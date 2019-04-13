@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
-import { UsersService } from "../services/users.service";
-import { ProductsService } from "../services/products.service";
-import { SharingDataService } from "../services/sharing-data.service";
+import { UsersService } from "src/app/services/users.service";
+import { SharingDataService } from "src/app/services/sharing-data.service";
 
 @Component({
   selector: "app-registration-from",

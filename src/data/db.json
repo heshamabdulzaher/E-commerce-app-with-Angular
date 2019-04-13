@@ -4,44 +4,37 @@
       "user_id": 1,
       "items": [
         {
-          "img_url": "https://media03.toms.com/static/www/images/Womens-Shoes/2018/JANLAUNCH/10011751-DrizzleGreyChambrayMixWomensCabrillo-P-1450x1015.jpg",
-          "name": "Shoes #1",
-          "price": 350,
+          "img_url": "https://images-na.ssl-images-amazon.com/images/I/611yVySf%2BJL._UY395_.jpg",
+          "name": "Shoes #2",
+          "price": 650,
           "in_my_cart": false,
-          "discount": 0,
+          "discount": 30,
           "category": "Shoes",
           "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
-          "id": 1,
-          "new_price": 350,
-          "qty": 1,
-          "total_price": 350
+          "id": 3,
+          "new_price": 455
         },
         {
-          "img_url": "https://www.dhresource.com/0x0s/f2-albu-g4-M00-E6-5B-rBVaEFmlnV2AaWVrAAaIsu4O_zA103.jpg/wholesale-2016-autumn-new-men-blazer-fashion.jpg",
-          "name": "Blazer #2",
-          "price": 900,
-          "in_my_cart": false,
-          "discount": 10,
-          "category": "Blazer",
-          "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
-          "id": 42,
-          "new_price": 810,
-          "show": true,
-          "qty": 1,
-          "total_price": 810
-        },
-        {
-          "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJygHEyaIUGtX_x6cBw6gmAIu6QxNxsi-cqRv8JG0ELdHlP442",
-          "name": "Shoes #7",
-          "price": 300,
+          "img_url": "http://dimg.dillards.com/is/image/DillardsZoom/zoom/nike-juvenate-womens-lifestyle-shoes/04388514_zi_vintage_green_outdoor_green_metallic_field.jpg",
+          "name": "Shoes #3",
+          "price": 320,
           "in_my_cart": false,
           "discount": null,
           "category": "Shoes",
           "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
-          "id": 8,
-          "new_price": 300,
-          "qty": 1,
-          "total_price": 300
+          "id": 4,
+          "new_price": 320
+        },
+        {
+          "img_url": "http://cdn.shopify.com/s/files/1/1509/8876/products/Merkmak-New-2017-Men-Casual-Shoes-Leather-Summer-Breathable-Holes-Luxury-Brand-Flat-Shoes-for-Men_7d6da41d-edef-4eeb-b88e-97204444d3b0_grande.jpg?v=1501751643",
+          "name": "Shoes #4",
+          "price": 500,
+          "in_my_cart": false,
+          "discount": 5,
+          "category": "Shoes",
+          "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
+          "id": 5,
+          "new_price": 475
         }
       ],
       "id": 1

@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivationEnd, Router } from "@angular/router";
-import { SharingDataService } from "../../../../src/app/services/sharing-data.service";
-import { ProductsService } from "../../services/products.service";
-import { CartService } from "../../services/cart.service";
+import { SharingDataService } from "src/app/services/sharing-data.service";
+import { ProductsService } from "src/app/services/products.service";
+import { CartService } from "src/app/services/cart.service";
 
 @Component({
   selector: "app-product-card",

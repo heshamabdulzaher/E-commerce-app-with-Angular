@@ -1,13 +1,13 @@
 import { Component, OnInit } from "@angular/core";
-import { SharingDataService } from "../services/sharing-data.service";
 import { ActivatedRoute } from "@angular/router";
+import { SharingDataService } from "src/app/services/sharing-data.service";
 
 @Component({
-  selector: "app-shop-page",
-  templateUrl: "./shop-page.component.html",
-  styleUrls: ["./shop-page.component.css"]
+  selector: "app-shopping-page",
+  templateUrl: "./shopping-page.component.html",
+  styleUrls: ["./shopping-page.component.css"]
 })
-export class ShopPageComponent implements OnInit {
+export class ShoppingPageComponent implements OnInit {
   showFormsToUser: boolean = false;
   showRegisterForm: boolean = false;
   constructor(

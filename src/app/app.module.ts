@@ -5,12 +5,13 @@ import { FormsModule } from "@angular/forms";
 import { routingComponents, AppRoutingModule } from "./app-routing.module";
 // Components
 import { AppComponent } from "./app.component";
-import { ProductCardComponent } from "./shop-page/product-card/product-card.component";
-import { HeaderComponent } from "./header/header.component";
-import { ListOfCategoriesComponent } from "./shop-page/list-of-categories/list-of-categories.component";
-import { StpesBarComponent } from "./checkout/stpes-bar/stpes-bar.component";
-import { LoginFormComponent } from "./login-form/login-form.component";
-import { RegistrationFromComponent } from "./registration-from/registration-from.component";
+// Pages
+import { ProductCardComponent } from "./components/pages/shopping/product-card/product-card.component";
+import { HeaderComponent } from "./components/shared/header/header.component";
+import { CategoriesComponent } from "./components/pages/shopping/cateogries/categories.component";
+import { StpesBarComponent } from "./components/pages/checkout/stpes-bar/stpes-bar.component";
+import { LoginFormComponent } from "./components/shared/forms/login/login-form.component";
+import { RegistrationFromComponent } from "./components/shared/forms/registration/registration-from.component";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { RegistrationFromComponent } from "./registration-from/registration-from
     routingComponents,
     ProductCardComponent,
     HeaderComponent,
-    ListOfCategoriesComponent,
+    CategoriesComponent,
     StpesBarComponent,
     LoginFormComponent,
     RegistrationFromComponent

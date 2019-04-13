@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { SharingDataService } from "../services/sharing-data.service";
 import { Router } from "@angular/router";
+import { SharingDataService } from "src/app/services/sharing-data.service";
 
 @Component({
   selector: "app-header",

@@ -1,13 +1,13 @@
 import { Component, OnInit } from "@angular/core";
-import { SharingDataService } from "../services/sharing-data.service";
-import { CartService } from "../services/cart.service";
+import { SharingDataService } from "src/app/services/sharing-data.service";
+import { CartService } from "src/app/services/cart.service";
 
 @Component({
-  selector: "app-shopping-cart",
-  templateUrl: "./shopping-cart.component.html",
-  styleUrls: ["./shopping-cart.component.css"]
+  selector: "app-cart",
+  templateUrl: "./cart.component.html",
+  styleUrls: ["./cart.component.css"]
 })
-export class ShoppingCartComponent implements OnInit {
+export class cartComponent implements OnInit {
   constructor(
     private cartService: CartService,
     private sharingDataService: SharingDataService
