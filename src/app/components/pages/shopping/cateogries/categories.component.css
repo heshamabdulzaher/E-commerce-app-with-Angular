@@ -52,14 +52,14 @@ li.active {
   justify-content: flex-start;
 }
 .categories li img {
-  max-height: 36px;
+  max-height: 30px;
   max-width: 25px;
 }
 .categories li img {
   flex: 3;
 }
 
-/* +++++++++++++++++ NEW +++++++++++++++++++++ */
+/* Tablet Devices */
 @media (max-width: 900px) {
   h4 {
     cursor: pointer;

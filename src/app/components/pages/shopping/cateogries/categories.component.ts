@@ -26,6 +26,7 @@ export class CategoriesComponent implements OnInit {
     this.router.navigate(["."], { queryParams: queryParams });
     if (window.innerWidth < 901) {
       this.showCategoriesList = !this.showCategoriesList;
+
       this.categorySelected = name;
     }
   }
@@ -79,6 +80,12 @@ export class CategoriesComponent implements OnInit {
   ];
   ngOnInit() {
     this.observeFilterQueryFunction();
+    // Update category selected
+    const queryParams: Params = Object.assign(
+      {},
+      this.activatedRoute.snapshot.queryParams
+    );
+    this.categorySelected = queryParams["filter"] || "All";
   }
   toggleCategoriesList() {
     if (window.innerWidth < 901) {

@@ -35,7 +35,7 @@
   margin: 12px 0 0;
 }
 .card h2 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   margin: 4px 0 8px;
   cursor: pointer;
@@ -174,5 +174,16 @@
 @media (max-width: 1220px) {
   .card {
     width: calc(100% / 3 - 16px);
+  }
+}
+
+@media (max-width: 680px) {
+  .card {
+    width: calc(100% / 2 - 16px);
+  }
+}
+@media (max-width: 490px) {
+  .card {
+    width: 100%;
   }
 }

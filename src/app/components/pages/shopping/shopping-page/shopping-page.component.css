@@ -15,6 +15,7 @@
 @media (max-width: 900px) {
   .container {
     display: block;
+    margin: 30px 20px;
   }
   .categories {
     display: block;
