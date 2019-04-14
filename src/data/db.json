@@ -2,41 +2,7 @@
   "carts": [
     {
       "user_id": 1,
-      "items": [
-        {
-          "img_url": "https://images-na.ssl-images-amazon.com/images/I/611yVySf%2BJL._UY395_.jpg",
-          "name": "Shoes #2",
-          "price": 650,
-          "in_my_cart": false,
-          "discount": 30,
-          "category": "Shoes",
-          "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
-          "id": 3,
-          "new_price": 455
-        },
-        {
-          "img_url": "http://dimg.dillards.com/is/image/DillardsZoom/zoom/nike-juvenate-womens-lifestyle-shoes/04388514_zi_vintage_green_outdoor_green_metallic_field.jpg",
-          "name": "Shoes #3",
-          "price": 320,
-          "in_my_cart": false,
-          "discount": null,
-          "category": "Shoes",
-          "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
-          "id": 4,
-          "new_price": 320
-        },
-        {
-          "img_url": "http://cdn.shopify.com/s/files/1/1509/8876/products/Merkmak-New-2017-Men-Casual-Shoes-Leather-Summer-Breathable-Holes-Luxury-Brand-Flat-Shoes-for-Men_7d6da41d-edef-4eeb-b88e-97204444d3b0_grande.jpg?v=1501751643",
-          "name": "Shoes #4",
-          "price": 500,
-          "in_my_cart": false,
-          "discount": 5,
-          "category": "Shoes",
-          "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
-          "id": 5,
-          "new_price": 475
-        }
-      ],
+      "items": [],
       "id": 1
     }
   ],

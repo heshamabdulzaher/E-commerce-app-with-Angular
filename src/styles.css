@@ -1,5 +1,6 @@
 :root {
   --pColor: #0255e9;
+  --pColor: #371f72;
   --sColor: #ef5013;
 }
 * {
@@ -17,16 +18,11 @@ body {
   padding-top: 70px;
   margin: 0;
   font-family: Montserrat, arial;
-}
-.container {
-  padding: 20px 60px;
+  background-color: #f8f8f8;
 }
 @media all and (max-width: 575px) {
   body {
     padding-top: 65px;
-  }
-  .container {
-    padding: 20px;
   }
 }
 ul {

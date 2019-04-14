@@ -1,11 +1,11 @@
-<section class="products-area">
+<section class="products-wrapper">
   <div class="card" *ngFor="let product of allProducts" [class.hide]="product.show == false">
     <div class="productImg">
-      <img src="{{product.img_url}}" routerLink="/product_details/{{product.id}}">
+      <img src="{{product.img_url}}" routerLink="/product/{{product.id}}">
     </div>
     <div class="details">
       <h6>{{product.category}}</h6>
-      <h2 routerLink="/product_details/{{product.id}}">{{product.name}}</h2>
+      <h2 routerLink="/product/{{product.id}}">{{product.name}}</h2>
       <div class="price">
         <span *ngIf="product.discount">{{product.price}} EGP</span>
         {{product.new_price}} EGP

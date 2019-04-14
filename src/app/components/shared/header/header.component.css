@@ -39,7 +39,7 @@ ul.left li {
 }
 .left li.active {
   position: relative;
-  color: var(--pColor);
+  color: var(--sColor);
 }
 .left li.active::after {
   content: "";
@@ -48,7 +48,7 @@ ul.left li {
   left: 0;
   width: 30px;
   height: 4px;
-  background-color: var(--pColor);
+  background-color: var(--sColor);
   border-radius: 15px;
   transform: scaleX(0) translateX(-10px);
   animation: afterOfActiveLink 0.2s ease forwards;

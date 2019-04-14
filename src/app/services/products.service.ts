@@ -16,6 +16,12 @@ export class ProductsService {
     return this.http.get(environment.base_URL + "/products");
   }
 
+  getGroupOfProducts(whichGroup) {
+    return this.http.get(
+      environment.base_URL + `/products?_page=${whichGroup}&_limit=12`
+    );
+  }
+
   getSingleProduct(id) {
     return this.http.get(environment.base_URL + "/products/" + id);
   }

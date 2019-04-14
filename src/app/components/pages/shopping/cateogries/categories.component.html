@@ -1,6 +1,10 @@
 <section class="shop-sidebar-area">
-  <div class="categories">
-    <h4>categories</h4>
+  <div class="categories" [class.show]="showCategoriesList">
+    <h4 (click)="toggleCategoriesList()">
+      <span>categories <span class="category_selected"> > {{categorySelected}}</span> </span>
+      <!-- <img src="../../../../../assets/svg/arrow.svg" alt=""> -->
+      <img src="assets/svg/arrow.svg" class="arrow_icon" alt="arrow icon">
+    </h4>
     <ul>
       <li *ngFor="let category of listOfCategories" [class.active]="category.active" (click)="changingQueryParams(category.name)">
         <div><img src="{{category.img_url}}"></div>

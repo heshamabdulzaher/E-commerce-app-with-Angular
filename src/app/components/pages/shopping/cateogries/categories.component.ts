@@ -8,6 +8,8 @@ import { SharingDataService } from "src/app/services/sharing-data.service";
   styleUrls: ["./categories.component.css"]
 })
 export class CategoriesComponent implements OnInit {
+  showCategoriesList: boolean = false;
+  categorySelected: string = "All";
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -22,6 +24,10 @@ export class CategoriesComponent implements OnInit {
     // Do something with the params
     queryParams["filter"] = name;
     this.router.navigate(["."], { queryParams: queryParams });
+    if (window.innerWidth < 901) {
+      this.showCategoriesList = !this.showCategoriesList;
+      this.categorySelected = name;
+    }
   }
 
   listOfCategories = [
@@ -73,6 +79,11 @@ export class CategoriesComponent implements OnInit {
   ];
   ngOnInit() {
     this.observeFilterQueryFunction();
+  }
+  toggleCategoriesList() {
+    if (window.innerWidth < 901) {
+      this.showCategoriesList = !this.showCategoriesList;
+    }
   }
 
   // Observe the filter param word to set class active this category

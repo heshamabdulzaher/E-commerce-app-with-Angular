@@ -1,43 +1,25 @@
 .container {
-  padding: 30px 50px;
+  margin: 30px;
   display: flex;
   justify-content: flex-end;
 }
 /* Products area */
-.shop-sidebar-area {
-  width: 17%;
-  position: fixed;
-  top: 100px;
-  left: 60px;
+.categories {
+  width: 220px;
+  margin-right: 25px;
 }
-.products-area {
-  width: 79%;
+.products {
+  width: calc(100% - 245px);
 }
 
-/* IPAD */
-@media (min-width: 575px) and (max-width: 1100px) {
+@media (max-width: 900px) {
   .container {
-    padding: 30px 20px;
+    display: block;
   }
-  .shop-sidebar-area {
-    width: 21%;
-    top: 100px;
-    left: 30px;
-  }
-  .products-area {
-    width: 74%;
-  }
-}
-
-/* PHONE */
-@media all and (max-width: 575px) {
-  .container {
-    padding: 20px;
-  }
-  .shop-sidebar-area {
-    display: none;
-  }
-  .products-area {
+  .categories {
+    display: block;
     width: 100%;
+    margin: 0;
+    margin-bottom: 20px;
   }
 }

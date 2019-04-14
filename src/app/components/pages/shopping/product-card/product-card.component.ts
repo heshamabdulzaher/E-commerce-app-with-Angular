@@ -10,6 +10,7 @@ import { CartService } from "src/app/services/cart.service";
   styleUrls: ["./product-card.component.css"]
 })
 export class ProductCardComponent implements OnInit {
+  groupOfProducts: number = 1;
   allProducts: any = [];
   category;
   searchQueryWord: string = "";
@@ -41,6 +42,8 @@ export class ProductCardComponent implements OnInit {
     this.observeFilterQueryFunction();
     this.observeCartLength();
   }
+
+  endOfThisGroup() {}
 
   // Observe CartLength
   observeCartLength() {
