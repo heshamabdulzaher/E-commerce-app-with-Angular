@@ -57,7 +57,7 @@
   font-size: 17px;
 }
 
-@media all and (max-width: 575px) {
+@media all and (max-width: 650px) {
   .steps_bar {
     display: none;
   }

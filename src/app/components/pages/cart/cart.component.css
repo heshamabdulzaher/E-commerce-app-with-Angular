@@ -1,6 +1,5 @@
 .cart {
-  padding: 40px 20px;
-  margin: auto;
+  padding: 30px;
   display: flex;
   justify-content: center;
 }
@@ -187,7 +186,7 @@
   .cart {
     display: block;
     width: 100%;
-    padding: 50px 100px;
+    padding: 40px;
   }
   h1 {
     display: block;
@@ -202,7 +201,7 @@
   }
   .summary {
     width: 100%;
-    margin: 40px auto 0;
+    margin: 20px auto 0;
   }
 }
 

@@ -70,10 +70,11 @@ export class HeaderComponent implements OnInit {
 
   // Get the search query words
   shareQuerWords(e) {
-    this.sharingDataService.getQueryWord(e);
     if (e.length > 0) {
       this.router.navigate(["/"]);
+      this.sharingDataService.getQueryWord(e);
     }
+    this.sharingDataService.getQueryWord(e);
   }
 
   // Toggle Drop Menu

@@ -13,6 +13,17 @@
           "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
           "id": 1,
           "new_price": 350
+        },
+        {
+          "img_url": "https://rukminim1.flixcart.com/merch/240/240/images/1489570297734.jpg?q=90",
+          "name": "Shoes #5",
+          "price": 300,
+          "in_my_cart": false,
+          "discount": null,
+          "category": "Shoes",
+          "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
+          "id": 6,
+          "new_price": 300
         }
       ],
       "id": 1

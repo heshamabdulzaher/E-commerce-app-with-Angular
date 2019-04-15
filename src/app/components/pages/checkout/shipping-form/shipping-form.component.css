@@ -73,7 +73,7 @@ label::after {
 label.not-required::after {
   opacity: 0;
 }
-.hasBtn {
+.nextStepRow {
   display: flex;
   justify-content: flex-end;
 }
@@ -82,10 +82,11 @@ label.not-required::after {
 }
 
 /* PHONE */
-@media all and (max-width: 575px) {
+@media all and (max-width: 650px) {
   form {
     width: 90%;
     margin-top: 40px;
+    padding: 15px;
   }
   h3 {
     font-size: 16px;
