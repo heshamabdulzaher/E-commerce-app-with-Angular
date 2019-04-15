@@ -182,7 +182,7 @@
     width: calc(100% / 2 - 16px);
   }
 }
-@media (max-width: 490px) {
+@media (max-width: 500px) {
   .card {
     width: 100%;
   }

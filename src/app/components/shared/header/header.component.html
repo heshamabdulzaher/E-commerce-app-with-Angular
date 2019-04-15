@@ -1,45 +1,64 @@
-<header class="lg_header" *ngIf="!phoneMode">
+<header [class.search_input_focused]="searchInputFocused">
   <!-- Left -->
   <ul class="left">
     <li routerLink="/shopping" routerLinkActive="active">shopping</li>
     <li routerLink="/about" routerLinkActive="active">About</li>
   </ul>
   <!-- Brand -->
-  <div class="brand">
-      <img src="assets/svg/essence.svg" alt="Essence's logo" *ngIf="!ipadAndSmallPcMode || ipadAndSmallPcMode && !focusOnSearchInp">
+  <div class="brand" *ngIf="!searchInputFocused || windowScreenWidth > 1200">
+      <img src="assets/svg/logo.svg" alt="Essence's logo" routerLink="/shopping">
   </div>
   <!-- right -->
-  <div class="right">
-    <div class="search">
-      <img src="assets/svg/search.svg" (click)="lg_searchInp.focus()">
-      <input #lg_searchInp type="text" placeholder="Search" [ngModel]="searchQueryWord"
+  <ul class="right">
+    <!-- Search -->
+    <li class="search">
+      <img src="assets/svg/search.svg" (click)="searchInput.focus()">
+      <input #searchInput type="text" placeholder="Search" [ngModel]="searchQueryWord"
       (focus)="handleSearchMode()" (focusout)="handleSearchMode()" (ngModelChange)="shareQuerWord($event)">
-    </div>
-    <div class="user_icon" (click)="toggleDropMenu()">
-      <img src="assets/svg/user.svg" *ngIf="!isUserLoggedIn">
+    </li>
+    <!-- Avatar -->
+    <li class="avatar" (click)="toggleDropMenu()" *ngIf="!searchInputFocused || windowScreenWidth > 900">
+      <img src="assets/svg/avatar.svg" *ngIf="!isUserLoggedIn">
       <div class="firstChar" *ngIf="isUserLoggedIn">{{userName.charAt(0)}}</div>
       <!-- DROPMENU -->
-      <div class="bg" *ngIf="dropMenuIsOpen"></div>
-      <div class="drop_menu" *ngIf="dropMenuIsOpen">
-          <div class="name" *ngIf="isUserLoggedIn">Hi, {{userName}}</div>
-          <div *ngIf="!isUserLoggedIn" (click)="logIn()">Log In</div>
-          <div *ngIf="isUserLoggedIn" (click)="logOut()">Log Out</div>
-        </div>
-    </div>
-    <div class="shopping-cart" routerLink="cart">
+      <div class="bg_overlay" *ngIf="dropMenuIsOpen"></div>
+      <ul class="drop_menu" *ngIf="dropMenuIsOpen">
+        <!-- Name -->
+        <li class="name" *ngIf="isUserLoggedIn">
+            Signed in as
+            <strong>{{userName}}</strong>
+        </li>
+        <!-- Divider -->
+        <div class="dropdown_divider" *ngIf="isUserLoggedIn"></div>
+        <!-- Pages -->
+        <ul class="pages" (window:resize)="onResize($event)">
+          <li routerLink="/shopping" routerLinkActive="active">shopping</li>
+          <li routerLink="/about" routerLinkActive="active">About</li>
+          <li routerLink="/cart" routerLinkActive="active">Cart <span>0</span></li>
+        </ul>
+        <!-- Divider -->
+        <div class="dropdown_divider"></div>
+        <!-- Login || logout -->
+        <li *ngIf="!isUserLoggedIn" (click)="logIn()">Log In</li>
+        <li *ngIf="isUserLoggedIn" (click)="logOut()">Log Out</li>
+      </ul>
+    </li>
+    <!-- Cart -->
+    <li class="cart" routerLink="cart" *ngIf="!searchInputFocused || windowScreenWidth > 900">
       <div class="icon">
         <img src="assets/svg/cart.svg" alt="My Cart image">
         <div class="cart-length" *ngIf="cartLength">{{cartLength}}</div>
       </div>
-    </div>
-  </div>
+    </li>
+  </ul>
 </header>
 
 
 
 <!-- Header On phone screen -->
+<!-- 
 <header class="sm_header" *ngIf="phoneMode">
-  <div class="brand" *ngIf="!focusOnSearchInp">
+  <div class="brand" *ngIf="!searchInputFocused">
     <img src="assets/svg/essence.svg" alt="Essence's logo" class="brand" routerLink="/">
   </div>
   <div class="actions">
@@ -48,7 +67,7 @@
         (focus)="handleSearchMode()" (focusout)="handleSearchMode()" (ngModelChange)="shareQuerWord($event)">
       <img src="assets/svg/search2.svg" (click)="searchInp.focus()">
     </div>
-    <div class="menu_icon" (click)="toggleDropMenu()" *ngIf="!focusOnSearchInp">
+    <div class="menu_icon" (click)="toggleDropMenu()" *ngIf="!searchInputFocused">
       <img src="assets/svg/dots2.svg" alt="Open dropdown menu">
       <div class="bg" *ngIf="dropMenuIsOpen"></div>
       <div class="drop_menu" *ngIf="dropMenuIsOpen">
@@ -66,4 +85,4 @@
       </div>
     </div>
   </div>
-</header>
+</header> -->

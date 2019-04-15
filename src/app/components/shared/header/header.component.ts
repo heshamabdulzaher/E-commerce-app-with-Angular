@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, HostListener } from "@angular/core";
 import { Router } from "@angular/router";
 import { SharingDataService } from "src/app/services/sharing-data.service";
 
@@ -14,9 +14,8 @@ export class HeaderComponent implements OnInit {
   userName: string = "";
   firstChar = "";
   dropMenuIsOpen: boolean = false;
-  focusOnSearchInp: boolean = false;
-  phoneMode: boolean = false;
-  ipadAndSmallPcMode: boolean = false;
+  searchInputFocused: boolean = false;
+  windowScreenWidth: number;
 
   constructor(
     private sharingDataService: SharingDataService,
@@ -24,12 +23,8 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    if (window.outerWidth < 575) {
-      this.phoneMode = true;
-    } else if (window.outerWidth > 575 && window.outerWidth < 1100) {
-      this.ipadAndSmallPcMode = true;
-    }
-
+    this.windowScreenWidth = window.innerWidth;
+    console.log(this.windowScreenWidth);
     // Observe the change to the cartLength if return false run handleCartLengthFunction()
     this.sharingDataService.cartLength_asObs.subscribe(res => {
       res ? (this.cartLength = res) : this.handleCartLengthFunction();
@@ -52,9 +47,15 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  @HostListener("window:resize", ["$event"])
+  onResize(event) {
+    this.windowScreenWidth = event.target.innerWidth;
+  }
+
   // run search mode On small devices
   handleSearchMode() {
-    this.focusOnSearchInp = !this.focusOnSearchInp;
+    // console.log();
+    this.searchInputFocused = !this.searchInputFocused;
   }
   // Handle CartLength
   handleCartLengthFunction() {
