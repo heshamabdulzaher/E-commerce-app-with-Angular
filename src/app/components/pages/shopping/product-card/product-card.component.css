@@ -105,9 +105,6 @@
   margin: 20px auto;
   text-align: center;
 }
-.cartIcon_sm {
-  display: none;
-}
 
 @media (min-width: 780px) and (max-width: 1100px) {
   .card {
@@ -128,45 +125,6 @@
   .card {
     width: 100%;
     /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
-  }
-
-  .cartIcon_sm {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    z-index: 2;
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    background-color: var(--sColor);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    outline: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .cartIcon_sm .icon {
-    position: relative;
-    transform: translateY(5px);
-  }
-  .cartIcon_sm img {
-    width: 35px;
-  }
-  .cartIcon_sm .cart-length {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    border: 2px solid var(--sColor);
-    background-color: #fff;
-    color: var(--sColor);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(10px, -8px);
   }
 }
 

@@ -157,14 +157,6 @@
   margin-top: 6px;
   padding: 14px 20px;
 }
-/* BLOB img */
-.blob_img {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  height: 700px;
-  z-index: 1;
-}
 
 /* If cart empty */
 .if_cart_empty {
@@ -239,8 +231,5 @@
   .if_cart_empty button {
     width: 100%;
     margin-top: 50px;
-  }
-  .blob_img {
-    display: none;
   }
 }

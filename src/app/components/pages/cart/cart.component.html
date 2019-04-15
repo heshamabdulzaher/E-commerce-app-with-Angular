@@ -25,7 +25,7 @@
       </div>
       <!-- More details & Delete Icons -->
       <div class="icons">
-        <img src="assets/svg/about.svg" alt="More details icon" routerLink="/product_details/{{product.id}}">
+        <img src="assets/svg/about.svg" alt="More details icon" routerLink="/product/{{product.id}}">
         <img src="assets/svg/delete.svg" alt="Delete icon" (click)="deleteProduct(product)">
       </div>
     </div>
@@ -51,9 +51,6 @@
     </ul>
     <button class="mainBtn checkout_btn" routerLink="/checkout">Checkout</button>
   </div>
-
-  <!-- BLOB -->
-  <img src="assets/svg/illustrations/shopping_cart_blob.svg" alt="Blob" class="blob_img">
 </section>
 
 <!-- If Cart Empty -->

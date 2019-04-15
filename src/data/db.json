@@ -4,17 +4,15 @@
       "user_id": 1,
       "items": [
         {
-          "img_url": "https://images-na.ssl-images-amazon.com/images/I/611yVySf%2BJL._UY395_.jpg",
-          "name": "Shoes #2",
-          "price": 650,
+          "img_url": "https://media03.toms.com/static/www/images/Womens-Shoes/2018/JANLAUNCH/10011751-DrizzleGreyChambrayMixWomensCabrillo-P-1450x1015.jpg",
+          "name": "Shoes #1",
+          "price": 350,
           "in_my_cart": false,
-          "discount": 30,
+          "discount": 0,
           "category": "Shoes",
           "description": "Lorem Ipsum is simply dummied text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.",
-          "id": 3,
-          "new_price": 455,
-          "qty": 1,
-          "total_price": 455
+          "id": 1,
+          "new_price": 350
         }
       ],
       "id": 1
