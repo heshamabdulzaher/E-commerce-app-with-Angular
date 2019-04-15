@@ -23,11 +23,12 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    // Set windowScreenWidth value
     this.windowScreenWidth = window.innerWidth;
-    console.log(this.windowScreenWidth);
-    // Observe the change to the cartLength if return false run handleCartLengthFunction()
+
+    // Observe the change to the cartLength if return false run updateCartLengthNumber()
     this.sharingDataService.cartLength_asObs.subscribe(res => {
-      res ? (this.cartLength = res) : this.handleCartLengthFunction();
+      res ? (this.cartLength = res) : this.updateCartLengthNumber();
     });
 
     // Listen if user is logged or not
@@ -47,18 +48,18 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  // Update windowScreenWidth value when document resize
   @HostListener("window:resize", ["$event"])
   onResize(event) {
     this.windowScreenWidth = event.target.innerWidth;
   }
 
   // run search mode On small devices
-  handleSearchMode() {
-    // console.log();
+  toggleSearchFocused() {
     this.searchInputFocused = !this.searchInputFocused;
   }
   // Handle CartLength
-  handleCartLengthFunction() {
+  updateCartLengthNumber() {
     let cartFromLocalStorage = JSON.parse(localStorage.getItem("userCart"));
     if (!cartFromLocalStorage || cartFromLocalStorage.items.length === 0) {
       this.cartLength = 0;
@@ -67,8 +68,8 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  // Get the search query word
-  shareQuerWord(e) {
+  // Get the search query words
+  shareQuerWords(e) {
     this.sharingDataService.getQueryWord(e);
     if (e.length > 0) {
       this.router.navigate(["/"]);

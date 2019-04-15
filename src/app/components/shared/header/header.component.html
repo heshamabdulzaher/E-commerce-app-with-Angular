@@ -4,7 +4,7 @@
     <li routerLink="/shopping" routerLinkActive="active">shopping</li>
     <li routerLink="/about" routerLinkActive="active">About</li>
   </ul>
-  <!-- Brand -->
+  <!-- don't Render logo if user focus on search input and window screen width less than 1200 px  -->
   <div class="brand" *ngIf="!searchInputFocused || windowScreenWidth > 1200">
       <img src="assets/svg/logo.svg" alt="Essence's logo" routerLink="/shopping">
   </div>
@@ -14,13 +14,13 @@
     <li class="search">
       <img src="assets/svg/search.svg" (click)="searchInput.focus()">
       <input #searchInput type="text" placeholder="Search" [ngModel]="searchQueryWord"
-      (focus)="handleSearchMode()" (focusout)="handleSearchMode()" (ngModelChange)="shareQuerWord($event)">
+      (focus)="toggleSearchFocused()" (focusout)="toggleSearchFocused()" (ngModelChange)="shareQuerWords($event)">
     </li>
-    <!-- Avatar -->
+    <!-- don't Render Avatar if user focus on search input and window screen width less than 900 px  -->
     <li class="avatar" (click)="toggleDropMenu()" *ngIf="!searchInputFocused || windowScreenWidth > 900">
       <img src="assets/svg/avatar.svg" *ngIf="!isUserLoggedIn">
       <div class="firstChar" *ngIf="isUserLoggedIn">{{userName.charAt(0)}}</div>
-      <!-- DROPMENU -->
+      <!-- DROPMENU && background overlay -->
       <div class="bg_overlay" *ngIf="dropMenuIsOpen"></div>
       <ul class="drop_menu" *ngIf="dropMenuIsOpen">
         <!-- Name -->
@@ -43,7 +43,7 @@
         <li *ngIf="isUserLoggedIn" (click)="logOut()">Log Out</li>
       </ul>
     </li>
-    <!-- Cart -->
+    <!-- don't Render cart if user focus on search input and window screen width less than 900 px  -->
     <li class="cart" routerLink="cart" *ngIf="!searchInputFocused || windowScreenWidth > 900">
       <div class="icon">
         <img src="assets/svg/cart.svg" alt="My Cart image">
@@ -52,37 +52,3 @@
     </li>
   </ul>
 </header>
-
-
-
-<!-- Header On phone screen -->
-<!-- 
-<header class="sm_header" *ngIf="phoneMode">
-  <div class="brand" *ngIf="!searchInputFocused">
-    <img src="assets/svg/essence.svg" alt="Essence's logo" class="brand" routerLink="/">
-  </div>
-  <div class="actions">
-    <div class="search">
-      <input #searchInp type="text" placeholder="Search" [ngModel]="searchQueryWord"
-        (focus)="handleSearchMode()" (focusout)="handleSearchMode()" (ngModelChange)="shareQuerWord($event)">
-      <img src="assets/svg/search2.svg" (click)="searchInp.focus()">
-    </div>
-    <div class="menu_icon" (click)="toggleDropMenu()" *ngIf="!searchInputFocused">
-      <img src="assets/svg/dots2.svg" alt="Open dropdown menu">
-      <div class="bg" *ngIf="dropMenuIsOpen"></div>
-      <div class="drop_menu" *ngIf="dropMenuIsOpen">
-        <div class="user_icon" *ngIf="isUserLoggedIn">
-          <div class="firstChar" *ngIf="isUserLoggedIn">{{userName.charAt(0)}}</div>
-          <div class="name">Hi, {{userName}}</div>
-        </div>
-        <ul>
-          <li routerLink="/shopping" routerLinkActive="active">Shopping</li>
-          <li routerLink="/about" routerLinkActive="active">About</li>
-          <li routerLink="/shopping_cart" routerLinkActive="active">My cart</li>
-        </ul>
-        <div *ngIf="!isUserLoggedIn" (click)="logIn()">Log In</div>
-        <div *ngIf="isUserLoggedIn" (click)="logOut()">Log Out</div>
-      </div>
-    </div>
-  </div>
-</header> -->
