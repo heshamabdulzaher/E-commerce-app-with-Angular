@@ -81,8 +81,8 @@ export class CategoriesComponent implements OnInit {
     this.observeFilterQueryFunction();
     this.filterValidation();
     // Reset filter bar when I search
-    this.sharingDataService.searchQuery_asObs.subscribe(res => {
-      if (res.length) {
+    this.sharingDataService.searchQuery_asObs.subscribe(searchQueryWord => {
+      if (searchQueryWord.length) {
         this.categorySelected = "All";
       }
     });
@@ -112,10 +112,12 @@ export class CategoriesComponent implements OnInit {
       {},
       this.activatedRoute.snapshot.queryParams
     );
+    // if(queryParams["filter"]){}
     let filterTagMatched = false;
     this.listOfCategories.map(item => {
       if (item.tag === queryParams["filter"]) {
         filterTagMatched = true;
+        this.categorySelected = queryParams["filter"];
       }
     });
     if (!filterTagMatched) {
