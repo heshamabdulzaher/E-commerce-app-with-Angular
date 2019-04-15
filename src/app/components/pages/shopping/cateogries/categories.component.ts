@@ -16,84 +16,78 @@ export class CategoriesComponent implements OnInit {
     private sharingDataService: SharingDataService
   ) {}
 
-  changingQueryParams(name) {
+  handleFiltering(filterTag) {
     const queryParams: Params = Object.assign(
       {},
       this.activatedRoute.snapshot.queryParams
     );
-    // Do something with the params
-    queryParams["filter"] = name;
+    queryParams["filter"] = filterTag;
     this.router.navigate(["."], { queryParams: queryParams });
+    // Toggle oue filtering list on small screens
     if (window.innerWidth < 901) {
       this.showCategoriesList = !this.showCategoriesList;
-
-      this.categorySelected = name;
+      this.categorySelected = filterTag;
     }
   }
 
   listOfCategories = [
     {
       img_url: "assets/svg/categories/select-all.svg",
-      name: "all",
+      tag: "all",
       active: false
     },
     {
       img_url: "assets/svg/categories/shoes.svg",
-      name: "shoes",
+      tag: "shoes",
       active: false
     },
     {
       img_url: "assets/svg/categories/pants.svg",
-      name: "pants",
+      tag: "pants",
       active: false
     },
     {
       img_url: "assets/svg/categories/t-shirt.svg",
-      name: "t-shirt",
+      tag: "t-shirt",
       active: false
     },
     {
       img_url: "assets/svg/categories/shirt.svg",
-      name: "shirt",
+      tag: "shirt",
       active: false
     },
     {
       img_url: "assets/svg/categories/jacket.svg",
-      name: "jacket",
+      tag: "jacket",
       active: false
     },
     {
       img_url: "assets/svg/categories/blazer.svg",
-      name: "blazer",
+      tag: "blazer",
       active: false
     },
     {
       img_url: "assets/svg/categories/coat.svg",
-      name: "coat",
+      tag: "coat",
       active: false
     },
     {
       img_url: "assets/svg/categories/suit.svg",
-      name: "suit",
+      tag: "suit",
       active: false
     }
   ];
   ngOnInit() {
     this.observeFilterQueryFunction();
-    // Update category selected
-    const queryParams: Params = Object.assign(
-      {},
-      this.activatedRoute.snapshot.queryParams
-    );
+    this.filterValidation();
+    // Reset filter bar when I search
     this.sharingDataService.searchQuery_asObs.subscribe(res => {
       if (res.length) {
-        // this.changingQueryParams("all");
         this.categorySelected = "All";
       }
     });
-
-    this.categorySelected = queryParams["filter"] || "All";
   }
+  // Toggle oue filtering list on small screens
   toggleCategoriesList() {
     if (window.innerWidth < 901) {
       this.showCategoriesList = !this.showCategoriesList;
@@ -105,12 +99,27 @@ export class CategoriesComponent implements OnInit {
     this.sharingDataService.reInitProuctsFilter_asObs.subscribe(queryParam => {
       this.listOfCategories.map(obj => {
         obj.active = false;
-        if (obj.name === queryParam) {
+        if (obj.tag === queryParam) {
           obj.active = true;
         }
-
         return obj;
       });
     });
+  }
+
+  filterValidation() {
+    const queryParams: Params = Object.assign(
+      {},
+      this.activatedRoute.snapshot.queryParams
+    );
+    let filterTagMatched = false;
+    this.listOfCategories.map(item => {
+      if (item.tag === queryParams["filter"]) {
+        filterTagMatched = true;
+      }
+    });
+    if (!filterTagMatched) {
+      this.router.navigate(["/"]);
+    }
   }
 }

@@ -6,9 +6,9 @@
       <img src="assets/svg/arrow.svg" class="arrow_icon" alt="arrow icon">
     </h4>
     <ul>
-      <li *ngFor="let category of listOfCategories" [class.active]="category.active" (click)="changingQueryParams(category.name)">
+      <li *ngFor="let category of listOfCategories" [class.active]="category.active" (click)="handleFiltering(category.tag)">
         <div><img src="{{category.img_url}}"></div>
-        <span #cateforyName>{{category.name}}</span>
+        <span #cateforyName>{{category.tag}}</span>
       </li>
     </ul>
   </div>
