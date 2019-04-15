@@ -85,6 +85,13 @@ export class CategoriesComponent implements OnInit {
       {},
       this.activatedRoute.snapshot.queryParams
     );
+    this.sharingDataService.searchQuery_asObs.subscribe(res => {
+      if (res.length) {
+        // this.changingQueryParams("all");
+        this.categorySelected = "All";
+      }
+    });
+
     this.categorySelected = queryParams["filter"] || "All";
   }
   toggleCategoriesList() {

@@ -59,8 +59,8 @@ li.active {
   flex: 3;
 }
 
-/* Tablet Devices */
-@media (max-width: 900px) {
+/* Tablet Device && mobile */
+@media (max-width: 1000px) {
   h4 {
     cursor: pointer;
   }
