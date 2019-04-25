@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { SharingDataService } from "src/app/services/sharing-data.service";
+import { CartService } from "src/app/services/cart.service";
 
 @Component({
   selector: "app-payment",
@@ -6,12 +8,14 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./payment.component.css"]
 })
 export class PaymentComponent implements OnInit {
-  constructor() {}
+  constructor(
+    private sharingDataService: SharingDataService,
+    private cartService: CartService
+  ) {}
 
   PaymentFields: boolean = true;
   totalPrice: number = 0;
   totalPriceAsString: string;
-  NumberCardValue: string = "";
 
   ngOnInit() {
     let cartProducts = JSON.parse(localStorage.getItem("userCart"));
@@ -24,12 +28,18 @@ export class PaymentComponent implements OnInit {
       .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
-  // Show Payment fields
-  showPaymentFields() {
-    this.PaymentFields = true;
+  togglePaymentFields() {
+    this.PaymentFields = !this.PaymentFields;
   }
-  // Hide Payment fields
-  hiddenPaymentFields() {
-    this.PaymentFields = false;
+
+  resetCart() {
+    // PATCH the db cart
+    let cart = JSON.parse(localStorage.getItem("userCart"));
+    cart.items = [];
+    this.cartService.updatingMyCart(cart).subscribe(updatedCart => {
+      localStorage.removeItem("userCart");
+      localStorage.setItem("userCart", JSON.stringify(updatedCart));
+      this.sharingDataService.updataCartLengthNumber(0);
+    });
   }
 }

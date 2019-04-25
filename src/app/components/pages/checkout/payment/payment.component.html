@@ -6,7 +6,7 @@
   <form>
     <div class="form-check">
       <!-- Visa or masterCard -->
-      <input class="form-check-input" type="radio" name="paymentChoise" id="visa" checked value="option1" (click)="showPaymentFields()">
+      <input class="form-check-input" type="radio" name="paymentChoise" id="visa" checked value="option1" (click)="togglePaymentFields()">
       <label class="form-check-label" for="visa">Credit or Debit Cards</label>
       <div class="icons">
         <img src="assets/svg/mastercard.svg">
@@ -39,11 +39,11 @@
     </div>
     <!-- Another choise => Cash on delivery -->
     <div class="form-check cashRadio">
-      <input class="form-check-input" type="radio" name="paymentChoise" id="cash" value="option1" (click)="hiddenPaymentFields()">
+      <input class="form-check-input" type="radio" name="paymentChoise" id="cash" value="option1" (click)="togglePaymentFields()">
       <label class="form-check-label" for="cash">Cash on delivery</label>
     </div>
     <div class="hasBtn">
-      <button class="mainBtn" routerLink="/checkout/done">Next</button>
+      <button class="mainBtn" (click)="resetCart()" routerLink="/checkout/done">Next</button>
     </div>
   </form>
 

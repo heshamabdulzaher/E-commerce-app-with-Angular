@@ -21,4 +21,8 @@ export class CartService {
   saveNewCart(cart) {
     return this.http.post(environment.base_URL + "/carts", cart);
   }
+
+  deleteAllProductsInCart(userId) {
+    return this.http.delete(environment.base_URL + `/carts?user_id=${userId}`);
+  }
 }

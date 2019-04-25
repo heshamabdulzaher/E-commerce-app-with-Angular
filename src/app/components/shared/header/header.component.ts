@@ -8,14 +8,13 @@ import { SharingDataService } from "src/app/services/sharing-data.service";
   styleUrls: ["./header.component.css"]
 })
 export class HeaderComponent implements OnInit {
-  cartLength: number = 0;
-  searchQueryWord = "";
   isUserLoggedIn: boolean = false;
-  userName: string = "";
-  firstChar = "";
   dropMenuIsOpen: boolean = false;
   searchInputFocused: boolean = false;
   windowScreenWidth: number;
+  cartLength: number = 0;
+  searchQueryWord: string = "";
+  userName: string = "";
 
   constructor(
     private sharingDataService: SharingDataService,
