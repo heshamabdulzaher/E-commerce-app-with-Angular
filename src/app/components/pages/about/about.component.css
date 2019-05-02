@@ -1,78 +1,46 @@
-.about {
-  position: relative;
-}
-img {
-  width: 44%;
-  position: absolute;
-  top: 0;
-  right: 0;
-}
 .content {
-  width: 50%;
   padding: 60px;
-  padding-right: 0;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.16);
+  width: 80%;
+  margin: 50px auto;
 }
-h1 {
+h2 {
   margin: 0;
+  margin-bottom: 40px;
   font-size: 30px;
-  font-weight: 100;
+  font-weight: 400;
+  line-height: 1.6;
 }
-a.starOnGit {
+.github_repo {
   text-decoration: none;
   background-color: rgba(2, 87, 233, 0.1);
   color: var(--pColor);
   border-radius: 2px;
-  height: 50px;
-  line-height: 50px;
-  padding: 0 40px;
-  margin: 30px auto;
+  padding: 20px 60px;
+  margin: 0 auto;
+  text-align: center;
   display: inline-block;
   font-weight: 600;
   transition: 0.3s ease;
 }
-a.starOnGit:hover {
+.github_repo:hover {
   background-color: var(--pColor);
   color: #fff;
 }
-p {
-  font-weight: 500;
-  margin-top: 30px;
-}
-p a {
-  color: #000;
-  font-weight: 700;
-  text-decoration: none;
-}
-p a:hover {
-  text-decoration: underline;
-}
 
-@media all and (max-width: 1100px) {
-  .about {
-    text-align: right;
-    position: static;
-  }
-  img {
-    position: static;
-    width: 75%;
-  }
+@media all and (max-width: 700px) {
   .content {
-    width: 100%;
-    text-align: center;
-    padding: 20px;
-    margin-top: 20px;
+    width: 92%;
+    padding: 30px;
   }
-  h1 {
+  h2 {
     font-size: 20px;
-    font-weight: 500;
-    line-height: 1.6;
+    line-height: 1.7;
+    margin-bottom: 20px;
   }
-  p {
-    line-height: 1.6;
-  }
-  a.starOnGit {
-    text-align: center;
-    background-color: var(--pColor);
-    color: #fff;
+  .github_repo {
+    width: 100%;
   }
 }
