@@ -14,6 +14,6 @@ cd essence && npm i
 3) Run json server
 npm run db
 
-4) open another cmd and Run the project
+4) open another cmd in the same directory and Run the project
 ng serve -o
 ```
